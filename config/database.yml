@@ -7,8 +7,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode #SQL_ASCII
-  username: eric
-  password: technology
+  username: username
+  password: password
   pool: 5
 
 development:
