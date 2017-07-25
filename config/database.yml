@@ -7,8 +7,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode #SQL_ASCII
-  username: username
-  password: password
+  username: <%=ENV['DATABASE_USER']%>
+  password: <%=ENV['DATABASE_PASSWORD']%>
   pool: 5
 
 development:
