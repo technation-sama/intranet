@@ -14,9 +14,6 @@ default: &default
 development:
   <<: *default
   database: intranet_development
-  host: localhost
-  username: intranet
-  password: entra
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
