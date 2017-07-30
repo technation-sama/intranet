@@ -1,19 +1,179 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Posts</li>
+  </ol>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+   
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="categories ">
+         <ol>
+           <li><b>Blog Categories</b></li>
+           <li><a href="#">Inspiration</a></li>
+           <li><a href="#">Admin Updates</a></li>
+           <li><a href="#">Samaschool</a></li>
+           <li><a href="#">lorem Ipsum</a></li>
+           <li><a href="#">Sama meetings</a></li>
+         </ol>
+      <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
+       </div>
+     </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+      <div class="col-md-10">
+    <div class="single_post_full">
+   <h2>Post Title</h2>
+   <p class="intro_top">
+   By <span class="the_author">Admin</span> <br>
+   Posted on 
+   <span class="the_date">July 22, 2017 at 12:21pm</span> <br>
+   </p>
+   <div class="blog_image">
+      <img src="images/official_graphics_Sama.jpg" class="img-responsive" > <br>
+    </div>
+   <p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
+   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+   the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+   type and scrambled it to make a type specimen book. It has survived not only five centuries,
+   but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in 
+   the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
+   publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br> 
+     </p>
+   
+   <p>Maecenas viverra in odio molestie pretium. Phasellus viverra vestibulum sem, in lobortis tellus 
+   sodales nec. Donec convallis, velit nec condimentum egestas, felis risus efficitur elit, a cursus magna sapien eget tortor.
+   Nulla facilisi. Maecenas tincidunt nulla dolor, nec scelerisque tortor imperdiet et. Sed sit amet odio nec mauris venenatis efficitur
+   sed volutpat orci. Nam metus est, rutrum commodo elit vitae, scelerisque rhoncus nisi. Suspendisse 
+   sed enim ligula. Aliquam erat volutpat. Duis sodales tristique orci. Fusce ornare est a placerat pulvinar. 
+   Vestibulum ornare nec risus et interdum. Quisque vitae magna lorem. Etiam lacinia quis augue sed commodo.
+   Vestibulum maximus urna in turpis pulvinar, quis luctus magna fermentum. 
+   Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
+<p>Donec quis diam vitae ipsum tincidunt viverra in posuere lectus. Morbi commodo dignissim ligula, in 
+pretium purus finibus et. Nulla rutrum gravida risus a porta. Morbi vestibulum pretium nunc, eget
+ luctus magna pellentesque eu. Cras bibendum, sem eget tristique consectetur, purus lacus egestas ante,
+ id sollicitudin dolor libero ac magna. Curabitur eget ipsum in mauris bibendum fringilla. Fusce 
+ eu tincidunt augue, et condimentum eros. Proin molestie eget erat eget luctus. Nunc semper, nisi
+ at pulvinar pretium, odio neque sagittis ipsum, id consectetur tellus mi et diam. Phasellus lacinia,
+ augue quis sagittis congue, dui turpis porta nunc, sit amet placerat turpis erat eu turpis.
+ Quisque nisi magna, porta et neque sit amet, convallis euismod tortor. In odio magna,
+ euismod vitae nisi sit amet, pellentesque sagittis diam</p>
+   
+ </div>
+ 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+ 
+ 
+   </div>
+    
+   </div>
+   
+   
+       <!--starting of comments-->
+     <div class="start_comments">
+ <div class="row">
+ <div class="col-md-2">
+ </div>
+    <div class="col-md-8">
+     <article class="row">
+           
+            <div class="col-md-12 col-sm-12">
+       <div class="likes"> 
+ 
+ <i class="fa fa-thumbs-up" aria-hidden="true"> <span class="number_likes">120</span></i>
+<i class="fa fa-thumbs-down" aria-hidden="true"><span class="number_dislikes">24</span></i>
+
+ </div>
+              <form>
+                    <textarea placeholder="Leave a comment " rows="6" cols="40" ></textarea>
+                  </br>
+                    <button type="submit" class="btn btn-success color_btn">Comment</button>
+                  </form>
+            </div>
+          </article>
+      
+      <h2 class="page-header">Comments</h2>
+        <section class="comment-list">
+          <!-- First Comment -->
+      
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                <img class="img-responsive" src="images/avatar_blog.jpg" />
+               
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> Some User Name</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Jul 29, 2017</time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+          <div class="comment_likes"> 
+ 
+ <i class="fa fa-thumbs-up" aria-hidden="true"> <span class="number_likes">26</span></i>
+<i class="fa fa-thumbs-down" aria-hidden="true"><span class="number_dislikes">9</span></i>
+
+ </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </article>
+        
+    
+     
+        </section>
+    </div>
+  </div> 
+  
+  <div class="row">
+ <div class="col-md-2">
+ </div>
+    <div class="col-md-8">
+        <section class="comment-list">
+          <!-- First Comment -->
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                <img class="img-responsive" src="images/avatar_blog.jpg" />
+               
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> Some User Name</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Jul 28, 2017</time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+          <div class="comment_likes"> 
+ 
+ <i class="fa fa-thumbs-up" aria-hidden="true"> <span class="number_likes">12</span></i>
+<i class="fa fa-thumbs-down" aria-hidden="true"><span class="number_dislikes">5</span></i>
+
+ </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </article>
+        
+    
+     
+        </section>
+    </div>
+  </div> 
