@@ -10,6 +10,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    #justin >> creating a blank comment when the post loads, and assigning it current_post id 
+    @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
   # GET /posts/new
