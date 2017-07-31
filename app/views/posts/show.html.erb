@@ -1,19 +1,109 @@
-<p id="notice"><%= notice %></p>
+<!-- start of breadcrumbs -->
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Posts</li>
+  </ol>
+</div>  
+ <!-- EOF breadcrumbs -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="container"><!-- Page container -->
+  <div class="row">
+    <div class="col-md-2"><!--side bar  -->
+      <div class="categories ">
+         <ol>
+           <li><b>Blog Categories</b></li>
+           <li><a href="#">Inspiration</a></li>
+           <li><a href="#">Admin Updates</a></li>
+           <li><a href="#">Samaschool</a></li> 
+          <li><a href="#">Sama meetings</a></li>
+         </ol>
+      <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
+       </div>
+     </div>
+    <!-- EOF side bar -->
+    <div class="col-md-10"><!-- content body -->
+      <div class="single_post_full">
+        <h2><%=@post.title%></h2>
+        <p class="intro_top">
+          By <span class="the_author">Admin</span> <br>
+          Posted on 
+          <span class="the_date"><%=time_ago_in_words(@post.created_at)%> ago</span> <br>
+        </p>
+        <div class="blog_image">
+          <%= image_tag(@post.image, class:"img-responsive")%>
+          <br>
+        </div>
+        <p>
+          <%= @post.description%>
+        </p>
+      </div><!-- EOF single post full -->
+    <!-- post likes -->
+      <div class="likes"> 
+        <%=fa_icon 'thumbs-up'%>
+        <span class="number_likes">120</span>
+        <%=fa_icon 'thumbs-up'%>
+        <span class="number_dislikes">24</span>
+      </div><!--EOF post likes  -->
+    </div><!-- EOF col 10 -->
+  </div><!-- EOF row -->
+ 
+  <!--starting of comments-->
+<div class="start_comments">
+  <div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <article> <!-- comments form -->
+        <form>
+          <textarea class="form-control" placeholder="Leave a comment" ></textarea><br>
+          <button type="submit" class="btn btn-success color_btn">Comment</button>
+        </form>
+    </article><!--EOF comment form  -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <h2 class="page-header">Comments (<%=@post.comments.count%>)</h2>
+    <!-- start of rails comments display -->
+      <%if @post.comments.count == 0 %>
+      <div class="alert alert-info">
+        <p>No comments at the moment</p>
+      </div>
+      <%end%>
+      <%@post.comments.each do |comment| %>
+    <section class="comment-list">
+      <!-- First Comment -->
+      <article class="row">
+        <div class="col-md-2 col-sm-2 hidden-xs">
+          <figure class="thumbnail">
+            <%= image_tag("avatar_blog.jpg", class:"img-responsive")%>
+          </figure>
+        </div>
+        <div class="col-md-10 col-sm-10">
+          <div class="panel panel-default arrow left">
+            <div class="panel-body">
+              <header class="text-left">
+                <div class="comment-user">
+                  <%=fa_icon 'user'%>
+                  <%=comment.user%>
+                </div>
+                <time class="comment-date" datetime="16-12-2014 01:05">
+                  <%=fa_icon 'clock-o'%>
+                  <%=time_ago_in_words(comment.created_at)%> ago
+                </time>
+              </header>
+            <div class="comment-post">
+              <p>
+                <%=comment.body%>
+              </p>
+              <div class="comment_likes"> 
+                <%=fa_icon 'thumbs-up'%>
+                <span class="number_likes">120</span>
+                <%=fa_icon 'thumbs-up'%>
+                <span class="number_dislikes">24</span>
+             </div>
+            </div>   
+          </div>
+        </div>
+        </div>
+      </article>
+    </section>
+    <%end%><!-- end of rails each -->
+    </div>
+  </div> 
