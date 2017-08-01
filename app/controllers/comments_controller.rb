@@ -61,9 +61,13 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    #check if the current comment exist and delete.
+    @comment = Comment.find(params[:id])
+    if @comment.present?
     @comment.destroy
+    end
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to post_path(@comment.post), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
