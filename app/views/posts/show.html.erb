@@ -110,9 +110,11 @@
                 <%=fa_icon 'thumbs-up'%>
                 <span class="number_dislikes">24</span>
              </div>
-             <!--Justin >> -Delete single comment
+             <!--Justin >> Delete single comment-->
              <!-- if signed_in? -->
-              <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} %>
+              <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
+                <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
             <!-- end -->
             </div>
           </div>
