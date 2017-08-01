@@ -4,7 +4,7 @@
     <li><a href="#">Home</a></li>
     <li class="active">Posts</li>
   </ol>
-</div>  
+</div>
  <!-- EOF breadcrumbs -->
 
 <div class="container"><!-- Page container -->
@@ -15,7 +15,7 @@
            <li><b>Blog Categories</b></li>
            <li><a href="#">Inspiration</a></li>
            <li><a href="#">Admin Updates</a></li>
-           <li><a href="#">Samaschool</a></li> 
+           <li><a href="#">Samaschool</a></li>
           <li><a href="#">Sama meetings</a></li>
          </ol>
       <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
@@ -27,7 +27,7 @@
         <h2><%=@post.title%></h2>
         <p class="intro_top">
           By <span class="the_author">Admin</span> <br>
-          Posted on 
+          Posted on
           <span class="the_date"><%=time_ago_in_words(@post.created_at)%> ago</span> <br>
         </p>
         <div class="blog_image">
@@ -39,7 +39,7 @@
         </p>
       </div><!-- EOF single post full -->
     <!-- post likes -->
-      <div class="likes"> 
+      <div class="likes">
         <%=fa_icon 'thumbs-up'%>
         <span class="number_likes">120</span>
         <%=fa_icon 'thumbs-up'%>
@@ -47,16 +47,28 @@
       </div><!--EOF post likes  -->
     </div><!-- EOF col 10 -->
   </div><!-- EOF row -->
- 
+
   <!--starting of comments-->
 <div class="start_comments">
   <div class="row">
   <div class="col-md-10 col-md-offset-2">
     <article> <!-- comments form -->
-        <form>
-          <textarea class="form-control" placeholder="Leave a comment" ></textarea><br>
-          <button type="submit" class="btn btn-success color_btn">Comment</button>
-        </form>
+      <!-- Justin >> Converted the form to rubyonrails form-->
+         <%= form_for [@post, @comment ] do |f| %>
+          <p>
+            <%= f.label :user, "Your Name"  %>
+            <%= f.text_field :user %>
+          </p>
+          <!--<textarea class="form-control" placeholder="Leave a comment" >-->
+          <p>
+              <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control"%>
+          </p>
+          <!--</textarea><br>-->
+          <p>
+            <%= f.submit 'Comment', class:"btn btn-success color_btn" %>
+          </p>
+          <!--<button type="submit" class="btn btn-success color_btn">Comment</button>-->
+        <% end %>
     </article><!--EOF comment form  -->
 
     <h2 class="page-header">Comments (<%=@post.comments.count%>)</h2>
@@ -92,13 +104,13 @@
               <p>
                 <%=comment.body%>
               </p>
-              <div class="comment_likes"> 
+              <div class="comment_likes">
                 <%=fa_icon 'thumbs-up'%>
                 <span class="number_likes">120</span>
                 <%=fa_icon 'thumbs-up'%>
                 <span class="number_dislikes">24</span>
              </div>
-            </div>   
+            </div>
           </div>
         </div>
         </div>
@@ -106,4 +118,4 @@
     </section>
     <%end%><!-- end of rails each -->
     </div>
-  </div> 
+  </div>
