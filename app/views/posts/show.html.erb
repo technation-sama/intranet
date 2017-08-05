@@ -63,6 +63,7 @@
   <div class="col-md-10 col-md-offset-2">
     <article> <!-- comments form -->
       <!-- Justin >> Converted the form to rubyonrails form-->
+        <% if user_signed_in? %>
          <%= form_for [@post, @comment ] do |f| %>
           <p>
             <%= f.label :user, "Your Name"  %>
@@ -77,6 +78,7 @@
             <%= f.submit 'Comment', class:"btn btn-success color_btn" %>
           </p>
           <!--<button type="submit" class="btn btn-success color_btn">Comment</button>-->
+        <% end %>
         <% end %>
     </article><!--EOF comment form  -->
 
@@ -123,10 +125,12 @@
                 <span class="number_dislikes"><%= comment.get_downvotes.size %></span>
               <% end %>
              </div>
-             <!--Justin >> -Delete single comment
-             <!-- if signed_in? -->
-              <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} %>
-            <!-- end -->
+             <!--Justin >> Delete single comment-->
+               <% if user_signed_in? %>
+              <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
+                <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
             </div>
           </div>
         </div>
