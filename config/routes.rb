@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   end
   root 'home#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # routes for tags/categories
+  get 'tags/:tag', to: 'posts#index', as: :tag
+
 end
