@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  #before_action :set_comment, only: [:show, :edit, :update, :destroy]
+   before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   #before_filter :require_login
   # GET /comments
   # GET /comments.json
@@ -19,6 +20,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   # POST /comments
@@ -47,6 +49,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -56,17 +59,6 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
-  end
-    #upvote_from user
-  def upvote
-    @comment.upvote_from current_user
-    redirect_to request.referrer
-  end
-
-  #downvote_from user
-  def downvote
-    @comment.downvote_from current_user
-    redirect_to request.referrer
   end
 
   # DELETE /comments/1
@@ -82,6 +74,17 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  #upvote_from user
+def upvote
+  @comment.upvote_from current_user
+  redirect_to request.referrer
+end
+
+#downvote_from user
+def downvote
+  @comment.downvote_from current_user
+  redirect_to request.referrer
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
