@@ -9,16 +9,7 @@
   </head>
 
   <body>
-        <p class="navbar-text pull-right">
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-        </p>
+
    <!-- Our Navigation Menu-->
     <nav class="navbar navbar-inverse navbar-fixed-top added_nav" role="navigation">
         <div class="container">
@@ -52,14 +43,25 @@
                             <li>
                                 <a href="#">Dropdown Menu</a>
                             </li>
-                            
+
                         </ul>
                     </li>
                     <li>
                         <a href="#">Downloads</a>
                     </li>
-                    
-                    
+                    <li>
+                      <p class="navbar-text pull-right">
+                      <% if user_signed_in? %>
+                        Logged in as <strong><%= current_user.email %></strong>.
+                        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                      <% else %>
+                        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                      <% end %>
+                      </p>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -82,7 +84,7 @@
           <div class="col-md-12">
               <p> <marquee> Admin updates : Kindly remove gum below your desks : Food Sampling for new caterers coming soon : First Aider on duty > Morris Maluni</marquee></p>
           </div>
-          
+
       </div>
   </div>
  <hr>
