@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   #before_filter :require_login
   # GET /comments
   # GET /comments.json
@@ -56,6 +56,17 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
+  end
+    #upvote_from user
+  def upvote
+    @comment.upvote_from current_user
+    redirect_to request.referrer
+  end
+
+  #downvote_from user
+  def downvote
+    @comment.downvote_from current_user
+    redirect_to request.referrer
   end
 
   # DELETE /comments/1

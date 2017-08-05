@@ -40,10 +40,14 @@
       </div><!-- EOF single post full -->
     <!-- post likes -->
       <div class="likes">
+      <%= link_to like_post_path(@post), class: "like", method: :put do %>
         <%=fa_icon 'thumbs-up'%>
-        <span class="number_likes">120</span>
-        <%=fa_icon 'thumbs-up'%>
-        <span class="number_dislikes">24</span>
+        <span class="number_likes"><%= @post.get_upvotes.size %> </span>
+      <% end %>
+      <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+        <%=fa_icon 'thumbs-down'%>
+        <span class="number_dislikes"><%= @post.get_downvotes.size %></span>
+      <% end %>
       </div><!--EOF post likes  -->
     </div><!-- EOF col 10 -->
   </div><!-- EOF row -->
@@ -105,10 +109,14 @@
                 <%=comment.body%>
               </p>
               <div class="comment_likes">
+              <%= link_to like_post_comment_path(comment), class: "like", method: :put do %>
                 <%=fa_icon 'thumbs-up'%>
-                <span class="number_likes">120</span>
-                <%=fa_icon 'thumbs-up'%>
-                <span class="number_dislikes">24</span>
+                <span class="number_likes"><%= comment.get_upvotes.size %></span>
+              <% end %>
+              <%= link_to unlike_post_comment_path(comment), class: "like", method: :put do %>
+                <%=fa_icon 'thumbs-down'%>
+                <span class="number_dislikes"><%= comment.get_downvotes.size %></span>
+              <% end %>
              </div>
              <!--Justin >> Delete single comment-->
              <!-- if signed_in? -->
