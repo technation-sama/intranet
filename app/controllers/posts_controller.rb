@@ -57,13 +57,13 @@ class PostsController < ApplicationController
     #upvote_from user
   def upvote
     @post.upvote_from current_user
-    redirect_to request.referrer
+    redirect_to request.referer
   end
 
   #downvote_from user
   def downvote
     @post.downvote_from current_user
-    redirect_to request.referrer
+    redirect_to request.referer
   end
 
   # DELETE /posts/1
