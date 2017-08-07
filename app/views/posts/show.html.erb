@@ -65,11 +65,7 @@
       <!-- Justin >> Converted the form to rubyonrails form-->
         <% if user_signed_in? %>
          <%= form_for [@post, @comment ] do |f| %>
-          <p>
-            <%= f.label :user, "Your Name"  %>
-            <%= f.text_field :user %>
-          </p>
-          <!--<textarea class="form-control" placeholder="Leave a comment" >-->
+        <!--<textarea class="form-control" placeholder="Leave a comment" >-->
           <p>
               <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control"%>
           </p>
@@ -104,7 +100,7 @@
               <header class="text-left">
                 <div class="comment-user">
                   <%=fa_icon 'user'%>
-                  <%=comment.user%>
+                  <%= current_user.email %>
                 </div>
                 <time class="comment-date" datetime="16-12-2014 01:05">
                   <%=fa_icon 'clock-o'%>
