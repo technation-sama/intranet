@@ -13,10 +13,9 @@
       <div class="categories ">
          <ol>
            <li><b>Blog Categories</b></li>
-           <li><a href="#">Inspiration</a></li>
-           <li><a href="#">Admin Updates</a></li>
-           <li><a href="#">Samaschool</a></li>
-          <li><a href="#">Sama meetings</a></li>
+           <% ActsAsTaggableOn::Tag.most_used(4).each do |tagging| %>
+             <li><%= link_to tagging, tag_path(tagging.name) %></li>
+           <% end %>
          </ol>
       <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
        </div>
@@ -29,6 +28,12 @@
           By <span class="the_author">Admin</span> <br>
           Posted on
           <span class="the_date"><%=time_ago_in_words(@post.created_at)%> ago</span> <br>
+          <!-- Tags -->
+          <p class="lead">
+            <% @post.tag_list.map do |t| %>
+              <span class="label label-primary"><%= link_to t, tag_path(t), style: "color: white;" %></span>
+            <% end %>
+          </p>
         </p>
         <div class="blog_image">
           <%= image_tag(@post.image, class:"img-responsive")%>

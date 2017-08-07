@@ -319,3 +319,25 @@ padding-left: 10px;
     background-color: white;
     border-color: #FFD300;
 }
+
+/***voting Page***/
+
+/**typing effect**/
+.type_container{
+	height:80px;
+}
+
+.btn-warning {
+    color: #000;
+    background-color: #ffd300;
+    border-color: #eea236;
+}
+
+/****voting css for javascript***/
+.bv-form .help-block{margin-bottom:0}.bv-form .tooltip-inner{text-align:left}.nav-tabs li.bv-tab-success>a{color:#ffd300}.nav-tabs li.bv-tab-error>a{color:#ffd300}
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+    color: #a94442;
+}
+#success_message{ display: none;}
+
+rect{background:#000;}
