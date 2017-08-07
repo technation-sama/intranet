@@ -77,13 +77,13 @@ class CommentsController < ApplicationController
   #upvote_from user
 def upvote
   @comment.upvote_from current_user
-  redirect_to request.referrer
+  redirect_to request.referer
 end
 
 #downvote_from user
 def downvote
   @comment.downvote_from current_user
-  redirect_to request.referrer
+  redirect_to request.referer
 end
 
   private
