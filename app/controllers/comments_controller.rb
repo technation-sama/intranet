@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = current_user.comments.build
   end
 
   # GET /comments/1/edit
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
         #format.json { render json: @comment.errors, status: :unprocessable_entity }
       #end
     #end
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.build(comment_params)
     @comment.post_id = params[:post_id]
 
     @comment.save
