@@ -1,8 +1,13 @@
 <!-- start of breadcrumbs -->
 <div class="container">
   <ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li class="active">Posts</li>
+    <li>
+       <%= link_to "Home", root_url%>
+    </li>
+    <li>
+       <%= link_to "Posts", posts_url%>
+    </li>
+    <li class="active"> <%= @post.title %></li>
   </ol>
 </div>
  <!-- EOF breadcrumbs -->
@@ -67,7 +72,7 @@
          <%= form_for [@post, @comment ] do |f| %>
         <!--<textarea class="form-control" placeholder="Leave a comment" >-->
           <p>
-              <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control"%>
+              <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control", required: "required"%>
           </p>
           <!--</textarea><br>-->
           <p>
@@ -91,7 +96,7 @@
       <article class="row">
         <div class="col-md-2 col-sm-2 hidden-xs">
           <figure class="thumbnail">
-            <%= image_tag("avatar_blog.jpg", class:"img-responsive")%>
+            <%= image_tag(comment.user.image, class:"img-responsive")%>
           </figure>
         </div>
         <div class="col-md-10 col-sm-10">
@@ -100,7 +105,7 @@
               <header class="text-left">
                 <div class="comment-user">
                   <%=fa_icon 'user'%>
-                  <%= comment.user.email%>
+                  <%= comment.user.name%>
                 </div>
                 <time class="comment-date" datetime="16-12-2014 01:05">
                   <%=fa_icon 'clock-o'%>

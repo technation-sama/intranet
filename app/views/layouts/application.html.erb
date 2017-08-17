@@ -30,12 +30,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <%=link_to "Home", root_url%>
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                      <%=link_to "Blog", posts_url%>
                     </li>
                     <li>
+                        
                         <a href="#">Announcements</a>
                     </li>
                     <li class="dropdown">
@@ -53,12 +54,11 @@
                     <li>
                       <p class="navbar-text pull-right">
                       <% if user_signed_in? %>
-                        Logged in as <strong><%= current_user.email %></strong>.
+                        Logged in as <strong><%= current_user.name %></strong>.
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
                       <% else %>
-                        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-                        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                      <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
                       <% end %>
                       </p>
                     </li>
@@ -70,12 +70,19 @@
         <!-- /.container -->
     </nav>
 
+  
 
     <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+      <script>
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify('<%= notice %>', 'success', 5);
+    </script>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <script>
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify('<%= alert %>', 'error', 15);
+    </script>
     <% end %>
     <%= yield %>
      <!-- Footer -->
