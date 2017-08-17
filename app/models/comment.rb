@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  validates :body, presence: true
   acts_as_votable
   belongs_to :post
   belongs_to :user

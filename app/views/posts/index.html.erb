@@ -1,18 +1,20 @@
 <!-- start of breadcrumbs -->
-<div class="container">
+<div class="container-fluid">
   <ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
+    <li>
+    <%= link_to "Home", root_url%>
+    </li>
     <li class="active">Posts</li>
   </ol>
 </div>  
  <!-- EOF breadcrumbs -->
-<div class="container"><!-- Page container -->
+<div class="container-fluid"><!-- Page container -->
   <div class="row">
     <div class="col-md-2"><!--side bar  -->
       <div class="categories ">
          <ol>
            <li><b>Blog Categories</b></li>
-           <% ActsAsTaggableOn::Tag.most_used(4).each do |tagging| %>
+           <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
              <li><%= link_to tagging, tag_path(tagging.name) %></li>
            <% end %>
          </ol>
