@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:upvote, :downvote]
+  before_action :check_login, only: [:upvote, :downvote]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /posts
@@ -68,8 +68,8 @@ class PostsController < ApplicationController
 
   #downvote_from user
   def downvote
-    @post.downvote_from current_user
-    redirect_to request.referer
+    @post.downvote_from current_user 
+    redirect_to request.referer 
   end
 
   # DELETE /posts/1
@@ -91,5 +91,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :image, :tag_list)
+    end
+    
+    def check_login
+      redirect_to user_google_oauth2_omniauth_authorize_path if !current_user
     end
 end
