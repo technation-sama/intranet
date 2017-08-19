@@ -24,7 +24,7 @@ class User < ApplicationRecord
       user.gender = auth.extra.raw_info.gender
       user.profile = auth.extra.raw_info.profile
         # user.skip_confirmation!
-      user.skip_verify_authenticity_token
+      #user.skip_verify_authenticity_token
 
     end
   end 
