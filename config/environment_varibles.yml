@@ -1,0 +1,13 @@
+development:
+  GMAIL_USERNAME: victor.mutai@nbo.samadc.org
+  GMAIL_PASSWORD: password_gmail
+  DATABASE_USER: intranet
+  DATABASE_PASSWORD: password
+test:
+  GMAIL_USERNAME: victor.mutai@nbo.samadc.org
+  GMAIL_PASSWORD: password_gmail
+  DATABASE_USER: intranet
+  DATABASE_PASSWORD: password
+production:
+  GMAIL_USERNAME: victor.mutai@nbo.samadc.org
+  GMAIL_PASSWORD: password_gmail
