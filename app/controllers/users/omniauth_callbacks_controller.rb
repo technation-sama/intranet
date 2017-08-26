@@ -6,8 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if @user.persisted?
         flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
         @type='success'
-        sign_in @user, event: :authentication
-        redirect_to request.referer
+        sign_in_and_redirect @user, event: :authentication
+        #redirect_to desired_path
       else
         session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
         @type='error'
