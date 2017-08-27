@@ -1,27 +1,14 @@
-$(document).ready(function() {
-    $('#contact_form').bootstrapValidator({
+$(document).on ("turbolinks:load",function() {
+    $('#polls_form').bootstrapValidator({
+         framework: 'bootstrap',
         fields: {
-            first_name: {
+            'poll[user_id]': {
                 validators: {
-                        stringLength: {
-                        min: 2,
-                    },
-                        notEmpty: {
-                        message: 'Please Enter the First Name of the Nominee'
-                    }
+                   notEmpty: {
+                   message: 'Please select name of the Nominee'
+                 }
                 }
             },
-             last_name: {
-                validators: {
-                     stringLength: {
-                        min: 2,
-                    },
-                    notEmpty: {
-                        message: 'Please Enter the Last Name of the Nominee'
-                    }
-                }
-            },
-          
             state: {
                 validators: {
                     notEmpty: {
@@ -29,8 +16,7 @@ $(document).ready(function() {
                     }
                 }
             },
-          
-            comment: {
+            'poll[body]': {
                 validators: {
                       stringLength: {
                         min: 10,
@@ -43,24 +29,24 @@ $(document).ready(function() {
                     }
                 }
             }
-        })
-        .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
-
-            // Prevent form submission
+        }).on('success.form.fv', function(e) {
+        // called when the form is valid
+        console.log('sucess');
+        var $form = $(e.target);
+        if ($form.data('remote')) {
             e.preventDefault();
-
-            // Get the form instance
+            return false;
+        }
+        }).on('submit', function (e) {
+                e.preventDefault();
             var $form = $(e.target);
-
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
-
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');
+            if ($form.data('remote')) {
+            // var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
+            // if (numInvalidFields) {
+            //     e.preventDefault();
+            //     return false;
+            // }
+        }   
         });
 });
 

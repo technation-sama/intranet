@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $('#contact_form').bootstrapValidator({
+    $('#suggestion_form').bootstrapValidator({
         fields: {
-            the_subject: {
+            subject: {
                 validators: {
                         stringLength: {
                         min: 2,
@@ -11,8 +11,7 @@ $(document).ready(function() {
                     }
                 }
             },
-  
-            the_message: {
+            message: {
                 validators: {
                       stringLength: {
                         min: 10,

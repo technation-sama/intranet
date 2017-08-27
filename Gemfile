@@ -16,6 +16,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'
 gem 'devise'
 gem 'omniauth-google-oauth2'
+# /bootstrap validation
+gem 'bootstrap-validator-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
