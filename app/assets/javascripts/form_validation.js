@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).on ("turbolinks:load",function() {
     $('#polls_form').bootstrapValidator({
          framework: 'bootstrap',
         fields: {
-            user_id: {
+            'poll[user_id]': {
                 validators: {
                    notEmpty: {
                    message: 'Please select name of the Nominee'
@@ -16,7 +16,7 @@ $(document).ready(function() {
                     }
                 }
             },
-            body: {
+            'poll[body]': {
                 validators: {
                       stringLength: {
                         min: 10,
@@ -30,11 +30,11 @@ $(document).ready(function() {
                 }
             }
         }).on('success.form.fv', function(e) {
-        // Called when the form is valid
+        // called when the form is valid
+        console.log('sucess');
         var $form = $(e.target);
         if ($form.data('remote')) {
             e.preventDefault();
-            console.log('sucess');
             return false;
         }
         }).on('submit', function (e) {

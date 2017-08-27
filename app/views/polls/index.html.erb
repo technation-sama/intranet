@@ -44,7 +44,7 @@
  
       <div class="col-md-7">
 
-<%= simple_form_for @poll, remote: true, html: { class: 'well form-horizontal',id: 'polls_form' } do |f|%>
+<%= simple_form_for @poll, remote: true, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
 <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
 <fieldset>
 <legend>Vote for the employee of the month</legend>
@@ -54,7 +54,7 @@
   <div class="col-md-7 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-  <%=f.association :user, collection: @users, label: false, prompt: "Select Your name", input_html:{class: 'form-control', name: 'user_id'}%>
+  <%=f.association :user, collection: @users, label: false, prompt: "Select Your name", input_html:{class: 'form-control'}%>
   <!-- <input  name="first_name" placeholder="First Name" class="form-control"  type="text"> -->
     </div>
   </div>
@@ -96,7 +96,7 @@
     <div class="col-md-7 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-        <%= f.text_area :body, class: "form-control", name: "body"%>
+        <%= f.input :body, as: :text, label: false, prompt: "Why you are voting for the Nominee", input_html:{class: 'form-control'}%>
         	<!-- <textarea class="form-control" name="body" placeholder="Why you are voting for the Nominee"></textarea> -->
   </div>
   </div>
