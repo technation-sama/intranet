@@ -11,10 +11,7 @@ $(document).ready(function() {
                     }
                 }
             },
-<<<<<<< HEAD
 
-=======
->>>>>>> master
             message: {
                 validators: {
                       stringLength: {

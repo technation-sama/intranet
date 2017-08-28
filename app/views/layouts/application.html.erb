@@ -5,11 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> master
   </head>
 
   <body>
@@ -39,10 +35,7 @@
                       <%=link_to "Blog", posts_url%>
                     </li>
                     <li>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
                         <a href="#">Announcements</a>
                     </li>
                     <li class="dropdown">
@@ -51,7 +44,7 @@
                             <li>
                                 <a href="#">Dropdown Menu</a>
                             </li>
-                            
+
                         </ul>
                     </li>
                      <li>
@@ -69,14 +62,14 @@
                       <li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
                      <li>
                       <%= link_to '<i class="fa fa-sign-out pull-right"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
-                        
+
                       </li>
                   </ul>
                       <% else %>
                       <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'user-profile'%>
                       <% end %>
-            
-                    </li>                    
+
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
