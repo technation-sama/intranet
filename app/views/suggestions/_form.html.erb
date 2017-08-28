@@ -1,0 +1,85 @@
+
+<div class="container nav1">
+   <div class="row">
+
+   <div class="col-md-12 nav2">
+    <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+  <li class="breadcrumb-item"><a href="inner_page.html">Inner Page</a></li>
+</ol>
+   </div>
+   </div>
+  </div>
+<div class="container">
+<!--- sama worker typing image top ---->
+<div class="row">
+   <div class="col-md-12"><%= image_tag("sama_worker_typing.jpg", class:"img-responsive")%></div>
+
+</div>
+</br>
+<div class="row">
+
+   <div class="col-md-7">
+
+<!--<form class="well form-horizontal" action=" " method="post"  id="contact_form">-->
+<%= simple_form_for @suggestion, :html=> { class: "well form-horizontal", id: "suggestion_form"} do |f|%>
+<fieldset>
+
+<legend>Please fill in your suggestions below</legend>
+
+<!-- Text input-->
+<%= f.error_notification %>
+<div class="form-group">
+<label class="col-md-5 control-label">Subject </label>
+<div class="col-md-7 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+<!--<input  name="the_subject" placeholder="Subject" class="form-control"  type="text">-->
+
+  <%= f.text_field :subject, name: "subject", class: "form-control", placeholder:"Subject" %>
+
+ </div>
+</div>
+</div>
+
+
+<!-- Text area -->
+
+<div class="form-group">
+<label class="col-md-5 control-label">What is your suggestion ?</label>
+ <div class="col-md-7 inputGroupContainer">
+ <div class="input-group">
+     <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+       <!-- <textarea class="form-control" name="the_message" placeholder="Enter your mesage here"></textarea>-->
+       <%= f.text_area :message, name: "message", class: "form-control", placeholder: "Enter your message here"%>
+</div>
+</div>
+</div>
+
+<!-- Success message -->
+<!---<div class="alert alert-success" role="alert" id="success_message">Success <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Your Message has been sent</div>---->
+
+<!-- Button -->
+<div class="form-group">
+<label class="col-md-5 control-label"></label>
+<div class="col-md-7">
+ <!-- <button type="submit" class="btn btn-warning" >Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button> -->
+
+ <%= button_tag type: "submit", class: "btn btn-warning" do%>
+ Send <%= fa_icon "paper-plane" %>
+ <% end %>
+ </div>
+</div>
+
+</fieldset>
+<!-- </form>-->
+<% end %>
+
+</div>
+
+ <div class="col-md-5"><%= image_tag("udaku_sama.png", class:"img-responsive")%></div>
+
+</div>
+
+
+     <!-- Call to Action Section -->

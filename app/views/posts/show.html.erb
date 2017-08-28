@@ -127,7 +127,7 @@
               <% end %>
              </div>
              <!--Justin >> Delete single comment-->
-               <% if user_signed_in? %>
+               <% if comment.user = current_user %>
               <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
                 <i class="fa fa-times" aria-hidden="true"></i>
               <% end %>

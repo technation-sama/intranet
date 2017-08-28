@@ -16,6 +16,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'
 gem 'devise'
 gem 'omniauth-google-oauth2'
+# /bootstrap validation
+gem 'bootstrap-validator-rails'
 
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
@@ -60,6 +62,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails', '~> 0.3.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
