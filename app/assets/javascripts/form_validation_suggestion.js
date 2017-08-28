@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $('#contact_form').bootstrapValidator({
+    $('#suggestion_form').bootstrapValidator({
         fields: {
-            the_subject: {
+            subject: {
                 validators: {
                         stringLength: {
                         min: 2,
@@ -11,8 +11,8 @@ $(document).ready(function() {
                     }
                 }
             },
-  
-            the_message: {
+
+            message: {
                 validators: {
                       stringLength: {
                         min: 10,
@@ -28,7 +28,7 @@ $(document).ready(function() {
         })
         .on('success.form.bv', function(e) {
             $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
+                $('#suggestion_form').data('bootstrapValidator').resetForm();
 
             // Prevent form submission
             e.preventDefault();
@@ -45,4 +45,3 @@ $(document).ready(function() {
             }, 'json');
         });
 });
-
