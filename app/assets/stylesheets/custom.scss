@@ -358,3 +358,83 @@ a.user-profile {
     border-radius: 50%;
     margin-top: -5px
 }
+
+/*** Lines 362~440 Added by Victorjambo ***/
+/*** downloads page ***/
+.category_heading{
+    color: #333;
+    background-color: #fff;
+    border-color: #fff;
+}
+.files_panel{
+  border:none;
+}
+.file_contents{
+  min-height:345px;
+}
+.badge{margin-left:3px;}
+
+.files_category_carrier{
+  margin-bottom:5px;}
+.files_carrier{
+margin: 0px 0px 0px 0px;
+text-align:center;
+border-bottom:1px dotted #000;
+background:#fff;
+padding-bottom:5px;
+padding-top:5px;
+}
+
+.category_file{
+  font-size:25pt;
+}
+.our_button{
+    color:#000 ;
+    background-color: #ffd300;
+    border-color:none;
+}
+
+.our_button:hover {
+    color: #f5f5f5;
+    background-color: #ffd300;
+    border-color:none;
+}
+.our_button:active {
+    color: #f5f5f5;
+    background-color: #000;
+    border-color:none;
+}
+.our_button:focus {
+    color: #fff;
+    background-color: #000;
+    border-color:none;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #fff;
+    border-color: none;
+}
+/** End of Downloads page **/
+
+
+/** fixed bottom **/
+.scoller {
+    min-height: 5px;
+    padding: 5px;
+    margin-bottom: 0;
+    background-color: #ffd300;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    bottom: 0px;
+}
+.copy>div p{
+  background:#fff;
+  text-align:center;
+}
+/** End fixed bottom **/
