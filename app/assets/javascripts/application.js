@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require pnotify
+//= require unobtrusive_flash
 //= require_tree .
