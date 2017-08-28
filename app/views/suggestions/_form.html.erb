@@ -22,7 +22,11 @@
    <div class="col-md-7">
 
 <!--<form class="well form-horizontal" action=" " method="post"  id="contact_form">-->
+<<<<<<< HEAD
 <%= simple_form_for @suggestion , :html=> { class: "well form-horizontal", id: "suggestion_form"} do |f|%>
+=======
+<%= simple_form_for @suggestion, :html=> { class: "well form-horizontal", id: "suggestion_form"} do |f|%>
+>>>>>>> master
 <fieldset>
 
 <legend>Please fill in your suggestions below</legend>
@@ -36,7 +40,11 @@
 <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 <!--<input  name="the_subject" placeholder="Subject" class="form-control"  type="text">-->
 
+<<<<<<< HEAD
   <%= f.text_field :subject, placeholder:"Subject", class: "form-control", name: "subject" %>
+=======
+  <%= f.text_field :subject, name: "subject", class: "form-control", placeholder:"Subject" %>
+>>>>>>> master
 
  </div>
 </div>
@@ -51,7 +59,11 @@
  <div class="input-group">
      <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
        <!-- <textarea class="form-control" name="the_message" placeholder="Enter your mesage here"></textarea>-->
+<<<<<<< HEAD
        <%= f.text_area :message, placeholder: "Enter your message here", class: "form-control", name: "message"%>
+=======
+       <%= f.text_area :message, name: "message", class: "form-control", placeholder: "Enter your message here"%>
+>>>>>>> master
 </div>
 </div>
 </div>

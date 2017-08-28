@@ -341,3 +341,20 @@ padding-left: 10px;
 #success_message{ display: none;}
 
 rect{background:#000;}
+
+/****navbar user image***/
+a.user-profile {
+    color: #5E6974 !important
+}
+.navbar-inverse .navbar-link{
+    color: #ffd300;
+}
+.navbar-inverse .navbar-link:hover{
+    color: #000;
+}
+.user-profile img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-top: -5px
+}
