@@ -19,8 +19,10 @@ gem 'omniauth-google-oauth2'
 # /bootstrap validation
 gem 'bootstrap-validator-rails'
 
+# notification
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use postgresql as the database for Active Record

@@ -3,7 +3,15 @@ $(document).ready(function() {
     new PNotify({
       title: params.type,
       text: params.message,
-      type: params.type
+      type: params.type,
+      nonblock: {
+			  nonblock: true
+		  },
+		  delay: 2000,
+		  styling: "bootstrap3",
+		  width: "40%",
+		  cornerclass: "round",
+		  addclass: "stack-bar-top",
     });
   });
 });

@@ -7,13 +7,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         flash[:success] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
         sign_in_and_redirect @user, event: :authentication
       else
-        session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
+      session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
        flash[:error] = @user.errors[:hd].join(' ')
-      redirect_to root_url
+       redirect_to root_path
       end
   end
   def failure
-    flash[:notice] = "Authentication failed!"
+    flash[:error] =  I18n.t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: 'You didn\'t use a samasource email'
     redirect_to root_path
   end
 end
