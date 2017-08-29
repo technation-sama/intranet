@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/download'
+
   resources :suggestions
   resources :polls
   #devise_for :users
