@@ -17,4 +17,5 @@
 //= require bootstrapValidator.min
 //= require pnotify
 //= require unobtrusive_flash
+//= require select2
 //= require_tree .
