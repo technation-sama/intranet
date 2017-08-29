@@ -9,7 +9,7 @@ $(document).on ("turbolinks:load",function() {
                  }
                 }
             },
-            state: {
+            'poll[project_name]': {
                 validators: {
                     notEmpty: {
                         message: 'Please select the name of  your project'
@@ -41,11 +41,11 @@ $(document).on ("turbolinks:load",function() {
                 e.preventDefault();
             var $form = $(e.target);
             if ($form.data('remote')) {
-            // var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
-            // if (numInvalidFields) {
-            //     e.preventDefault();
-            //     return false;
-            // }
+            var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
+            if (numInvalidFields) {
+                e.preventDefault();
+                return false;
+            }
         }   
         });
 });

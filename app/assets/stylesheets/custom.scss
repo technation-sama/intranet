@@ -103,6 +103,7 @@ p.lead{color:#ffd300;}
 .scoller{
     min-height: 5px;
     padding: 5px;
+    bottom: 0;
     margin-bottom: 18px;
     background-color: #ffd300;
     border: 1px solid #e3e3e3;
@@ -122,14 +123,11 @@ footer {
 
 /* Responsive Styles */
 
-
-@media(max-width:991px) {
-  .navbar-nav {
-    margin: 32.5px -15px;
-    }
- /*Add styles in here**/
+@media (max-width: 991px){
+.navbar-nav {
+margin: -1.5px -62px;
+  }
 }
-
 @media(max-width:767px) {
   .navbar-nav {
     margin: 32.5px -15px;
@@ -344,7 +342,12 @@ rect{background:#000;}
 
 /****navbar user image***/
 a.user-profile {
-    color: #5E6974 !important
+    // color: #5E6974 !important
+    color: #fff !important
+}
+a.user-profile:hover {
+    // color: #5E6974 !important
+    color: #ffd300 !important
 }
 .navbar-inverse .navbar-link{
     color: #ffd300;
@@ -357,6 +360,19 @@ a.user-profile {
     height: 25px;
     border-radius: 50%;
     margin-top: -5px
+}
+
+
+.round{
+  border-radius:5px;
+}
+.stack-bar-top{
+  margin-right: 30%;
+  margin-top: 15px;
+}
+.select2-container--default .select2-selection--single{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 /*** Lines 362~440 Added by Victorjambo ***/
@@ -427,7 +443,6 @@ padding-top:5px;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    position: fixed;
     right: 0;
     left: 0;
     z-index: 1030;
@@ -438,3 +453,4 @@ padding-top:5px;
   text-align:center;
 }
 /** End fixed bottom **/
+
