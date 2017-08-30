@@ -17,5 +17,15 @@
 //= require bootstrapValidator.min
 //= require pnotify
 //= require unobtrusive_flash
-//= require select2
+//= require select2-full
 //= require_tree .
+$(document).ready(function () {
+	$("#post_tag_list").select2({
+    multiple: true,
+    theme: "bootstrap",
+    tags: true,
+    tokenSeparators: [',', ' '],
+    placeholder: 'select category',
+    width: "100%"
+  });
+});
