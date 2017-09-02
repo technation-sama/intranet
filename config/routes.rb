@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
+  get 'pages/download'
+
   resources :suggestions
   resources :polls
   #devise_for :users

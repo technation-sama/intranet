@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrapValidator.min
+//= require pnotify
+//= require unobtrusive_flash
+//= require select2-full
 //= require_tree .

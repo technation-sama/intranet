@@ -11,59 +11,152 @@
 <div class="container"><!-- Page container -->
   <div class="row">
     <div class="col-md-2"><!--side bar  -->
-      <div class="categories ">
-         <ol>
-           <li><b>Blog Categories</b></li>
-           <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
-             <li><%= link_to tagging, tag_path(tagging.name) %></li>
-           <% end %>
-         </ol>
-      <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
+      <div class="categories panel panel-default">
+        <div class="panel-heading">
+          <b>Blog Categories</b>
+        </div>
+        <div class="panel-body">
+          <ol>
+            <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
+            <li><%= link_to tagging, tag_path(tagging.name) %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+         <div class="panel noborder panel-default">
+         <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
        </div>
      </div>
 
     <div class="col-md-10">
     <!-- sigle blog post -->
-    <% @posts.each do |post|%>
-      <div class="single_post">
-          <h2><%=post.title%></h2>
-          <p class="intro_top">
-            By <span class="the_author">Admin</span> <br>
-            Posted
-            <span class="the_date"><%=time_ago_in_words(post.created_at)%> ago</span><br>
-            </p>
-          <div class="blog_image">
-            <%= image_tag(post.image, class:"img-responsive")%>
-          </div>
+
+    <%@posts.each do |post|%>
+     <%@id=post.id%>
+   <div class="panel panel-default">
+      <div class="panel-body">
+        <section class="post-heading">
+            <div class="row">
+              <div class="col-md-11">
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <%= image_tag(post.user.image, class:"media-object photo-profile")%>
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a> 
+                    <a href="#" class="anchor-time"><%=time_ago_in_words(post.created_at)%> Ago</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>             
+        </section>
+        <section class="post-body">
+
           <p>
-          <%=post.description%>
+             <% if post.description.length > 700 %>
+                <%= truncate(post.description, length: 700) %>
+                <%= link_to '...Show more', '',data: { no_turbolink: true }, class: "read-more-#{post.id}" %>
+               <script>
+               $(document).on('turbolinks:load',function(){
+                $('.read-more-<%= post.id %>').on('click', function(e) {
+                 e.preventDefault()
+                $(this).parent().html('<%= escape_javascript post.description%><%= link_to "...Show less", "" ,data: { no_turbolink: true }, class: "read-less-#{post.id}" %> ')
+               });
+               });
+              </script>
+            <% else %>
+           <%= post.description %>
+            <% end %>
           </p>
-          </br>
-         <p>
-        <%=link_to "Read More", post_url(post), class: "read"%>
-         </p> 
-        </div>
-        <!--EOF of blog post  -->
-        <%end%>
-        <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav> 
+        </section>
+        <section class="post-footer">
+         <hr>
+          <div class="post-footer-option container">
+            <ul class="list-unstyled">
+              <%= link_to like_post_path(post), remote: true,data: { id: post.id }, class: "like", method: :put do %>
+              <li>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                  Like <%= post.get_upvotes.size %>
+              </li>
+              <% end %>
+              <%= link_to unlike_post_path(post), remote: true,data: { id: post.id }, class: "like", method: :put do %>
+              <li>
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+                  Like <%= post.get_downvotes.size %>
+              </li>
+              <% end %>
+              <li><a data-toggle="collapse" data-target="#toggle<%=post.id%>"  class="link" >
+                <i class="glyphicon glyphicon-comment"></i>Comments<span class="badge"><%=Post.find(@id).comments.count%></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="toggle<%=post.id%>" class="panel collapse noborder panel-default">
+            <div class="comment-form">
+               <% if user_signed_in? %>
+            <%= form_for [post, post.comments.new ], html:{class: "well well-lg form-horizontal"} do |f| %>
+            <p>
+              <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control", required: "required"%>
+            </p>
+            <p>
+            <%= f.submit 'Comment', class:"btn btn-success pull-right" %>
+          </p>
+          <br>
+        <% end %>
+        <% end %>
+            </div>
+            <div class="comment">
+            <% Post.find(@id).comments.each do |comment|%>
+              <div class="media">
+                <div class="media-left">
+                 <a href="#">
+                      <%= image_tag(comment.user.image, class:"media-object photo-profile")%>
+                    </a>
+                </div>
+                <div class="media-body">
+                   <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a> 
+                    <a href="#" class="anchor-time"> <%=time_ago_in_words(comment.created_at)%> Ago</a>
+                </div>
+                <section class="post-body">
+                  <p>
+                    <%=comment.body%> 
+                 </p>
+              </div>
+            <div class="post-footer-option container">
+              <ul class="list-unstyled">
+                 <%= link_to like_post_comment_path(comment.post, comment), remote: true, class: "like", method: :put do %>
+                <li>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                  Like <%= comment.get_upvotes.size %>
+              </li>
+              <% end %>
+              <%= link_to unlike_post_comment_path(comment.post, comment), remote: true, class: "like", method: :put do %>
+              <li>
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+                  Like <%= comment.get_downvotes.size %>
+              </li>
+              <% end %>
+            </ul>
+              </div>
+              <hr>
+              <%end%>
+           
+          </div>
+          
+          </div>
+        </section>
+      </div>
+    </div>
+    <%end%>
+  <div class="text-center">
+            <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
+           	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
+	          <%= link_to "Load More", posts_path, class: "btn btn-lg btn-success" %>
+     </div>
+<!--/single blog post-->
       </div>
     </div>
     

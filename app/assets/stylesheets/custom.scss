@@ -103,6 +103,7 @@ p.lead{color:#ffd300;}
 .scoller{
     min-height: 5px;
     padding: 5px;
+    bottom: 0;
     margin-bottom: 18px;
     background-color: #ffd300;
     border: 1px solid #e3e3e3;
@@ -122,14 +123,11 @@ footer {
 
 /* Responsive Styles */
 
-
-@media(max-width:991px) {
-  .navbar-nav {
-    margin: 32.5px -15px;
-    }
- /*Add styles in here**/
+@media (max-width: 991px){
+.navbar-nav {
+margin: -1.5px -62px;
+  }
 }
-
 @media(max-width:767px) {
   .navbar-nav {
     margin: 32.5px -15px;
@@ -344,7 +342,12 @@ rect{background:#000;}
 
 /****navbar user image***/
 a.user-profile {
-    color: #5E6974 !important
+    // color: #5E6974 !important
+    color: #fff !important
+}
+a.user-profile:hover {
+    // color: #5E6974 !important
+    color: #ffd300 !important
 }
 .navbar-inverse .navbar-link{
     color: #ffd300;
@@ -358,3 +361,147 @@ a.user-profile {
     border-radius: 50%;
     margin-top: -5px
 }
+
+
+.round{
+  border-radius:5px;
+}
+.stack-bar-top{
+  margin-right: 30%;
+  margin-top: 15px;
+}
+.select2-container--default .select2-selection--single{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/*** Lines 362~440 Added by Victorjambo ***/
+/*** downloads page ***/
+.category_heading{
+    color: #333;
+    background-color: #fff;
+    border-color: #fff;
+}
+.files_panel{
+  border:none;
+}
+.file_contents{
+  min-height:345px;
+}
+.badge{margin-left:3px;}
+
+.files_category_carrier{
+  margin-bottom:5px;}
+.files_carrier{
+margin: 0px 0px 0px 0px;
+text-align:center;
+border-bottom:1px dotted #000;
+background:#fff;
+padding-bottom:5px;
+padding-top:5px;
+}
+
+.category_file{
+  font-size:25pt;
+}
+.our_button{
+    color:#000 ;
+    background-color: #ffd300;
+    border-color:none;
+}
+
+.our_button:hover {
+    color: #f5f5f5;
+    background-color: #ffd300;
+    border-color:none;
+}
+.our_button:active {
+    color: #f5f5f5;
+    background-color: #000;
+    border-color:none;
+}
+.our_button:focus {
+    color: #fff;
+    background-color: #000;
+    border-color:none;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #fff;
+    border-color: none;
+}
+/** End of Downloads page **/
+
+
+/** fixed bottom **/
+.scoller {
+    min-height: 5px;
+    padding: 5px;
+    margin-bottom: 0;
+    background-color: #ffd300;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    right: 0;
+    left: 0;
+
+    z-index: 1030;
+    bottom: 0px;
+}
+.copy>div p{
+  background:#fff;
+  text-align:center;
+}
+/** End fixed bottom **/
+
+/***posts page**/
+hr{
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.post-footer-option li{
+    float:left;
+    margin-top: 0px;
+    margin-right:30px;
+    padding-bottom:5px;
+    border-bottom:0px;
+}
+
+.media{
+  padding-left:20px;
+}
+
+.post-footer-option li a{
+    color:#AFB4BD;
+    text-decoration:none;
+    font-weight:500;
+    font-size:1.3rem;
+}
+
+.photo-profile{
+    border:1px solid #DDD;
+    border-radius:50px;
+    width: 40px;
+    height: 40px;
+}
+.noborder{
+  border: 0px;
+}
+.link{
+  cursor:pointer;
+}
+.anchor-username h4{
+    font-weight:bold;    
+}
+
+.anchor-time{
+    color:#ADB2BB;
+    font-size:1.2rem;
+}
+
+.post-footer-comment-wrapper{
+    background-color:#F6F7F8;
+}
+
+/***\posts page**/

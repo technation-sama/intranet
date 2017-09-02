@@ -19,6 +19,14 @@ gem 'omniauth-google-oauth2'
 # /bootstrap validation
 gem 'bootstrap-validator-rails'
 
+# notification
+gem 'pnotify-rails'
+gem 'unobtrusive_flash', '>=3'
+#Gem to load select2 assets into rails pipleine
+gem "select2-rails"
+
+# rails admin
+gem 'rails_admin', '~> 1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
@@ -62,6 +70,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails', '~> 0.3.6'
+  gem 'faker', '~> 1.8', '>= 1.8.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
