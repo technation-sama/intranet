@@ -30,6 +30,7 @@
 
     <div class="col-md-10">
     <!-- sigle blog post -->
+
     <%@posts.each do |post|%>
      <%@id=post.id%>
    <div class="panel panel-default">
@@ -53,6 +54,7 @@
             </div>             
         </section>
         <section class="post-body">
+
           <p>
              <% if post.description.length > 700 %>
                 <%= truncate(post.description, length: 700) %>

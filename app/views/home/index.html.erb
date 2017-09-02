@@ -40,7 +40,19 @@
 
     <!-- Page Content -->
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-12 "><div class="quote_section">
+           <h3>Quote of the Day</h3>
 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi</p>
+           </div>
+            </div>
+
+
+        </div>
+        
+        
         <!--  Icons Section -->
         <div class="row">
             <div class="col-lg-12 spacing_after_slide">
@@ -88,46 +100,37 @@
 
         <!-- Featured Articles Section -->
         <div class="row">
-            
-            <div class="col-md-8">
+            <div class="col-md-3">
+            <h2>Twitter Widget</h2>
+          <a class="twitter-timeline" data-width="299" data-height="533" href="https://www.twitter.com/Samasource">Tweets by Samasource</a> <script async src="https://www.platform.twitter.com/widgets.js" charset="utf-8"></script>
+ </div>
+            <div class="col-md-6">
                <!-- First Featured Post -->
+               <!-- sigle blog post -->
+               <% @posts.each do | post|%>
                 <h2>
-                    <a href="#" class="blog_home_heading">Post Title</a>
+                    <a href="#" class="blog_home_heading"><%=post.title%></a>
                 </h2>
                 <p class="lead">
                     by <a href="#" class="blog_home_sub_heading">Admin</a>
                 </p>
-                <p><i class="fa fa-clock-o"></i> Posted on July 28, 2017 at 10:00 PM</p>
+                <p><i class="fa fa-clock-o"></i><%=time_ago_in_words(post.created_at)%> ago</p>
                
               
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <p><%=post.description%> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
                 <a class="btn btn-primary read_more_blog" href="#">Read More... </a>
 
                 <hr>
-
+                <%end%>
                 <!-- Second Featured Post  -->
-                <h2>
-                    <a href="#" class="blog_home_heading">Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="#" class="blog_home_sub_heading">Admin</a>
-                </p>
-                <p><i class="fa fa-clock-o"></i> Posted on July 28, 2017 at 10:00 PM</p>
-               
-              
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-                <a class="btn btn-primary read_more_blog" href="#">Read More ...</i></a>
+                
 
-                <hr>
+                
             </div>
-            <div class="col-md-4 quote_section">
-            <h2>Quote of the Day</h2>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis .
-s quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
-            </div>
+           <div class="col-md-3"> <h2>Facebook Widget</h2> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis .
+s quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis .
+s quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetu
+</p></div>
         </div>
         <!-- /.row -->
 
