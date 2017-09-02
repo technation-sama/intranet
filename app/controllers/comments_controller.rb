@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
 
     @comment.save
 
-    redirect_to post_path(@comment.post)
+    redirect_to request.referrer
   end
 
   # PATCH/PUT /comments/1

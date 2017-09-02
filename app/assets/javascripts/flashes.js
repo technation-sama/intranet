@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load',function(){
   $(window).bind('rails:flash', function(e, params) {
     new PNotify({
       title: params.type,
@@ -7,7 +7,7 @@ $(document).ready(function() {
       nonblock: {
 			  nonblock: true
 		  },
-		  delay: 2000,
+		  delay: 4000,
 		  styling: "bootstrap3",
 		  width: "40%",
 		  cornerclass: "round",
