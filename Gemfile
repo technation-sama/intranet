@@ -25,6 +25,9 @@ gem 'unobtrusive_flash', '>=3'
 #Gem to load select2 assets into rails pipleine
 gem "select2-rails"
 
+# rails admin
+gem 'rails_admin', '~> 1.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use postgresql as the database for Active Record
