@@ -9,14 +9,7 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions/1
   # GET /suggestions/1.json
-  def show
-  end
-
-  # GET /suggestions/new
-  def new
-    @suggestion = Suggestion.new
-  end
-
+  
   # GET /suggestions/1/edit
   def edit
   end
@@ -28,7 +21,7 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       if @suggestion.save
-        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
+        format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully created.' }
         format.json { render :show, status: :created, location: @suggestion }
       else
         format.html { render :new }
