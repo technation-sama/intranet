@@ -1,0 +1,75 @@
+<!-- start of breadcrumbs -->
+<div class="container">
+  <ol class="breadcrumb">
+    <li>
+    	<%= link_to "Home", root_url%>
+    </li>
+    <li class="active">Announcements</li>
+  </ol>
+</div>  
+ <!-- EOF breadcrumbs -->
+<div class="container"><!-- Page container -->
+  <div class="row">
+    <div class="col-md-2"><!--side bar  -->
+      <div class="categories panel panel-default">
+        <div class="panel-heading">
+          <b>Blog Categories</b>
+        </div>
+        <div class="panel-body">
+          <ol>
+            <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
+            	<li><%= link_to tagging, tag_path(tagging.name) %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+      <div class="panel noborder panel-default">
+        <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
+      </div>
+    </div>
+
+    <div class="col-md-10">
+	    <% @announcements.each do |announcement|%>
+	   		<div class="panel panel-default">
+		      <div class="panel-body">
+
+		        <section class="post-heading">
+		            <div class="row">
+		              <div class="col-md-11">
+		                <div class="media">
+		                  <div class="media-body">
+		                    <a href="#" class="anchor-username"><h4 class="media-heading"><%= announcement.title %></h4></a> 
+		                    <a href="#" class="anchor-time"><%=time_ago_in_words(announcement.created_at)%> Ago</a>
+		                  </div>
+		                </div>
+		              </div>              
+		            </div>             
+		        </section>
+
+		        <section class="post-body">
+		          <p>
+		             <% if announcement.content.length > 700 %>
+		                <%= truncate(announcement.content, length: 700) %>
+		                <%= link_to '...Show more', '',data: { no_turbolink: true }, class: "read-more-#{announcement.id}" %>
+		               <script>
+		               $(document).on('turbolinks:load',function(){
+		                $('.read-more-<%= announcement.id %>').on('click', function(e) {
+		                 e.preventDefault()
+		                $(this).parent().html('<%= escape_javascript announcement.content%><%= link_to "...Show less", "" ,data: { no_turbolink: true }, class: "read-less-#{announcement.id}" %> ')
+		               });
+		               });
+		              </script>
+		            <% else %>
+		           <%= announcement.content %>
+		            <% end %>
+		          </p>
+		        </section>
+
+		      </div>
+		    </div>
+	    <% end %>
+	  </div>
+  </div>
+</div>
+    
+ 

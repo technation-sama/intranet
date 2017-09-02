@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/download'
 
   resources :suggestions
+  resources :announcements
   resources :polls
   #devise_for :users
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
