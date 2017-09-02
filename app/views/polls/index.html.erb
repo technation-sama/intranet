@@ -27,23 +27,18 @@
    </div>
    </div>
         <!--- Graph ---->
-		
+		<%if current_user%>
     <div class="row">
       <div class="col-md-12">
-
-<div id="container_graph"></div>
-
-	  
+        <div id="container_graph"></div>
 	  </div>
-   
    </div>
-   
+   <%end%>
    
    
    <div class="row">
- 
-      <div class="col-md-7">
-
+ <div class="col-md-7">
+<% if current_user %>
 <%= simple_form_for @poll, remote: true, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
 <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
 <fieldset>
@@ -54,8 +49,7 @@
   <div class="col-md-7 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-  <%=f.association :user, collection: @users, label: false, prompt: "Select Your name", input_html:{class: 'form-control'}%>
-  <!-- <input  name="first_name" placeholder="First Name" class="form-control"  type="text"> -->
+  <%= f.select :user_id, User.all.map { |u| [u.name, u.id] },{ :prompt => 'Select  name of the nominee', include_blank: false},{ :class => "form-control select2"} %>
     </div>
   </div>
 </div>
@@ -65,28 +59,7 @@
     <div class="col-md-7 selectContainer">
     <div class="input-group">
      <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-    <select name="state" class="form-control selectpicker" >
-      <option value=" " >Please select your Project</option>
-      
-	 <option>CAL </option>
-	 <option>JMP2</option>
-	 <option>NGU</option>
-	 <option>WTU</option>
-	 <option>BNE</option>
-	 <option>WRT</option>
-	 <option>UMB Segmentation</option>
-	 <option>UMB - Detection</option>
-	 <option>UMB lane Lines</option>
-	 <option>SRY</option>
-	 <option>GAR II</option>
-	 <option>GAR I</option>
-	 <option>GLE</option>
-	 <option>RJE</option>
-	 <option>FOH </option>
-	 <option>IFU</option>
-	 <option>NOU</option>
-	 <option>AOG</option>
-    </select>
+     <%= f.select :project_name, Project.all.map { |r| [r.name, r.name] },{ :prompt => 'Select Project of the nominee', include_blank: false},{ :class => "form-control select2"} %>
   </div>
 </div>
 </div>
@@ -102,10 +75,6 @@
   </div>
 </div>
 
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">
-Success <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Your Vote has been sent</div>
-
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-5 control-label"></label>
@@ -113,15 +82,19 @@ Success <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Your Vote has been 
   <%= button_tag type: "submit", class: "btn btn-warning" do%>
     Send <%= fa_icon "paper-plane" %>
      <% end %>
-    <!-- <button type="submit" class="btn btn-warning" >Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button> -->
   </div>
 </div>
 
 </fieldset>
 <%end%>
-
-   </div>
-   
+ </div>
+ <%else%>
+ <div class="alert alert-danger text-center">
+     <h2>You need to Sign in first!!!</h2>
+     <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
+ </div>
+ </div>
+   <%end%>
     <div class="col-md-5">
       <%= image_tag("workers_sama.png", class:"img-responsive")%>
       </div>
