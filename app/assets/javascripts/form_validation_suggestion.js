@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#suggestion_form').bootstrapValidator({
         fields: {
-            subject: {
+            'suggestion[subject]': {
                 validators: {
                         stringLength: {
                         min: 2,
@@ -12,7 +12,7 @@ $(document).ready(function() {
                 }
             },
 
-            message: {
+            'suggestion[message]': {
                 validators: {
                       stringLength: {
                         min: 10,
@@ -27,21 +27,21 @@ $(document).ready(function() {
             }
         })
         .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#suggestion_form').data('bootstrapValidator').resetForm();
-
-            // Prevent form submission
-            e.preventDefault();
-
-            // Get the form instance
+            console.log('sucess');
             var $form = $(e.target);
-
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
-
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');
+            if ($form.data('remote')) {
+                e.preventDefault();
+                return false;
+            }
+            }).on('submit', function (e) {
+                    e.preventDefault();
+                var $form = $(e.target);
+                if ($form.data('remote')) {
+                var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
+                if (numInvalidFields) {
+                    e.preventDefault();
+                    return false;
+                }
+            }
         });
 });
