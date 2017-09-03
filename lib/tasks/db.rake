@@ -53,6 +53,14 @@ namespace :db do
 		10.times do
 			Announcement.create title: Faker::GameOfThrones.character, content: Faker::Lorem.paragraphs(2).join(' ')
 		end
+
+		Category.destroy_all
+		Category.create name: "HR Policies"
+		Category.create name: "IT Policies"
+		Category.create name: "ISO Certification"
+		Category.create name: "Finance"
+		Category.create name: "Stima Sacco"
+		
 	end
 
 end
