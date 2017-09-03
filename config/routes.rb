@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'categories/downloads'
+
+  resources :downloads
   mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
   get 'pages/download'
 

@@ -18,6 +18,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 # /bootstrap validation
 gem 'bootstrap-validator-rails'
+gem 'carrierwave', '~> 1.1'
 
 # notification
 gem 'pnotify-rails'
