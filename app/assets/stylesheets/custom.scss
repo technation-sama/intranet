@@ -505,3 +505,34 @@ hr{
 }
 
 /***\posts page**/
+
+
+/**Gallary**/
+#album {
+  margin: 0 auto;
+  // width: calc((100% - 48px) / 3)
+  width: 100%;
+  .box {
+    margin: 10px;
+    width: 350px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    border-radius: 7px;
+    text-align: center;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    a {
+      font-size: 22px;
+      margin: 0;
+      padding: 25px 10px;
+      color: #474747;
+    }
+    .user {
+      font-size: 12px;
+      border-top: 1px solid #EAEAEA;
+      padding: 15px;
+      margin: 0;
+    }
+  }
+}

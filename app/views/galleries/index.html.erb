@@ -1,6 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Galleries</h1>
 
-<h1>Galleries</h1>
+  <div id="album" class="transitions-enabled">
+    <% @galleries.each do |gallery| %>
+      <div class="box panel panel-default">
+        <%= image_tag gallery.gallery_attachments[0].photo, class: "img-reponsive"%>
+        <div class="panel-body">
+          <%= link_to gallery.title, gallery %>
+          <span class="badge">
+            <%= gallery.gallery_attachments.count %>
+          </span>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+</div>
+
+
 
 <table class="table table-hover">
   <thead>
