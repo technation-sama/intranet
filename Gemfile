@@ -11,6 +11,7 @@ ruby '2.4.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "font-awesome-rails"
 gem 'simple_form'
+gem 'jquery-fileupload-rails', '~> 0.4.7'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'

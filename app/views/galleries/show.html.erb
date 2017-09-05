@@ -1,0 +1,16 @@
+<div class="container">
+	<h1 class="text-center"><%= @gallery.title %></h1>
+
+	<% @gallery.gallery_attachments.all.each do |pic| %>
+		<div class="panel panel-default" style="width: 100%">
+		  <%= image_tag pic.photo_url, class: "img-responsive", style: "width: 100%" %>
+		  <div class="panel-body">
+			  <%= link_to "Edit", edit_gallery_attachment_path(pic) %>
+        <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+		  </div>
+	  </div>
+	<% end %>
+
+	<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+	<%= link_to 'Back', galleries_path %>
+</div>

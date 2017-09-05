@@ -1,0 +1,2 @@
+module GalleryAttachmentsHelper
+end
