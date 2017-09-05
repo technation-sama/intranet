@@ -11,6 +11,8 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+actions :all, :except => [:destroy, :update, :edit]
+config.per_page = 20
 index do
   selectable_column
   column :image do |ad|
@@ -20,7 +22,8 @@ index do
   column :name
   column :profile
   column :gender
-  actions :except => [:edit, :destroy]
+  actions
 end
-
+filter :name, as: :select
+config.clear_action_items!
 end

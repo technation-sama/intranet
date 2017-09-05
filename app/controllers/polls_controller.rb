@@ -15,6 +15,7 @@ class PollsController < ApplicationController
   
   def create
     @poll = Poll.new(poll_params)
+    @poll.period=Date.today.strftime("%B")<<Date.today.strftime("%Y")
     respond_to do |format|
       if @poll.save
         format.html { redirect_to polls_url, notice: 'Poll was successfully created.' }
