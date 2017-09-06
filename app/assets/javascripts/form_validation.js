@@ -29,23 +29,17 @@ $(document).on ("turbolinks:load",function() {
                     }
                 }
             }
-        }).on('success.form.fv', function(e) {
-        // called when the form is valid
-        console.log('sucess');
-        var $form = $(e.target);
-        if ($form.data('remote')) {
-            e.preventDefault();
-            return false;
-        }
         }).on('submit', function (e) {
-                e.preventDefault();
-            var $form = $(e.target);
+            e.preventDefault();
+             var $form = $(e.target);
             if ($form.data('remote')) {
+                 console.log('sucess');
+
             var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
             if (numInvalidFields) {
                 e.preventDefault();
                 return false;
-            }
+                             }
         }   
         });
 });

@@ -18,4 +18,10 @@
 //= require pnotify
 //= require unobtrusive_flash
 //= require select2-full
-//= require_tree .
+//= require highcharts
+//= require custom
+//= require flashes
+//= require form_validation
+//= require form_validation_suggestion
+//= require highcharts_custom
+//= require typer

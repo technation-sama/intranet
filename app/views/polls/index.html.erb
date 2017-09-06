@@ -39,7 +39,7 @@
    <div class="row">
  <div class="col-md-7">
 <% if current_user %>
-<%= simple_form_for @poll, remote: true, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
+<%= simple_form_for @poll, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
 <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
 <fieldset>
 <legend>Vote for the employee of the month</legend>

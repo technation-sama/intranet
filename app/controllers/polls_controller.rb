@@ -18,10 +18,11 @@ class PollsController < ApplicationController
     @poll.period=Date.today.strftime("%B")<<Date.today.strftime("%Y")
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to polls_url, notice: 'Poll was successfully created.' }
+        format.html { redirect_to polls_url, notice: 'Poll was successfully created.'}
         format.json { render :show, status: :created, location: @poll }
       else
-        format.html { render :new }
+        flash[:error] =@poll.errors.full_messages.join("\n")
+       format.html {redirect_to polls_url}
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
     end
@@ -40,6 +41,7 @@ class PollsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_poll
       @poll = Poll.find(params[:id])

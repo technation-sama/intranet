@@ -11,6 +11,7 @@ ruby '2.4.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "font-awesome-rails"
 gem 'simple_form'
+gem "highcharts-rails"
 # active admin gem
 gem 'activeadmin'
 # active admin teme
