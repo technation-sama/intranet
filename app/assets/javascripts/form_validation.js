@@ -29,18 +29,30 @@ $(document).on ("turbolinks:load",function() {
                     }
                 }
             }
-        }).on('submit', function (e) {
+        }).on('success.form.bv', function (e) {
             e.preventDefault();
-             var $form = $(e.target);
-            if ($form.data('remote')) {
-                 console.log('sucess');
-
-            var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
-            if (numInvalidFields) {
+            var $form = $(e.target);
+            var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length
+            if (numInvalidFields>0) {
                 e.preventDefault();
-                return false;
-                             }
-        }   
+                return false;  
+            }
+            else{
+                 // console.log($form.serialize())
+              $.ajax({
+                 type: "POST",
+                 url: $form.attr('action'),
+                 data: $form.serialize(),
+                 success: function(data){
+                    $('#poll-div').html('<div class="alert elert-success">Your vote successfully submited</div>')
+                    return false
+                  },
+                  error: function(data){
+                    console.log(data)
+                    return false
+                  }
+              });
+            }
         });
 });
 

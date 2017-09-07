@@ -3,9 +3,7 @@
   <head>
     <title>Intranet</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
@@ -80,21 +78,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
-
-
-    <% if notice %>
-      <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= notice %>', 'success', 5);
-    </script>
-    <% end %>
-    <% if alert %>
-    <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= alert %>', 'error', 15);
-    </script>
-    <% end %>
 
     <%= yield %>
      <!-- Footer -->

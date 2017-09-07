@@ -6,7 +6,9 @@ class PollsController < ApplicationController
   def index
      @poll = Poll.new
      @users=User.all
-    
+    if current_user
+      @voted=Poll.where('period = ? AND voter_id = ?', set_period,current_user.id).count
+    end
   end
 
   # GET /polls/1/edit
@@ -15,7 +17,8 @@ class PollsController < ApplicationController
   
   def create
     @poll = Poll.new(poll_params)
-    @poll.period=Date.today.strftime("%B")<<Date.today.strftime("%Y")
+    @poll.period=set_period
+    @poll.voter_id=current_user.id
     respond_to do |format|
       if @poll.save
         format.html { redirect_to polls_url, notice: 'Poll was successfully created.'}
@@ -46,7 +49,10 @@ class PollsController < ApplicationController
     def set_poll
       @poll = Poll.find(params[:id])
     end
-
+    # function to set the voting period
+    def set_period
+      Date.today.strftime("%B")<<Date.today.strftime("%Y")
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
       params.require(:poll).permit(:user_id, :project_name, :body)

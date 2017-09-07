@@ -3,7 +3,7 @@ Highcharts.chart('container_graph', {
         type: 'bar'
     },
     title: {
-        text: 'Employee of the month voting live Feed for top 5 Nominees by Graph'
+        text: 'Employee of the month, Last month for top 5 Nominees'
     },
     subtitle: {
         text: 'Source: <a href="#">Voting Feedback</a>'
