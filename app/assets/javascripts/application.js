@@ -19,5 +19,4 @@
 //= require unobtrusive_flash
 //= require select2-full
 //= require masonry/jquery.masonry
-//= require lightbox
 //= require_tree .
