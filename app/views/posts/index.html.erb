@@ -154,7 +154,7 @@
   <div class="text-center">
             <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
            	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-	          <%= link_to "Load More", posts_path, class: "btn btn-lg btn-success" %>
+	          <%= paginate @posts %>
      </div>
 <!--/single blog post-->
       </div>

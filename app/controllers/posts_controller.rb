@@ -12,6 +12,7 @@ class PostsController < ApplicationController
       # change here if you need to add search
       @posts = Post.all
     end
+    @posts = Post.page(params[:page]).per(5)
   end
 
   # GET /posts/1
