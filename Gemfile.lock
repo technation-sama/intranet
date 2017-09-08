@@ -318,6 +318,7 @@ DEPENDENCIES
   highcharts-rails
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   omniauth-google-oauth2
   pg
