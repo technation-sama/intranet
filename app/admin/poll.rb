@@ -10,13 +10,14 @@ current=Date.today.strftime("%B")<<Date.today.strftime("%Y")
 users= Poll.where(period: current).map(&:user_id).uniq
 
 index do
-  panel "#{current} votes" do	
+  panel "#{current} votes" do 
     table_for User.where('id IN (?)', users).order(polls_count: :desc)do
-
       column "Nominee ", :name
-
       column "Number of Votes",:polls_count
     end
+  end
+  panel "#{current} Graphical view" do	
+    render 'polls/votercharts'
   end
 end
 

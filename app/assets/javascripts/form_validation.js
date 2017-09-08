@@ -44,8 +44,7 @@ $(document).on ("turbolinks:load",function() {
                  url: $form.attr('action'),
                  data: $form.serialize(),
                  success: function(data){
-                    $('#poll-div').html('<div class="alert elert-success">Your vote successfully submited</div>')
-                    return false
+                    console.log(data)
                   },
                   error: function(data){
                     console.log(data)

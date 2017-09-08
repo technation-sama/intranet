@@ -19,17 +19,18 @@
    
    </div>
       <!--- Typing Script ---->
-   <div class="row">
+  <!--  <div class="row">
    <div class="col-md-12 type_container">
    
 <h1 class="typer"></h1>
 
    </div>
-   </div>
-      
+   </div> -->
+      <br>
    <div class="row">
  <div id="poll-div" class="col-md-7">
-<% if @voted>0 %>  
+
+<% if @voted>0 %> 
 <div class="alert alert-success">You have already submated your vote for this month!! </div>
 </div><!-- close col-lg-7  -->
 <%else%>
@@ -95,8 +96,7 @@
       <%= image_tag("workers_sama.png", class:"img-responsive")%>
       </div>
    </div>
-
-<h1 class="text-center">Previous month's Top 5</h1>
+<hr>
   <%if current_user%>
   <%= render 'votercharts'%>
   <%end%>

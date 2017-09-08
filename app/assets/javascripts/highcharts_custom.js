@@ -1,17 +1,18 @@
+function ChartData (data) {
 Highcharts.chart('container_graph', {
     chart: {
-        type: 'bar'
+        type: 'column'
     },
     title: {
         text: 'Employee of the month, Last month for top 5 Nominees'
     },
     subtitle: {
-        text: 'Source: <a href="#">Voting Feedback</a>'
+        text: ''
     },
     xAxis: {
-        categories: ['Nominee I', 'Nominee II', 'Nominee III', 'Nominee IV', 'Nominee V'],
-        title: {
-            text: null
+        type: 'category',
+        labels: {
+          rotation: -45,          
         }
     },
     yAxis: {
@@ -20,10 +21,6 @@ Highcharts.chart('container_graph', {
             text: 'Votes (hundreds)',
             align: 'high'
         },
-        labels: {
-            overflow: 'justify'
-        }
-		
     },
     tooltip: {
         valueSuffix: ''
@@ -51,10 +48,22 @@ Highcharts.chart('container_graph', {
     },
     series: [{
         name: 'Votes',
-        data: [107, 31, 635, 203, 2]
+        data: data
     }],
 	colors: ['#000']
 	
 
 });
+}
+$(document).on ("turbolinks:load",function() {
+ $.ajax({
+    url: 'polls/chart',
+    type: 'GET',
+    async: true,
+    dataType: "json",
+    success: function (data) {
+        ChartData(data);
+    }
+  });
+ });
 

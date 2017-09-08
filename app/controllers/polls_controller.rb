@@ -14,14 +14,25 @@ class PollsController < ApplicationController
   # GET /polls/1/edit
   def edit
   end
-  
+# method to populate highcharts data
+def chart
+  polls= Poll.where(period: set_period).map(&:user_id).uniq
+  users=User.where('id IN (?)', polls).order(polls_count: :desc).limit(5)
+  all = users.collect{|user|
+        [user.name, 
+         user.polls_count
+        ]}
+        render json: all
+  end
+
   def create
     @poll = Poll.new(poll_params)
     @poll.period=set_period
     @poll.voter_id=current_user.id
     respond_to do |format|
-      if @poll.save
-        format.html { redirect_to polls_url, notice: 'Poll was successfully created.'}
+      if @poll.save 
+        flash[:success]= 'Poll was successfully created.'
+        format.html { redirect_to polls_url}
         format.json { render :show, status: :created, location: @poll }
       else
         flash[:error] =@poll.errors.full_messages.join("\n")
@@ -52,6 +63,9 @@ class PollsController < ApplicationController
     # function to set the voting period
     def set_period
       Date.today.strftime("%B")<<Date.today.strftime("%Y")
+    end
+    def last_month
+      1.month.ago.strftime("%B")<<1.month.ago.strftime("%Y")
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
