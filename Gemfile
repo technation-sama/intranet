@@ -8,6 +8,7 @@ end
 ruby '2.4.0'
 
 #
+gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "font-awesome-rails"
 gem 'simple_form'
