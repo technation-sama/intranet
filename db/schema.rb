@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 20170905142131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "announcements", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -66,14 +60,6 @@ ActiveRecord::Schema.define(version: 20170905142131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_gallery_attachments_on_gallery_id", using: :btree
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string   "file"
-    t.integer  "album_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
   end
 
   create_table "polls", force: :cascade do |t|
@@ -178,6 +164,5 @@ ActiveRecord::Schema.define(version: 20170905142131) do
   add_foreign_key "comments", "posts"
   add_foreign_key "downloads", "categories"
   add_foreign_key "gallery_attachments", "galleries"
-  add_foreign_key "photos", "albums"
   add_foreign_key "polls", "users"
 end
