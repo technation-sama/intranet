@@ -1,45 +1,29 @@
 <div class="container">
   <h1>Galleries</h1>
 
-  <div id="album" class="transitions-enabled">
+  <div id="pins" class="transitions-enabled">
     <% @galleries.each do |gallery| %>
-      <div class="box panel panel-default">
-        <%= image_tag gallery.gallery_attachments[0].photo, class: "img-reponsive"%>
-        <div class="panel-body">
-          <%= link_to gallery.title, gallery %>
-          <span class="badge">
-            <%= gallery.gallery_attachments.count %>
-          </span>
-        </div>
+      <div class="box gallery-index" style="background-image: url('<%= gallery.gallery_attachments.last.photo_url %>');">
+        <%= link_to gallery, class: "link-to-gallery-show" do %>          
+          <div>
+            <h4>
+              <span>
+                <span><%= gallery.gallery_attachments.count %></span>
+                photos
+              </span>
+            </h4>
+          </div>
+          <h2><%= gallery.title %></h2>
+        <% end %>
       </div>
-    <% end %> 
+    <% end -%>
   </div>
+
+
 </div>
 
 
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @galleries.each do |gallery| %>
-      <tr>
-        <td><%= gallery.title %></td>
-        <td><%= gallery.gallery_attachments.count %></td>
-        <td><%= link_to 'Show', gallery %></td>
-        <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-        <td><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Gallery', new_gallery_path %>
+<%#= link_to 'Show', gallery %>
+<%#= link_to 'Edit', edit_gallery_path(gallery) %>
+<%#= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%#= link_to 'New Gallery', new_gallery_path %>
