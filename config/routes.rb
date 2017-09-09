@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :gallery_attachments
+  resources :galleries
   get 'categories/downloads'
 
   resources :downloads
