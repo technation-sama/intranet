@@ -26,7 +26,7 @@
             <!-- Collecting the nav links, forms, and other content for toggling bootstrap -->
             <div class="collapse navbar-collapse" id="app-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                     <li>
+                    <li>
                         <%= link_to "Home", root_url %>
                     </li>
                     <li>
@@ -41,16 +41,10 @@
                     <li>
                       <%=link_to "Suggestions", suggestions_url %>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Dropdown Menu</a>
-                            </li>
-
-                        </ul>
+                    <li>
+                      <%= link_to "Gallery", galleries_url %>
                     </li>
-                     <li>
+                    <li>
                         <%= link_to "Downloads", categories_downloads_path %>
                     </li>
                      <li>
@@ -64,10 +58,21 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li>  <%= link_to 'Dashboard', new_admin_user_session_path, :class => 'navbar-link' %> </li>
                     <li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+
                     <li>
-                      <%= link_to '<i class="fa fa-sign-out pull-right"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
-                    </li>
-                  </ul>
+                      <% if user_signed_in? %>
+                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <%= image_tag(current_user.image) %>
+                          <%= current_user.name %>
+                          <span class=" fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                          <li><%= link_to 'Dashboard', rails_admin.dashboard_path, :class => 'navbar-link' %></li>
+                          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+                          <li>
+                            <%= link_to '<i class="fa fa-sign-out pull-right"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
+                          </li>
+                        </ul>
                       <% else %>
                         <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'user-profile'%>
                       <% end %>

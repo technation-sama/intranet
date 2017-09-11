@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170907132238) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -44,6 +47,12 @@ ActiveRecord::Schema.define(version: 20170907132238) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    
   end
 
   create_table "announcements", force: :cascade do |t|
@@ -77,6 +86,28 @@ ActiveRecord::Schema.define(version: 20170907132238) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_downloads_on_category_id", using: :btree
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gallery_attachments", force: :cascade do |t|
+    t.integer  "gallery_id"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_gallery_attachments_on_gallery_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
   end
 
   create_table "polls", force: :cascade do |t|
@@ -183,5 +214,7 @@ ActiveRecord::Schema.define(version: 20170907132238) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "downloads", "categories"
+  add_foreign_key "gallery_attachments", "galleries"
+  add_foreign_key "photos", "albums"
   add_foreign_key "polls", "users"
 end

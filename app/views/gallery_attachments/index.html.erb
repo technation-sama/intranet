@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gallery Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gallery</th>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gallery_attachments.each do |gallery_attachment| %>
+      <tr>
+        <td><%= gallery_attachment.gallery %></td>
+        <td><%= gallery_attachment.photo %></td>
+        <td><%= link_to 'Show', gallery_attachment %></td>
+        <td><%= link_to 'Edit', edit_gallery_attachment_path(gallery_attachment) %></td>
+        <td><%= link_to 'Destroy', gallery_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gallery Attachment', new_gallery_attachment_path %>

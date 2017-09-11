@@ -19,9 +19,7 @@
 //= require unobtrusive_flash
 //= require select2-full
 //= require highcharts
-//= require custom
-//= require flashes
-//= require form_validation
-//= require form_validation_suggestion
-//= require highcharts_custom
-//= require typer
+//= require masonry/jquery.masonry
+//= require lightbox
+//= require_tree .
+

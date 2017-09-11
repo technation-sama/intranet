@@ -1,0 +1,180 @@
+// Place all the styles related to the Galleries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1, h3 {
+  text-align: center;
+}
+#pins {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.box{
+  margin: 12px;
+}
+.gallery-index {  
+  width: calc((100% - 72px) / 3);
+  border-radius: 7px;
+  height: 250px;
+  background-color: rgba(0,0,0,.25);
+  background-size: cover;
+}
+
+.link-to-gallery-show {
+  padding: 28px 30px 30px;
+  text-decoration: none;
+  color: white;
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.25);  
+  border-radius: 7px;
+}
+
+.link-to-gallery-show:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-gallery-show div {
+  margin-bottom: 2px;
+}
+
+.link-to-gallery-show div h4 {
+  font-size: 12px;
+  letter-spacing: .02em;
+  margin: 0 0 1px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.15);
+  opacity: .6;
+  font-weight: 400;
+}
+
+.link-to-gallery-show h2 {
+  font-size: 23px;
+  margin: 0;
+  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/** show page **/
+.gallery-show  {
+  width: calc((100% - 72px) / 3);
+  position: relative;
+}
+
+.gallery-show img {
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+}
+
+.user-download {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  pointer-events: none;
+  height: 32px;
+}
+
+.user {
+  display: inline-block;
+  width: 70%;
+  float: left;
+}
+
+.user span {
+  position: relative;
+  pointer-events: auto;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.user span span {
+  position: relative;
+}
+
+.user-pic {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  box-shadow: 0 0 1px rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.2);
+  color: #999;
+  transition: color .2s ease-in-out,opacity .2s ease-in-out;
+  text-decoration-skip: ink;
+}
+
+.user-pic img {
+  width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+
+.user-name {
+  position: relative;
+  min-width: 0;
+}
+
+.user-name span a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  text-shadow: 0 1px rgba(0,0,0,.04);
+  line-height: 30px;
+  display: block;
+  line-height: 1.3;
+  font-size: 15px;
+  opacity: .8;
+  transition: opacity .2s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color .2s ease-in-out,opacity .2s ease-in-out;
+  text-decoration-skip: ink;
+  background-color: transparent;
+}
+
+.download {
+  width: 30%;
+  text-align: right;
+  pointer-events: auto;
+  display: inline-block;
+  float: right;
+}
+.download a {
+  color: #777;
+  fill: currentColor;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
+  outline: 0;
+  background-color: hsla(0,0%,100%,.85);
+  border: 1px solid transparent;
+  display: inline-block;
+  height: 32px;
+  padding: 0 11px;
+  font-size: 14px;
+  line-height: 29px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  transition: all .2s ease-in-out;
+  transition: color .2s ease-in-out,opacity .2s ease-in-out;
+}
+
+.download a span svg {
+  position: relative;
+  top: -1px;
+  width: 16px;
+}

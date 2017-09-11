@@ -1,0 +1,49 @@
+<div class="container">
+	<h3><%= @gallery.title %></h3>
+
+	<div id="pins" class="transitions-enabled">
+		<% @gallery.gallery_attachments.all.each do |pic| %>
+	    <div class="box gallery-show">
+	    	<%= link_to pic.photo_url, class: "lightbox-show", data: { lightbox: @gallery.title.parameterize, title: @gallery.title } do %>
+		      <%= image_tag pic.photo_url %>
+	      <% end -%>	    
+
+				<div class="user-download">
+					<div class="user">
+						<span>
+							<span>
+								<a class="user-pic" href="#">
+									<img alt="User avatar" src="https://yt3.ggpht.com/-MlnvEdpKY2w/AAAAAAAAAAI/AAAAAAAAAAA/tOyTWDyUvgQ/s900-c-k-no-mo-rj-c0xffffff/photo.jpg">
+								</a>
+							</span>
+					  <div class="user-name">
+					  	<span>
+					  		<a href="/@tomsdg">Victor Mutai</a>
+					  	</span>
+					  </div>
+					  </span>
+					</div>
+					<div class="download">
+						<%= link_to pic.photo_url, rel: "nofollow", download: "" , target: "_blank" do %>
+						
+							<span>
+								<svg version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-hidden="false">
+									<path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+								</svg>
+							</span>
+						
+						<% end -%>
+					</div>
+				</div>
+
+			</div>
+    <% end %>
+  </div>
+
+</div>
+
+
+<%#= link_to "Edit", edit_gallery_attachment_path(pic) %>
+<%#= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%#= link_to 'Edit', edit_gallery_path(@gallery) %>
+<%#= link_to 'Back', galleries_path %>
