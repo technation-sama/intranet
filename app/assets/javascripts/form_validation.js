@@ -29,24 +29,29 @@ $(document).on ("turbolinks:load",function() {
                     }
                 }
             }
-        }).on('success.form.fv', function(e) {
-        // called when the form is valid
-        console.log('sucess');
-        var $form = $(e.target);
-        if ($form.data('remote')) {
+        }).on('success.form.bv', function (e) {
             e.preventDefault();
-            return false;
-        }
-        }).on('submit', function (e) {
-                e.preventDefault();
             var $form = $(e.target);
-            if ($form.data('remote')) {
-            var numInvalidFields = $form.data('formValidation').getInvalidFields().length;
-            if (numInvalidFields) {
+            var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length
+            if (numInvalidFields>0) {
                 e.preventDefault();
-                return false;
+                return false;  
             }
-        }   
+            else{
+                 // console.log($form.serialize())
+              $.ajax({
+                 type: "POST",
+                 url: $form.attr('action'),
+                 data: $form.serialize(),
+                 success: function(data){
+                    console.log(data)
+                  },
+                  error: function(data){
+                    console.log(data)
+                    return false
+                  }
+              });
+            }
         });
 });
 

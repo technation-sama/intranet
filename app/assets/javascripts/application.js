@@ -18,6 +18,8 @@
 //= require pnotify
 //= require unobtrusive_flash
 //= require select2-full
+//= require highcharts
 //= require masonry/jquery.masonry
 //= require lightbox
 //= require_tree .
+

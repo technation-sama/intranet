@@ -3,9 +3,7 @@
   <head>
     <title>Intranet</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
@@ -49,6 +47,18 @@
                     <li>
                         <%= link_to "Downloads", categories_downloads_path %>
                     </li>
+                     <li>
+                      <% if user_signed_in? %>
+                      <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <%= image_tag(current_user.image)%>
+                      <!-- <img src="images/img.jpg" alt=""> -->
+                      <%=current_user.name%>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li>  <%= link_to 'Dashboard', new_admin_user_session_path, :class => 'navbar-link' %> </li>
+                    <li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+
                     <li>
                       <% if user_signed_in? %>
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -74,21 +84,6 @@
         <!-- /.container -->
     </nav>
 
-
-
-    <% if notice %>
-      <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= notice %>', 'success', 5);
-    </script>
-    <% end %>
-    <% if alert %>
-    <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= alert %>', 'error', 15);
-    </script>
-    <% end %>
-
     <%= yield %>
      <!-- Footer -->
            <!-- Call to Action Section -->
@@ -107,6 +102,6 @@
 
     </div>
     <!-- /.container -->
-   <%= javascript_include_tag 'application', 'data-turbolinks-eval' => false %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
   </body>
 </html>
