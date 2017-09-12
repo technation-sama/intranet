@@ -30,7 +30,7 @@
    <div class="row">
  <div id="poll-div" class="col-md-7">
 
-<% if @voted>0 %> 
+<% if @voted!=nil && @voted>0 %> 
 <div class="alert alert-success">You have already submated your vote for this month!! </div>
 </div><!-- close col-lg-7  -->
 <%else%>
