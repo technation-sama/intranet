@@ -40,6 +40,7 @@ $ ->
 
   # failsafe in case the user gets to the bottom
   # without infinite scrolling taking affect.
-  viewMore.find('a').click (e) ->
-    nextPage()
-    e.preventDefault()
+  # function below was commented out because it caused partial to render twice
+  # viewMore.find('a').click (e) ->
+   # nextPage()
+    # e.preventDefault()

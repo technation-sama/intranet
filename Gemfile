@@ -20,7 +20,6 @@ gem 'activeadmin'
 gem 'arctic_admin'
 
 gem 'jquery-fileupload-rails', '~> 0.4.7'
-gem 'masonry-rails', '~> 0.2.4'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
 
 

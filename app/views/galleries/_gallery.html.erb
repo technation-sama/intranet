@@ -1,0 +1,13 @@
+<div class="box gallery-index" style="background-image: url('<%= gallery.gallery_attachments.last.photo_url %>');">
+  <%= link_to gallery, class: "link-to-gallery-show" do %>          
+    <div>
+      <h4>
+        <span>
+          <span><%= gallery.gallery_attachments.count %></span>
+          photos
+        </span>
+      </h4>
+    </div>
+    <h2><%= gallery.title %></h2>
+  <% end %>
+</div>

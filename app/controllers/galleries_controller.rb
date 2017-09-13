@@ -4,13 +4,14 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.page(params[:page]).per(25)
   end
 
   # GET /galleries/1
   # GET /galleries/1.json
   def show
-    @gallery_attachments = @gallery.gallery_attachments.page(params[:page]).per(3)
+    # to change. still working on the pagination/load more
+    @gallery_attachments = @gallery.gallery_attachments.page(params[:page]).per(2)
   end
 
   # GET /galleries/new

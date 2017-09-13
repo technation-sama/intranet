@@ -1,5 +1,5 @@
-<% @gallery_attachments.each do |pic| %>
-  <div class="box gallery-show">
+<% @gallery.gallery_attachments.each do |pic| %>
+  <div class="box gallery-show" id="picture-box">
   	<%= link_to pic.photo_url, class: "lightbox-show", data: { lightbox: @gallery.title.parameterize, title: @gallery.title } do %>
       <%= image_tag pic.photo.url %>
     <% end -%>	    
@@ -9,12 +9,12 @@
 				<span>
 					<span>
 						<a class="user-pic" href="#">
-							<img alt="User avatar" src="https://yt3.ggpht.com/-MlnvEdpKY2w/AAAAAAAAAAI/AAAAAAAAAAA/tOyTWDyUvgQ/s900-c-k-no-mo-rj-c0xffffff/photo.jpg">
+							<img alt="User avatar" src="https://gafapapas.files.wordpress.com/2014/07/stewe.jpeg?w=640">
 						</a>
 					</span>
 			  <div class="user-name">
 			  	<span>
-			  		<a href="/@tomsdg">Victor Mutai</a>
+			  		<a href="#">Victor Mutai</a>
 			  	</span>
 			  </div>
 			  </span>
