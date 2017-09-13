@@ -4,10 +4,10 @@
     <title>Intranet</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script async src="https://platform.twitter.com/widgets.js" data-no-turbolink="true" charset="utf-8"></script>
   </head>
 
   <body>
-
    <!-- Our Navigation Menu-->
     <nav class="navbar navbar-inverse navbar-fixed-top added_nav" role="navigation">
         <div class="container">
@@ -90,6 +90,6 @@
 
     </div>
     <!-- /.container -->
-   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
