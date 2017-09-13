@@ -1,4 +1,4 @@
-<div class="box gallery-index" style="background-image: url('<%= gallery.gallery_attachments.last.photo_url %>');">
+<div class="box gallery-index" id="gallery<%= gallery.id %>" style="background-image: url('<%= gallery.gallery_attachments.last.photo_url %>');">
   <%= link_to gallery, class: "link-to-gallery-show" do %>          
     <div>
       <h4>

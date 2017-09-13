@@ -21,6 +21,13 @@ $(document).on('turbolinks:load',function(){
     placeholder: 'select category',
     width: "100%"
   });
+
+  // masonry transitions
+  $('#pins').masonry({
+    itemSelector: '.box',
+    isAnimated: true,
+    isFitWidth: true
+  });
 });
  
 // prevent collapse after page like

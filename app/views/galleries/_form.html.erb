@@ -1,10 +1,10 @@
-<%= simple_form_for(@gallery, multipart: true) do |f| %>
+<%= simple_form_for(gallery, multipart: true, remote: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :title, class: "gallery_title" %>
     <%= f.simple_fields_for :gallery_attachments do |pic| %>
-    	<%= pic.input :photo, as: :file, input_html: { name: "gallery_attachments[photo][]", multiple: true } %>
+    	<% pic.input :photo, as: :file, input_html: { name: "gallery_attachments[photo][]", multiple: true, class: "gallery_photos" } %>
     <% end %>
   </div>
 

@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'masonry-rails', '~> 0.2.4'
 
 gem 'highcharts-rails'
 # active admin gem

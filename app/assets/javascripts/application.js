@@ -20,5 +20,6 @@
 //= require select2-full
 //= require highcharts
 //= require lightbox
+//= require masonry/jquery.masonry
 //= require_tree .
 

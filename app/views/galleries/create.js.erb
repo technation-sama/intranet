@@ -1,0 +1,6 @@
+$("#myModal").modal('hide');
+$(".gallery_title").val('');
+$(".gallery_photos").val('');
+
+$("#pins").prepend('<%= j render @galleries %>');
+$("#gallery<%= gallery.id %>").hide().fadeIn(1000);
