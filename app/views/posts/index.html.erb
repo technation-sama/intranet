@@ -72,8 +72,9 @@
                   </div>             
               </section>
               <section class="post-body">
-
                 <p>
+                 <%= image_tag(post.image, class:"img-responsive")%>
+                
                    <% if post.description.length > 700 %>
                       <%= truncate(post.description, length: 700) %>
                       <%= link_to '...Show more', '',data: { no_turbolink: true }, class: "read-more-#{post.id}" %>
