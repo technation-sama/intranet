@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :gallery_attachments
   resources :galleries
   get 'categories/downloads'
-
+  get "polls/chart"
   resources :downloads
   mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
   get 'pages/download'

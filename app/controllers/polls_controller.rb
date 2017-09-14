@@ -6,21 +6,37 @@ class PollsController < ApplicationController
   def index
      @poll = Poll.new
      @users=User.all
-    
+    if current_user
+      @voted=Poll.where('period = ? AND voter_id = ?', set_period,current_user.id).count
+    end
   end
 
   # GET /polls/1/edit
   def edit
   end
-  
+# method to populate highcharts data
+def chart
+  polls= Poll.where(period: set_period).map(&:user_id).uniq
+  users=User.where('id IN (?)', polls).order(polls_count: :desc).limit(5)
+  all = users.collect{|user|
+        [user.name, 
+         user.polls_count
+        ]}
+        render json: all
+  end
+
   def create
     @poll = Poll.new(poll_params)
+    @poll.period=set_period
+    @poll.voter_id=current_user.id
     respond_to do |format|
-      if @poll.save
-        format.html { redirect_to polls_url, notice: 'Poll was successfully created.' }
+      if @poll.save 
+        flash[:success]= 'Poll was successfully created.'
+        format.html { redirect_to polls_url}
         format.json { render :show, status: :created, location: @poll }
       else
-        format.html { render :new }
+        flash[:error] =@poll.errors.full_messages.join("\n")
+       format.html {redirect_to polls_url}
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
     end
@@ -39,11 +55,18 @@ class PollsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_poll
       @poll = Poll.find(params[:id])
     end
-
+    # function to set the voting period
+    def set_period
+      Date.today.strftime("%B")<<Date.today.strftime("%Y")
+    end
+    def last_month
+      1.month.ago.strftime("%B")<<1.month.ago.strftime("%Y")
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
       params.require(:poll).permit(:user_id, :project_name, :body)

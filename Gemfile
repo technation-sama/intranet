@@ -10,11 +10,19 @@ ruby '2.4.0'
 #
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'simple_form'
-gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'masonry-rails', '~> 0.2.4'
+
+gem 'highcharts-rails'
+# active admin gem
+gem 'activeadmin'
+# active admin teme
+gem 'arctic_admin'
+
+gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
+
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'
@@ -23,6 +31,7 @@ gem 'omniauth-google-oauth2'
 # /bootstrap validation
 gem 'bootstrap-validator-rails'
 gem 'carrierwave', '~> 1.1'
+gem 'mini_magick', '~> 4.8'
 
 # notification
 gem 'pnotify-rails'

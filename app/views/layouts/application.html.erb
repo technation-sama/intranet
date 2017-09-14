@@ -3,13 +3,10 @@
   <head>
     <title>Intranet</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
-
    <!-- Our Navigation Menu-->
     <nav class="navbar navbar-inverse navbar-fixed-top added_nav" role="navigation">
         <div class="container">
@@ -49,7 +46,7 @@
                     <li>
                         <%= link_to "Downloads", categories_downloads_path %>
                     </li>
-                    <li>
+                     <li>
                       <% if user_signed_in? %>
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <%= image_tag(current_user.image) %>
@@ -57,7 +54,7 @@
                           <span class=" fa fa-angle-down"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">
-                          <li><%= link_to 'Dashboard', rails_admin.dashboard_path, :class => 'navbar-link' %></li>
+                           <li>  <%= link_to 'Dashboard', new_admin_user_session_path, :class => 'navbar-link' %> </li>
                           <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
                           <li>
                             <%= link_to '<i class="fa fa-sign-out pull-right"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
@@ -73,21 +70,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
-
-
-    <% if notice %>
-      <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= notice %>', 'success', 5);
-    </script>
-    <% end %>
-    <% if alert %>
-    <script>
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify('<%= alert %>', 'error', 15);
-    </script>
-    <% end %>
 
     <%= yield %>
      <!-- Footer -->
@@ -107,6 +89,14 @@
 
     </div>
     <!-- /.container -->
-   <%= javascript_include_tag 'application', 'data-turbolinks-eval' => false %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+   <script>
+     $('#pins').masonry({
+        itemSelector: '.box',
+        isAnimated: true,
+        isFitWidth: true
+      });
+   </script>
   </body>
 </html>

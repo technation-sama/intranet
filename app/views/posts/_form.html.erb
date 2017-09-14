@@ -1,13 +1,18 @@
-<%= simple_form_for(post, multipart: true) do |f| %>
+<%= simple_form_for(post, html: { class: "form-horizontal" }, multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :tag_list, label: 'Category', placeholder: 'Enter Category Separate with comma' %>
-    <%= f.input :description %>
-    <%= f.input :image %>
+    <%= f.input :title, input_html: { class: "form-control" }  %>
+    <%= f.input :tag_list, label: 'Category',input_html: { class: "form-control" }, placeholder: 'Enter Category Separate with comma' %>
+    <%= f.input :description, input_html: { class: "form-control" }  %>
+   
+     <%= f.input :image, as: :file, input_html: { class: "hidden" }, label: false%>
+      <label>Upload Image (Optional)</label>
+  <div class="input-group">
+  <span class="input-group-addon" id="upload-btn">Upload</span>
+  <input type="text" id="file-display" disabled class="form-control" placeholder="Username" aria-describedby="basic-addon1">
   </div>
-
+  </div><br>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

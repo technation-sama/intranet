@@ -1,6 +1,3 @@
-// Place all the styles related to the Galleries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1, h3 {
   text-align: center;
@@ -10,14 +7,13 @@ h1, h3 {
   width: 100%;
 }
 
-.box{
+.box {
   margin: 12px;
 }
 .gallery-index {  
-  width: calc((100% - 72px) / 3);
+  width: 350px;
   border-radius: 7px;
   height: 250px;
-  background-color: rgba(0,0,0,.25);
   background-size: cover;
 }
 
@@ -28,12 +24,12 @@ h1, h3 {
   float: left;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,.25);  
   border-radius: 7px;
+  background-color: rgba(0,0,0,.25);
 }
 
 .link-to-gallery-show:hover {
-  color: white;
+  color: white!important;
   text-decoration: none;
 }
 

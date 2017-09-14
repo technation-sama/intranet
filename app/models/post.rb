@@ -5,4 +5,6 @@ class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	validates :title, :description, presence: true
 	default_scope { order('created_at DESC') }
+	
+    mount_uploader :image, ImageUploader
 end
