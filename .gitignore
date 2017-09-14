@@ -8,7 +8,7 @@
 /.bundle
 # Ignore  Enviroment variables yml file 
 config/environment_variables.yml
-config/database.yml
+# config/database.yml
 
 
 # Ignore the default SQLite database.
@@ -23,3 +23,6 @@ config/database.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore uploaded photos
+public/uploads/*

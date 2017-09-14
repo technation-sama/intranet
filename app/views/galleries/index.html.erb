@@ -1,24 +1,17 @@
 <div class="container">
   <h1>Galleries</h1>
-
+  
   <div id="pins" class="transitions-enabled">
-    <% @galleries.each do |gallery| %>
-      <div class="box gallery-index" style="background-image: url('<%= gallery.gallery_attachments.last.photo_url %>');">
-        <%= link_to gallery, class: "link-to-gallery-show" do %>          
-          <div>
-            <h4>
-              <span>
-                <span><%= gallery.gallery_attachments.count %></span>
-                photos
-              </span>
-            </h4>
-          </div>
-          <h2><%= gallery.title %></h2>
-        <% end %>
-      </div>
-    <% end -%>
+    <%= render @galleries %>
   </div>
-
+  
+  <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-primary btn-lg" %>
+  
+  <%# unless @galleries.current_page == @galleries.total_pages %>
+	  <p id="view-more">
+	    <%#= link_to 'View More', url_for(page: @galleries.current_page + 1), remote: true %>
+	  </p>
+	<%# end %>
 
 </div>
 
@@ -26,4 +19,4 @@
 <%#= link_to 'Show', gallery %>
 <%#= link_to 'Edit', edit_gallery_path(gallery) %>
 <%#= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'New Gallery', new_gallery_path %>
+<%#= link_to 'New Gallery', new_gallery_path %>

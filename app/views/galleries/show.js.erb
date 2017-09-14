@@ -1,0 +1,7 @@
+$('#pins').append("<%= j render partial: 'gallery_attachment' %>");
+
+<% if @gallery_attachments.current_page == @gallery_attachments.total_pages %>
+  $('#view-more').remove();
+<% else %>
+  $('#view-more a').attr('href', '<%= url_for(page: @gallery_attachments.current_page + 1) %>');
+<% end %>

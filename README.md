@@ -59,7 +59,7 @@ Remember to changer the values of `DATABASE_USER` and `DATABASE_PASSWORD` based 
 Run the migrations
 
 ```bash
-$ rails db:create && rails db:migrate
+$ rails db:create db:migrate
 ```
 
 If you wish to populate your database with [Faker gem](https://github.com/stympy/faker) run this;
