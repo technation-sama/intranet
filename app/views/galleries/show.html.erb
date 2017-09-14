@@ -1,15 +1,15 @@
 <div class="container">
 	<h3><%= @gallery.title %></h3>
 
-	<div id="pins" class="transitions-enabled">
+	<div id="pins" class="transitions-enabled" data-no-turbolinks="true">
 		<%= render partial: 'gallery_attachment' %>
 	</div>
 
-	<% unless @gallery_attachments.current_page == @gallery_attachments.total_pages %>
+	<%# unless @gallery_attachments.current_page == @gallery_attachments.total_pages %>
 	  <p id="view-more">
-	    <%= link_to 'View More', url_for(page: @gallery_attachments.current_page + 1), remote: true %>
+	    <%#= link_to 'View More', url_for(page: @gallery_attachments.current_page + 1), remote: true %>
 	  </p>
-	<% end %>
+	<%# end %>
 	
 
 </div>
