@@ -503,5 +503,35 @@ hr{
 .post-footer-comment-wrapper{
     background-color:#F6F7F8;
 }
+#floating-button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #000000;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px #666;
+}
+.glyphicon-pencil{
+    color: #ffd300;
+    position: absolute;
+    top: 0;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 55px;
+    font-size:20px;
+}
+.string required{
+    padding-left:5px;
+    width:200px;
+}
+
 
 /***\posts page**/
