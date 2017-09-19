@@ -23,10 +23,11 @@ $(document).on('turbolinks:load',function(){
   });
 
   // masonry transitions
-  $('#pins').masonry({
-    itemSelector: '.box',
-    isAnimated: true,
-    isFitWidth: true
+  $('#pins').imagesLoaded(function() {
+    $('#pins').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
   });
 });
  
