@@ -75,7 +75,7 @@ Intranet uses mini_magick for image processing.
 ImageMagick. Carrierwave can use either RMagick or MiniMagick (default). To change resize option the correct gem must be used (specified in Gemfile) and change included setting for Carrierwave in file_uploader.rb
 Can be installed from: http://www.imagemagick.org
 
-or run (if it fails run update first the try to install it)
+or run (if it fails run apt-get update first then try to install it)
 
 ```bash
 sudo apt-get install imagemagick
