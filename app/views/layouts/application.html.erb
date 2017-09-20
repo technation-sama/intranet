@@ -54,7 +54,7 @@
                           <span class=" fa fa-angle-down"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">
-                           <li>  <%= link_to 'Dashboard', new_admin_user_session_path, :class => 'navbar-link' %> </li>
+                           <li>  <%= link_to 'Dashboard', admin_root_path, :class => 'navbar-link' %> </li>
                           <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
                           <li>
                             <%= link_to '<i class="fa fa-sign-out pull-right"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
