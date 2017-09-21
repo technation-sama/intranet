@@ -111,8 +111,6 @@ GEM
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
     hashie (3.5.6)
-    highcharts-rails (5.0.7)
-      railties (>= 3.1)
     i18n (0.8.6)
     inherited_resources (1.7.2)
       actionpack (>= 3.2, < 5.2.x)
@@ -324,7 +322,6 @@ DEPENDENCIES
   devise
   faker (~> 1.8, >= 1.8.4)
   font-awesome-rails
-  highcharts-rails
   jbuilder (~> 2.5)
   jquery-fileupload-rails (~> 0.4.7)
   jquery-rails

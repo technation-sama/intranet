@@ -20,6 +20,11 @@
 //= require select2-full
 //= require lightbox
 //= require masonry/jquery.masonry
-//= require_tree .
-//= stub 'active_admin'
+//= require flashes
+//= require form_validation
+//= require form_validation_suggestion
+//= require infinite-scroll
+//= require poll
+//= require typer
+//= require custom
 
