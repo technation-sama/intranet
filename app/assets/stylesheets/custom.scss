@@ -515,6 +515,10 @@ hr{
     right: 5px;
     cursor: pointer;
     box-shadow: 0px 2px 5px #666;
+    z-index: 99999;
+    box-shadow: 0 10px 6px -6px #777;
+     -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
 }
 .glyphicon-pencil{
     color: #ffd300;
