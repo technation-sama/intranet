@@ -33,7 +33,7 @@ $ bundle install
 ```
 
 ### Setting up environmental variables
-create `environment_variables.yml` file in the `config` folder.
+create `environment_variables.yml` file in the `config` folder. (you dont need this file if you are on cloud9)
 
 Add these in the file you just created
 
@@ -75,21 +75,23 @@ Intranet uses mini_magick for image processing.
 ImageMagick. Carrierwave can use either RMagick or MiniMagick (default). To change resize option the correct gem must be used (specified in Gemfile) and change included setting for Carrierwave in file_uploader.rb
 Can be installed from: http://www.imagemagick.org
 
-or run (if it fails run apt-get update first then try to install it)
+or run
 
 ```bash
+sudo apt-get update
 sudo apt-get install imagemagick
 ```
 
 ### cloud9
-For c9.io users installation process is same although you have to start  postgresql service by running the command;
+For c9.io users installation process is same although for a few changes. You dont need to create `environment_variables.yml` file. Secondly you have to start postgresql service by running the command;
 ```bash
 sudo service postgresql start
 ```
+Finally before running `rake db:create db:migrate` goto `config/database.yml` and change value of `encoding:` to `SQL_ASCII`
 
 ## Tests
 
-No test available. App is still in development stage
+I know right we need to get this done
 
 ## Contributing
 
