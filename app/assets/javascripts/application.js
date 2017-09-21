@@ -18,8 +18,8 @@
 //= require pnotify
 //= require unobtrusive_flash
 //= require select2-full
-//= require highcharts
 //= require lightbox
 //= require masonry/jquery.masonry
 //= require_tree .
+//= stub 'active_admin'
 

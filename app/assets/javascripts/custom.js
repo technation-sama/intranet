@@ -7,6 +7,7 @@ $("#main").click(function() {
 });
 
 $(document).on('turbolinks:load',function(){
+  
   // to show the first tab
   $('#prodTabs a:first').tab('show');
 
