@@ -81,6 +81,12 @@ or run (if it fails run apt-get update first then try to install it)
 sudo apt-get install imagemagick
 ```
 
+### cloud9
+For c9.io users installation process is same although you have to start  postgresql service by running the command;
+```bash
+sudo service postgresql start
+```
+
 ## Tests
 
 No test available. App is still in development stage

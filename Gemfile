@@ -13,7 +13,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
-
+gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
 # active admin gem
 gem 'activeadmin'
 # active admin teme
@@ -84,6 +84,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails', '~> 0.3.6'
   gem 'faker', '~> 1.8', '>= 1.8.4'
+  gem 'tty-progressbar'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
