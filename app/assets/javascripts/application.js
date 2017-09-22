@@ -27,4 +27,5 @@
 //= require poll
 //= require typer
 //= require custom
-
+//= require readmore
+//= require tinymce

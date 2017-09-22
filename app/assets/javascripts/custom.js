@@ -7,19 +7,29 @@ $("#main").click(function() {
 });
 
 $(document).on('turbolinks:load',function(){
+  tinymce.init({
+  selector: '.tinymce',  // change this value according to your HTML
+  branding: false,
+  elementpath: false,
+  menubar: false,
+  statusbar: false
+});
   
+$('.post-body').readmore({
+      lessLink: '<a href="#">Show less</a>'
+});
+    
   // to show the first tab
   $('#prodTabs a:first').tab('show');
 
   $(".select2" ).select2();
    
   // article categories select
-  $("#post_tag_list").select2({
+  $("#post_tag_lit").select2({
     multiple: true,
     theme: "bootstrap",
-    tags: true,
     tokenSeparators: [',', ' '],
-    placeholder: 'select category',
+    placeholder: 'seeelect ategory',
     width: "100%"
   });
 
@@ -32,8 +42,3 @@ $(document).on('turbolinks:load',function(){
   });
 });
  
-// prevent collapse after page like
-$('.like').on('click',function(e){
-  var id='#toggle'+$(this).attr('data-id');
-  $(id).addClass('in');
-});

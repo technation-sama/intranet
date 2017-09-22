@@ -53,9 +53,7 @@
  <div class="input-group">
      <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
        <!-- <textarea class="form-control" name="the_message" placeholder="Enter your mesage here"></textarea>-->
-
-       <%= f.text_area :message, class: "form-control", placeholder: "Enter your message here"%>
-
+       <%= f.text_area :message, :class => "tinymce", :rows => 10, branding: false,  :cols => 10 %>
 </div>
 </div>
 </div>
