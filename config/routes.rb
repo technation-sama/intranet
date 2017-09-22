@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
 
   resources :gallery_attachments

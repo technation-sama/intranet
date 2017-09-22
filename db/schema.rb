@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920125221) do
+ActiveRecord::Schema.define(version: 20170922123108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20170920125221) do
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
-    t.string   "data_fingerprint"
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"

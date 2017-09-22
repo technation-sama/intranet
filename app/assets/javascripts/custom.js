@@ -7,14 +7,6 @@ $("#main").click(function() {
 });
 
 $(document).on('turbolinks:load',function(){
-  tinymce.init({
-  selector: '.tinymce',  // change this value according to your HTML
-  branding: false,
-  elementpath: false,
-  menubar: false,
-  statusbar: false
-});
-  
 $('.post-body').readmore({
       lessLink: '<a href="#">Show less</a>'
 });

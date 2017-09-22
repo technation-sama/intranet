@@ -158,9 +158,7 @@
           </div>
           <%end%>
         <div class="text-center">
-                  <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
-                 	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-      	          <%= paginate @posts %>
+        <%= paginate @posts %>
            </div>
       <!--/single blog post-->
             </div>

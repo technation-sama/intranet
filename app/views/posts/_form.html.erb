@@ -5,8 +5,7 @@
     <%= f.input :title, input_html: { class: "form-control" }  %>
      <label>:. Categories</label>
     <%= f.select :tag_list,  ActsAsTaggableOn::Tag.all.map { |u| [u.name, u.name] },{ :prompt => 'select categories', include_blank: false},{ :class => "form-control"} %>
-    <label>:. Content</label>
-     <%= f.text_area :description, :class => "tinymce", :rows => 10, branding: false,  :cols => 10 %>
+     <%= f.cktext_area :description, class: "ckeditor" , label: ":. Content" %>
      <%= f.input :image, as: :file, input_html: { class: "hidden" }, label: false%>
       <label>:. Upload Image (Optional)</label>
   <div class="input-group">
