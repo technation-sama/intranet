@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
 
   resources :gallery_attachments

@@ -3,11 +3,11 @@
 
   <div class="form-inputs">
     <%= f.input :title, input_html: { class: "form-control" }  %>
-    <%= f.input :tag_list, label: 'Category',input_html: { class: "form-control" }, placeholder: 'Enter Category Separate with comma' %>
-    <%= f.input :description, input_html: { class: "form-control" }  %>
-   
+     <label>:. Categories</label>
+    <%= f.select :tag_list,  ActsAsTaggableOn::Tag.all.map { |u| [u.name, u.name] },{ :prompt => 'select categories', include_blank: false},{ :class => "form-control"} %>
+     <%= f.cktext_area :description, class: "ckeditor" , label: ":. Content" %>
      <%= f.input :image, as: :file, input_html: { class: "hidden" }, label: false%>
-      <label>Upload Image (Optional)</label>
+      <label>:. Upload Image (Optional)</label>
   <div class="input-group">
   <span class="input-group-addon" id="upload-btn">Upload</span>
   <input type="text" id="file-display" disabled class="form-control" placeholder="Username" aria-describedby="basic-addon1">

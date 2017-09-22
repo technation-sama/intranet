@@ -73,6 +73,8 @@ header.carousel .fill {
 
 
 .colouring_sama{background:#FFD300 !important;}
+.colouring_sama_black{background:#101010 !important;}
+.colouring_sama_text_black{color:#101010 !important;}
 
 /* Blog home heading*/
 
@@ -124,8 +126,8 @@ footer {
 /* Responsive Styles */
 
 @media (max-width: 991px){
-.navbar-nav {
-margin: -1.5px -62px;
+  .navbar-nav {
+    margin: -50.5px -62px;
   }
 }
 @media(max-width:767px) {
@@ -158,7 +160,7 @@ margin: -1.5px -62px;
 
 .nav1{
   font-family: "Helvetica"; 
-  margin-top: 42px;
+  margin-top:5px;
 }
 p{
   text-align:justify;
@@ -513,6 +515,10 @@ hr{
     right: 5px;
     cursor: pointer;
     box-shadow: 0px 2px 5px #666;
+    z-index: 99999;
+    box-shadow: 0 10px 6px -6px #777;
+     -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
 }
 .glyphicon-pencil{
     color: #ffd300;
@@ -532,6 +538,7 @@ hr{
     padding-left:5px;
     width:200px;
 }
-
-
 /***\posts page**/
+.post-image{
+  width: 500px;
+}
