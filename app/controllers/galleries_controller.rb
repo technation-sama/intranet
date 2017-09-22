@@ -29,12 +29,8 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)    
     if @gallery.save
-      params[:gallery_attachments]['photo'].each do |pic|
-        @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
-      end
-      render :show, status: :created, location: @gallery
+      redirect_to new_gallery_gallery_attachment_path(@gallery)
     else
-      
       render json: @gallery.errors, status: :unprocessable_entity 
     end    
   end
@@ -71,6 +67,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:title, gallery_attachments_attributes: [:id, :gallery_id, :photo])
+      params.require(:gallery).permit(:title)
     end
 end

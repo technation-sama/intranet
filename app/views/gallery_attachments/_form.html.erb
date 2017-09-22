@@ -1,5 +1,5 @@
 <%= image_tag @gallery_attachment.photo %>
-<%= simple_form_for(@gallery_attachment) do |f| %>
+<%= simple_form_for([@gallery_attachment.gallery, @gallery_attachment]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
