@@ -5,40 +5,27 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.4.0'
-
-#
+# Added gems
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
-# active admin gem
 gem 'activeadmin'
-# active admin teme
 gem 'arctic_admin'
-
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
-
-
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'
 gem 'devise'
 gem 'omniauth-google-oauth2'
-# /bootstrap validation
 gem 'bootstrap-validator-rails'
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.8'
-
-# notification
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
-#Gem to load select2 assets into rails pipleine
-gem "select2-rails"
-
-# rails admin
+gem 'select2-rails'
 gem 'rails_admin', '~> 1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -89,3 +76,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby '2.4.0'

@@ -1,22 +1,14 @@
-<div class="container">
-  <h1>Galleries</h1>
-  
-  <div id="pins" class="transitions-enabled clearfix">
+<%= link_to 'New Gallery', new_gallery_path, class: "btn btn-primary btn-lg" %>
+
+<div class="container-fluid">
+  <h2>Galleries</h2>  
+  <div class="row">
     <%= render @galleries %>
   </div>
-  
-  <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-primary btn-lg" %>
-  
-  <%# unless @galleries.current_page == @galleries.total_pages %>
-	  <p id="view-more">
-	    <%#= link_to 'View More', url_for(page: @galleries.current_page + 1), remote: true %>
-	  </p>
-	<%# end %>
-
 </div>
 
-
-<%#= link_to 'Show', gallery %>
-<%#= link_to 'Edit', edit_gallery_path(gallery) %>
-<%#= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%#= link_to 'New Gallery', new_gallery_path %>
+<%# unless @galleries.current_page == @galleries.total_pages %>
+  <p id="view-more">
+    <%#= link_to 'View More', url_for(page: @galleries.current_page + 1), remote: true %>
+  </p>
+<%# end %>

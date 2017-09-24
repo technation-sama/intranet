@@ -5,12 +5,12 @@
     <label for="exampleInputEmail1">Album Title *</label>
     <%= f.input :title, class: "gallery_title form-control", label: false, placeholder: "Album Title", type: "text" %>
   </div>
-  <!--div class="form-group">
-    <%#= f.simple_fields_for :gallery_attachments do |pic| %>
-    	<%#= pic.input :photo, as: :file, input_html: { name: "gallery_attachments[photo][]", multiple: true, class: "gallery_photos form-control-file", id: "imgInput" } %>
-    <%# end %>
+  <div class="form-group">
+    <%= f.simple_fields_for :gallery_attachments do |pic| %>
+    	<%= pic.input :photo, as: :file, input_html: { name: "gallery_attachments[photo][]", multiple: true, class: "gallery_photos form-control-file", id: "imgInput" } %>
+    <% end %>
   </div>
-  <div id="imgPreview"></div-->
+  <div id="imgPreview"></div>
   
   <div class="form-actions">
     <%= f.button :submit %>

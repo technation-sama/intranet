@@ -2,12 +2,11 @@ class GalleryAttachmentsController < ApplicationController
   # before_action :get_gallery
   
   def index
-    gallery = Gallery.find(params[:gallery_id])
-    @gallery_attachments = gallery.gallery_attachments
+    @gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachments = @gallery.gallery_attachments
     respond_to do |format|
       format.html
       format.json  { render json: @gallery_attachments }
-      format.xml  { render xml: @gallery_attachments }
     end
   end
 

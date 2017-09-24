@@ -4,7 +4,7 @@
 
   <div class="form-inputs">
     <%= f.association :gallery %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: { name: "gallery_attachments[photo][]", multiple: true } %>
   </div>
 
   <div class="form-actions">
