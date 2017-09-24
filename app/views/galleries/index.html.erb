@@ -19,4 +19,6 @@
   </p>
 <%# end %>
 
-<%= link_to 'New Gallery', new_gallery_path, class: "btn btn-primary btn-lg" %>
+<%= link_to new_gallery_path, id: "floating-button" do %>
+	<i class="glyphicon glyphicon-pencil"></i>
+<% end %>
