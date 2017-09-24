@@ -2,7 +2,7 @@ class GalleryAttachmentsController < ApplicationController
   # before_action :get_gallery
   
   def index
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachments = @gallery.gallery_attachments
     respond_to do |format|
       format.html
