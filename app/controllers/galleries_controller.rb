@@ -27,8 +27,10 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)    
     if @gallery.save
-      params[:gallery_attachments]['photo'].each do |pic|
-        @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
+      if params[:gallery_attachments]
+        params[:gallery_attachments]['photo'].each do |pic|
+          @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
+        end
       end
       redirect_to gallery_gallery_attachments_path(@gallery)
     else
