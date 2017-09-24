@@ -1,6 +1,14 @@
-<div class="container-fluid">
-  <h3><%= @gallery.title %></h3>
+<!-- start of breadcrumbs -->
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_url %></li>
+    <li><%= link_to "Galleries", galleries_path %></li>
+    <li class="active"><%= @gallery.title %></li>
+  </ol>
+</div>  
+ <!-- EOF breadcrumbs -->
 
+<div class="container-fluid">
   <div id="pins" class="transitions-enabled">
     <%= render @gallery_attachments %>
   </div>
