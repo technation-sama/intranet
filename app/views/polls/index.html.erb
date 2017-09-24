@@ -85,9 +85,9 @@
 <%end%>
  </div>
  <%else%>
- <div class="alert alert-danger text-center">
-     <h2>You need to Sign in first!!!</h2>
-     <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
+ <div class="alert colouring_sama alert-danger text-center">
+     <h2 class="colouring_sama_text_black">You need to Sign in first!!!</h2>
+     <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn colouring_sama_black btn-primary'%>
  </div>
  </div>
      <%end%>
@@ -97,6 +97,6 @@
       </div>
    </div>
 <hr>
-  <%if current_user%>
-  <%= render 'votercharts'%>
-  <%end%>
+  <!--<%if current_user%>-->
+  <!--<%= render 'votercharts'%>-->
+  <!--<%end%>-->

@@ -12,6 +12,9 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
+gem 'ckeditor'
+
+# active admin gem
 gem 'activeadmin'
 gem 'arctic_admin'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
