@@ -3,7 +3,7 @@ class GalleryAttachmentsController < ApplicationController
   
   def index
     @gallery = Gallery.friendly.find(params[:gallery_id])
-    @gallery_attachments = @gallery.gallery_attachments
+    @gallery_attachments = @gallery.gallery_attachments.page(params[:page]).per(20)
     respond_to do |format|
       format.html
       format.json  { render json: @gallery_attachments }
@@ -11,7 +11,7 @@ class GalleryAttachmentsController < ApplicationController
   end
 
   def show
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.find(params[:id])
     
     respond_to do |format|
@@ -21,7 +21,7 @@ class GalleryAttachmentsController < ApplicationController
   end
 
   def new
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.build
     
     respond_to do |format|
@@ -31,12 +31,12 @@ class GalleryAttachmentsController < ApplicationController
   end
 
   def edit
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.find(params[:id])
   end
 
   def create
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.create(gallery_attachment_params)
 
     respond_to do |format|
@@ -51,7 +51,7 @@ class GalleryAttachmentsController < ApplicationController
   end
 
   def update
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.find(params[:id])
     
     respond_to do |format|
@@ -66,7 +66,7 @@ class GalleryAttachmentsController < ApplicationController
   end
   
   def destroy
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = Gallery.friendly.find(params[:gallery_id])
     @gallery_attachment = gallery.gallery_attachments.find(params[:id])
     @gallery_attachment.destroy
     

@@ -8,16 +8,16 @@
  <!-- EOF breadcrumbs -->
 
 <div class="container-fluid"> 
-  <div class="row">
+  <div class="row" id="gallery-box">
     <%= render @galleries %>
   </div>
 </div>
 
-<%# unless @galleries.current_page == @galleries.total_pages %>
+<% unless @galleries.current_page == @galleries.total_pages %>
   <p id="view-more">
-    <%#= link_to 'View More', url_for(page: @galleries.current_page + 1), remote: true %>
+    <%= link_to 'View More', url_for(page: @galleries.current_page + 1), remote: true %>
   </p>
-<%# end %>
+<% end %>
 
 <%= link_to new_gallery_path, id: "floating-button" do %>
 	<i class="glyphicon glyphicon-pencil"></i>

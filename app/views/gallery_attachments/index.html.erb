@@ -13,3 +13,11 @@
     <%= render @gallery_attachments %>
   </div>
 </div>
+
+<%= paginate @gallery_attachments %>
+
+<% unless @gallery_attachments.current_page == @gallery_attachments.total_pages %>
+  <p id="view-more">
+    <%= link_to 'View More', url_for(page: @gallery_attachments.current_page + 1), remote: true %>
+  </p>
+<% end %>
