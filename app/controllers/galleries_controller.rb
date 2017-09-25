@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.page(params[:page]).per(20)
+    @galleries = Gallery.page(params[:page]).per(20).GalleryQuery
   end
 
   # GET /galleries/1

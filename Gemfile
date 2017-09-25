@@ -13,8 +13,6 @@ gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
 gem 'ckeditor'
-
-# active admin gem
 gem 'activeadmin'
 gem 'arctic_admin'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
@@ -76,6 +74,7 @@ group :development do
   gem 'pry-rails', '~> 0.3.6'
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'tty-progressbar'
+  gem 'rack-mini-profiler', '~> 0.10.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

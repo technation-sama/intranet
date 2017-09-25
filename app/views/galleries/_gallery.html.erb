@@ -4,8 +4,7 @@
       <div>
         <h4>
           <span>
-            <span><%= gallery.gallery_attachments.count %></span>
-            photos
+            <span><%= pluralize gallery.gallery_attachments.size, "photo" %></span>
           </span>
         </h4>
       </div>
