@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+ permit_params  :email, :admin
 #
 # or
 #
@@ -34,7 +34,7 @@ config.clear_action_items!
       f.input :email
       f.input :admin, :label => "Administrator" 
     end
-    f.button
+      actions
   end
 
   create_or_edit = Proc.new {

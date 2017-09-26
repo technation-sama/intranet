@@ -2,7 +2,9 @@ ActiveAdmin.register Project do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+filter :name_or_code, as: :string, label: "Filter by Name or Code"
+ 
+ permit_params :name, :code
 #
 # or
 #

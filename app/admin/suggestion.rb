@@ -2,7 +2,10 @@ ActiveAdmin.register Suggestion do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+filter :subject
+filter :created_at
+
+ permit_params :subject, :message
 #
 # or
 #
