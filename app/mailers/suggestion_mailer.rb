@@ -1,10 +1,13 @@
-class SuggestionMailer < ActionMailer::Base
-  default from: "employee@nbo.samdc.org"
+class SuggestionMailer < ApplicationMailer
+
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.suggestion_mailer.new_suggestion.subject
+  #
   def new_suggestion
-    mail(to:"ndwigajustin@gmail.com",
-      #from:"justin.ndwiga@nbo.samadc.org",
-      subject:"New Suggestion",
-      body: "Please Review"
-    )
+    @greeting = "Hi Admin"
+
+    mail to: "justin.ndwiga@nbo.samadc.org"
   end
 end

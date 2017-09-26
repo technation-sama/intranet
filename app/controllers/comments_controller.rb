@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     end
     respond_to do |format|
-      format.html { redirect_to post_path(@comment.post), notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

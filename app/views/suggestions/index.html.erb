@@ -22,7 +22,7 @@
    <div class="col-md-7">
 
 <!--<form class="well form-horizontal" action=" " method="post"  id="contact_form">-->
-
+<% if current_user %>
 <%= simple_form_for Suggestion.new, remote: true, :html=> { class: "well form-horizontal", id: "suggestion_form"} do |f|%>
 
 <fieldset>
@@ -80,6 +80,13 @@
 <!-- </form>-->
 <% end %>
 
+</div>
+<%else%>
+<div class="alert alert-danger text-center">
+    <h2>Sign in first(only for authorization, suggestions will be anonymous)!!!</h2>
+    <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
+</div>
+<%end%>
 </div>
 
  <div class="col-md-5"><%= image_tag("udaku_sama.png", class:"img-responsive")%></div>
