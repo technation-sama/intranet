@@ -5,7 +5,7 @@ class Gallery < ApplicationRecord
 	has_many :gallery_attachments, dependent: :destroy
 	accepts_nested_attributes_for :gallery_attachments
 
-	def self.GalleryQuery
-		select("galleries.*, count(gallery_attachments.id) as gallery_attachments_count").joins("left outer join gallery_attachments on gallery_id=galleries.id").group("galleries.id")
+	def self.GalleryQuery(page_param)
+		includes(:gallery_attachments).page(page_param).per(20)
 	end
 end
