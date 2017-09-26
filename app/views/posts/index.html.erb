@@ -24,7 +24,7 @@
           </li>
           <li class="active">Posts</li>
         </ol>
-      </div>  
+      </div>
        <!-- EOF breadcrumbs -->
       <div class="container"><!-- Page container -->
         <div class="row">
@@ -63,19 +63,19 @@
                           </a>
                         </div>
                         <div class="media-body">
-                          <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a> 
+                          <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a>
                           <a href="#" class="anchor-time"><%=time_ago_in_words(post.created_at)%> Ago</a>
                         </div>
                       </div>
                     </div>
-                    
-                  </div>             
+
+                  </div>
               </section>
               <section class="post-body">
                 <p>
                  <%= image_tag(post.image, class:"post-image")%>
                  <%= post.description.html_safe %>
-                 
+
                 </p>
               </section>
               <section class="post-footer">
@@ -123,12 +123,12 @@
                           </a>
                       </div>
                       <div class="media-body">
-                         <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a> 
+                         <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a>
                           <a href="#" class="anchor-time"> <%=time_ago_in_words(comment.created_at)%> Ago</a>
                       </div>
                       <section class="post-body">
                         <p>
-                          <%=comment.body%> 
+                          <%=comment.body%>
                        </p>
                     </div>
                   <div class="post-footer-option container">
@@ -145,13 +145,18 @@
                         Like <%= comment.get_downvotes.size %>
                     </li>
                     <% end %>
+                    <% if comment.user.email == current_user.email %>
+                       <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
+                         <i class="fa fa-times" aria-hidden="true"></i>
+                       <% end %>
+                     <% end %>
                   </ul>
                     </div>
                     <hr>
                     <%end%>
-                 
+
                 </div>
-                
+
                 </div>
               </section>
             </div>
@@ -163,5 +168,3 @@
       <!--/single blog post-->
             </div>
           </div>
-          
-       
