@@ -17,7 +17,8 @@ ActiveAdmin.setup do |config|
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
   # config.site_title_image = "logo.png"
-
+    # == Def
+  
   # == Default Namespace
   #
   # Set the default namespace each administration resource
@@ -35,6 +36,21 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.default_namespace = :admin
   #
+  
+ ActiveAdmin.setup do |config|
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add :label => "Visit Site", :url => "/", :priority => 0
+      # Downloads menu/ by categor
+      menu.add :label => "Downloads" do |sites|
+        sites.add :label => "Manage Categories", :url => proc{admin_categories_path}, :priority => 0 
+        Category.all.each do |c|
+          sites.add :label => c.name, :url => proc{admin_category_downloads_path(:category_id => c.id)}
+        end
+      end
+    end
+  end
+ end
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
   # within a namespace:

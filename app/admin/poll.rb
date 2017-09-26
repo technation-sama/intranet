@@ -17,9 +17,9 @@ users= Poll.where(period: current).map(&:user_id).uniq
       column "Number of Votes",:polls_count
     end
   end
- # panel "#{current} Graphical view" do	
-  #  render 'polls/votercharts'
-  #end
+  # panel "#{current} Graphical view" do	
+  #   render 'polls/votercharts'
+  # end
 end
 
 actions :all, :except => [:destroy, :update, :edit]
