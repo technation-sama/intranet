@@ -10,8 +10,6 @@ class GalleriesController < ApplicationController
   # GET /galleries/1
   # GET /galleries/1.json
   def show
-    # to change. still working on the pagination/load more
-    @gallery_attachments = @gallery.gallery_attachments.all#.page(params[:page]).per(2)
   end
 
   # GET /galleries/new
@@ -29,12 +27,13 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)    
     if @gallery.save
-      params[:gallery_attachments]['photo'].each do |pic|
-        @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
+      if params[:gallery_attachments]
+        params[:gallery_attachments]['photo'].each do |pic|
+          @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
+        end
       end
-      render :show, status: :created, location: @gallery
+      redirect_to gallery_gallery_attachments_path(@gallery)
     else
-      
       render json: @gallery.errors, status: :unprocessable_entity 
     end    
   end
@@ -66,7 +65,7 @@ class GalleriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gallery
-      @gallery = Gallery.find(params[:id])
+      @gallery = Gallery.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -15,10 +15,10 @@ class PollsController < ApplicationController
   def edit
   end
 # method to populate highcharts data
-def chart
-  polls= Poll.where(period: set_period).map(&:user_id).uniq
-  users=User.where('id IN (?)', polls).order(polls_count: :desc).limit(5)
-  all = users.collect{|user|
+  def chart
+    polls= Poll.where(period: set_period).map(&:user_id).uniq
+    users=User.where('id IN (?)', polls).order(polls_count: :desc).limit(5)
+    all = users.collect{|user|
         [user.name, 
          user.polls_count
         ]}
@@ -31,12 +31,12 @@ def chart
     @poll.voter_id=current_user.id
     respond_to do |format|
       if @poll.save 
-        flash[:success]= 'Poll was successfully created.'
+        flash[:success]= 'You have successfully voted.'
         format.html { redirect_to polls_url}
         format.json { render :show, status: :created, location: @poll }
       else
         flash[:error] =@poll.errors.full_messages.join("\n")
-       format.html {redirect_to polls_url}
+        format.html {redirect_to polls_url}
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
     end

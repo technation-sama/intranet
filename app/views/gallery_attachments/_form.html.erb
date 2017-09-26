@@ -1,10 +1,10 @@
 <%= image_tag @gallery_attachment.photo %>
-<%= simple_form_for(@gallery_attachment) do |f| %>
+<%= simple_form_for([@gallery_attachment.gallery, @gallery_attachment]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.association :gallery %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: { name: "gallery_attachments[photo][]", multiple: true } %>
   </div>
 
   <div class="form-actions">

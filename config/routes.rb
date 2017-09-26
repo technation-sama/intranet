@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
 
   resources :gallery_attachments
@@ -17,16 +16,19 @@ Rails.application.routes.draw do
   #devise_for :users
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resources :galleries do
+    resources :gallery_attachments
+  end
 
   resources :posts
   resources :posts do
-	resources :comments do
-	  member do
-	      put "like" => "comments#upvote"
-	      put "unlike" => "comments#downvote"
+  resources :comments do
+    member do
+        put "like" => "comments#upvote"
+        put "unlike" => "comments#downvote"
      end
-	end
-	member do
+  end
+  member do
       put "like" => "posts#upvote"
       put "unlike" => "posts#downvote"
     end
@@ -35,5 +37,5 @@ Rails.application.routes.draw do
 
   # routes for tags/categories
   get 'tags/:tag', to: 'posts#index', as: :tag
-
+  
 end

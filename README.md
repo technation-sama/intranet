@@ -33,7 +33,7 @@ $ bundle install
 ```
 
 ### Setting up environmental variables
-create `environment_variables.yml` file in the `config` folder.
+create `environment_variables.yml` file in the `config` folder. (you dont need this file if you are on cloud9)
 
 Add these in the file you just created
 
@@ -68,9 +68,30 @@ If you wish to populate your database with [Faker gem](https://github.com/stympy
 $ rake db:populate
 ```
 
+## Image processing
+
+Intranet uses mini_magick for image processing.
+
+ImageMagick. Carrierwave can use either RMagick or MiniMagick (default). To change resize option the correct gem must be used (specified in Gemfile) and change included setting for Carrierwave in file_uploader.rb
+Can be installed from: http://www.imagemagick.org
+
+or run
+
+```bash
+sudo apt-get update
+sudo apt-get install imagemagick
+```
+
+### cloud9
+For c9.io users installation process is same although for a few changes. You dont need to create `environment_variables.yml` file. Secondly you have to start postgresql service by running the command;
+```bash
+sudo service postgresql start
+```
+Finally before running `rake db:create db:migrate` goto `config/database.yml` and change value of `encoding:` to `SQL_ASCII`
+
 ## Tests
 
-No test available. App is still in development stage
+I know right we need to get this done
 
 ## Contributing
 
@@ -82,14 +103,15 @@ If you discover any security related issues, please create an issue in the repo.
 
 ## Credits
 
-* [mwenda-eric](https://github.com/mwenda-eric)
-* [victorjambo](https://github.com/victorjambo)
-* [ThaDeveloper](https://github.com/ThaDeveloper)
-* [eunice12jk](https://github.com/eunice12jk)
-* [gtsofa](https://github.com/gtsofa)
-* [gwako94](https://github.com/gwako94)
-* [omondi20](https://github.com/omondi20)
-* [Raycode21](https://github.com/Raycode21)
+* [Eric Mwenda](https://github.com/mwenda-eric)
+* [Victor Mutai](https://github.com/victorjambo)
+* [Justin Ndwiga](https://github.com/ThaDeveloper)
+* [Eunice Kamar](https://github.com/eunice12jk)
+* [Julius tsofa](https://github.com/gtsofa)
+* [Galgallo Wako](https://github.com/gwako94)
+* [Ben Omondi](https://github.com/omondi20)
+* [Raycode](https://github.com/Raycode21)
+* Irene Kamene - documentation and user manual
 
 ## License
 

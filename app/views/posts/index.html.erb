@@ -29,7 +29,7 @@
       <div class="container"><!-- Page container -->
         <div class="row">
           <div class="col-md-2"><!--side bar  -->
-            <div class="categories panel panel-default">
+            <div class="categories  hidden-sm hidden-xs panel panel-default">
               <div class="panel-heading">
                 <b>Blog Categories</b>
               </div>
@@ -41,7 +41,7 @@
                 </ol>
               </div>
             </div>
-               <div class="panel noborder panel-default">
+               <div class="panel noborder hidden-sm hidden-xs panel-default">
                <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
              </div>
            </div>
@@ -73,22 +73,9 @@
               </section>
               <section class="post-body">
                 <p>
-                 <%= image_tag(post.image, class:"img-responsive")%>
-                
-                   <% if post.description.length > 700 %>
-                      <%= truncate(post.description, length: 700) %>
-                      <%= link_to '...Show more', '',data: { no_turbolink: true }, class: "read-more-#{post.id}" %>
-                     <script>
-                     $(document).on('turbolinks:load',function(){
-                      $('.read-more-<%= post.id %>').on('click', function(e) {
-                       e.preventDefault()
-                      $(this).parent().html('<%= escape_javascript post.description%><%= link_to "...Show less", "" ,data: { no_turbolink: true }, class: "read-less-#{post.id}" %> ')
-                     });
-                     });
-                    </script>
-                  <% else %>
-                 <%= post.description %>
-                  <% end %>
+                 <%= image_tag(post.image, class:"post-image")%>
+                 <%= post.description.html_safe %>
+                 
                 </p>
               </section>
               <section class="post-footer">
@@ -171,9 +158,7 @@
           </div>
           <%end%>
         <div class="text-center">
-                  <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
-                 	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-      	          <%= paginate @posts %>
+        <%= paginate @posts %>
            </div>
       <!--/single blog post-->
             </div>

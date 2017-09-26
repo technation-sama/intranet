@@ -1,35 +1,48 @@
 class GalleryAttachmentsController < ApplicationController
-  before_action :set_gallery_attachment, only: [:show, :edit, :update, :destroy]
-
-  # GET /gallery_attachments
-  # GET /gallery_attachments.json
+  # before_action :get_gallery
+  
   def index
-    @gallery_attachments = GalleryAttachment.all
+    @gallery = Gallery.friendly.find(params[:gallery_id])
+    @gallery_attachments = @gallery.gallery_attachments
+    respond_to do |format|
+      format.html
+      format.json  { render json: @gallery_attachments }
+    end
   end
 
-  # GET /gallery_attachments/1
-  # GET /gallery_attachments/1.json
   def show
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json  { render json: @gallery_attachment }
+    end
   end
 
-  # GET /gallery_attachments/new
   def new
-    @gallery_attachment = GalleryAttachment.new
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.build
+    
+    respond_to do |format|
+      format.html
+      format.json  { render json: @gallery_attachment }
+    end
   end
 
-  # GET /gallery_attachments/1/edit
   def edit
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.find(params[:id])
   end
 
-  # POST /gallery_attachments
-  # POST /gallery_attachments.json
   def create
-    @gallery_attachment = GalleryAttachment.new(gallery_attachment_params)
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.create(gallery_attachment_params)
 
     respond_to do |format|
       if @gallery_attachment.save
-        format.html { redirect_to @gallery_attachment, notice: 'Gallery attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @gallery_attachment }
+        format.html { redirect_to gallery_gallery_attachments_path(gallery), notice: 'Gallery attachment was successfully created.' }
+        format.json { render json, status: :created, location: gallery }
       else
         format.html { render :new }
         format.json { render json: @gallery_attachment.errors, status: :unprocessable_entity }
@@ -37,12 +50,13 @@ class GalleryAttachmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /gallery_attachments/1
-  # PATCH/PUT /gallery_attachments/1.json
   def update
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.find(params[:id])
+    
     respond_to do |format|
       if @gallery_attachment.update(gallery_attachment_params)
-        format.html { redirect_to @gallery_attachment, notice: 'Gallery attachment was successfully updated.' }
+        format.html { redirect_to gallery_gallery_attachments_path(gallery), notice: 'Gallery attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @gallery_attachment }
       else
         format.html { render :edit }
@@ -50,22 +64,23 @@ class GalleryAttachmentsController < ApplicationController
       end
     end
   end
-
-  # DELETE /gallery_attachments/1
-  # DELETE /gallery_attachments/1.json
+  
   def destroy
+    gallery = Gallery.find(params[:gallery_id])
+    @gallery_attachment = gallery.gallery_attachments.find(params[:id])
     @gallery_attachment.destroy
+    
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Gallery attachment was successfully destroyed.' }
+      format.html { redirect_to gallery_gallery_attachments_path(gallery), notice: 'Gallery attachment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_gallery_attachment
-      @gallery_attachment = GalleryAttachment.find(params[:id])
-    end
+    # def get_gallery
+    #   gallery = Gallery.find(params[:gallery_id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_attachment_params
