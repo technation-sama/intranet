@@ -526,7 +526,13 @@ hr{
 }
 /***\posts page**/
 .post-image{
-  width: 500px;
+  max-height: 320px;
+  
+    padding: 5px;
+    border-radius: 5px;
+}
+.post-body{
+  
 }
 .well-sm{
   height: 55px;

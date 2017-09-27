@@ -71,11 +71,10 @@
 
                   </div>
               </section>
-              <section class="post-body">
+              <section class="post-body" >
                 <p>
+                  <%= post.description.html_safe %>
                  <%= image_tag(post.image, class:"post-image")%>
-                 <%= post.description.html_safe %>
-
                 </p>
               </section>
               <section class="post-footer">
@@ -100,7 +99,7 @@
                     </li>
                   </ul>
                 </div>
-                <div id="toggle<%=post.id%>" class="panel collapse noborder panel-default">
+                <div id="toggle<%=post.id%>" class="panel collapse in noborder panel-default">
                   <div class="comment-form">
                      <% if user_signed_in? %>
                   <%= form_for [post, post.comments.new ], html:{class: "well well-sm form-horizontal"} do |f| %>
@@ -145,10 +144,12 @@
                         Like <%= comment.get_downvotes.size %>
                     </li>
                     <% end %>
+                    <% if current_user %>
                     <% if comment.user.email == current_user.email %>
                        <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
                          <i class="fa fa-times" aria-hidden="true"></i>
                        <% end %>
+                     <% end %>
                      <% end %>
                   </ul>
                     </div>

@@ -8,6 +8,7 @@ $("#main").click(function() {
 
 $(document).on('turbolinks:load',function(){
 $('.post-body').readmore({
+      collapsedHeight: 320,
       lessLink: '<a href="#">Show less</a>'
 });
     

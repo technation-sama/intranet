@@ -26,4 +26,14 @@ index do
   actions
 end
 
+ form do |f|
+    f.inputs  do
+      f.input :title
+      f.input :description, :as => :ckeditor
+      f.input :image, as: :file
+    end
+      actions
+  end
+
+
 end
