@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
 gem 'ckeditor'
+gem 'cancancan', '~> 2.0'
 
 # active admin gem
 gem 'activeadmin'
