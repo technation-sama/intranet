@@ -103,12 +103,12 @@
                 <div id="toggle<%=post.id%>" class="panel collapse noborder panel-default">
                   <div class="comment-form">
                      <% if user_signed_in? %>
-                  <%= form_for [post, post.comments.new ], html:{class: "well well-lg form-horizontal"} do |f| %>
+                  <%= form_for [post, post.comments.new ], html:{class: "well well-sm form-horizontal"} do |f| %>
                   <p>
-                    <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control", required: "required"%>
+                    <%= f.text_field :body, placeholder: "Leave a comment", class: "form-control", rows: "1", required: "required"%>
                   </p>
                   <p>
-                  <%= f.submit 'Comment', class:"btn btn-success pull-right" %>
+                  <%= f.submit 'Comment', class:"btn btn-success pull-right", style:"display:none" %>
                 </p>
                 <br>
               <% end %>
