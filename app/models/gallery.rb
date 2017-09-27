@@ -7,19 +7,16 @@ class Gallery < ApplicationRecord
 	
 	after_commit :flush_cache
 
-	def self.cached_index(page_param)
-		Rails.cache.fetch([name, "index"]) { includes(:gallery_attachments).page(page_param).per(20) }
+	class << self
+	  def all_cached
+	    Rails.cache.fetch("galleries") { includes(:gallery_attachments) }
+	  end
 	end
 
-	def cached_gallery_attachments_count
-		Rails.cache.fetch([self, "gallery_attachments_count"]) { gallery_attachments.size }
-	end
-
-	def cached_gallery_background
-		Rails.cache.fetch([self, "gallery_background"]) { gallery_attachments.first.photo.url }
-	end
+	private
 
 	def flush_cache
-		Rails.cache.delete([self.class.name, "galleryloading"])
+		Rails.cache.delete("galleries")
 	end
+
 end

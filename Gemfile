@@ -29,6 +29,7 @@ gem 'unobtrusive_flash', '>=3'
 gem 'select2-rails'
 gem 'rails_admin', '~> 1.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
+gem 'actionpack-page_caching'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'

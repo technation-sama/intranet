@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.cached_index(params[:page])
+    @galleries = Gallery.all_cached
   end
 
   # GET /galleries/1
