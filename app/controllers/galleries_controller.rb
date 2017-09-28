@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all_cached
+    @galleries = Gallery.includes(:gallery_attachments)
   end
 
   # GET /galleries/1

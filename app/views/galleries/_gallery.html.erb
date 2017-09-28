@@ -1,5 +1,5 @@
 <div class="col-md-4 col-lg-3 col-sm-6 box-gallery">
-  <div class="gallery-index" id="gallery<%= gallery.id %>" style="background-image: url('<%= gallery.gallery_attachments.first.photo.url unless gallery.gallery_attachments.empty? %>');">
+  <div class="gallery-index" style="background-image: url('<%= gallery.gallery_attachments.first.photo.url unless gallery.gallery_attachments.empty? %>');">
     <%= link_to gallery_gallery_attachments_path(gallery), class: "link-to-gallery-show" do %>          
       <div>
         <h4>

@@ -10,7 +10,7 @@
 
 <div class="container">
   <div class="row box-gallery-attachments">
-    <% cache "gallery_attachments", skip_digest: true do %>
+    <% cache @gallery_attachments do %>
       <%= render @gallery_attachments, cached: true %>
     <% end %>
   </div>
@@ -21,3 +21,7 @@
     <%#= link_to 'View More', url_for(page: @gallery_attachments.current_page + 1), remote: true %>
   </p>
 <%# end %>
+
+<%= link_to new_gallery_gallery_attachment_path(@gallery), id: "floating-button" do %>
+  <i class="glyphicon glyphicon-pencil"></i>
+<% end %>

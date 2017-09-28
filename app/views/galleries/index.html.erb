@@ -9,7 +9,7 @@
 
 <div class="container-fluid"> 
   <div class="row" id="gallery-box">
-    <% cache "galleries" do %>
+    <% cache @galleries do %>
       <%= render @galleries, cached: true %>
     <% end %>
   </div>
