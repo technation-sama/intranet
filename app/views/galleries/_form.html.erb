@@ -10,12 +10,13 @@
     	<%= pic.input :photo, as: :file, input_html: { name: "gallery_attachments[photo][]", multiple: true, class: "gallery_photos form-control-file", id: "imgInput" } %>
     <% end %>
   </div>
-  <div id="imgPreview"></div>
-  
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<div id="imgPreview"></div>
+  
 
 <script>
   document.getElementById('imgInput').addEventListener("change", function(event) {
@@ -23,7 +24,7 @@
     var imgPreview = document.getElementById('imgPreview');
     var imgInput = document.getElementById('imgInput').files.length;
     for(i = 0; i < imgInput; i++){
-      imgPreview.insertAdjacentHTML('beforeend',"<img src='"+URL.createObjectURL(event.target.files[i])+"' width='50%'/>");
+      imgPreview.insertAdjacentHTML('beforeend',"<div class='box' style='width: 150px'><div class='d-block mb-4 h-100'><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid img-thumbnail'/></div></div>");
     }
   });
 </script>

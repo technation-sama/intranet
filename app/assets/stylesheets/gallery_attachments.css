@@ -61,3 +61,24 @@
   top: -1px;
   width: 16px;
 }
+
+/** for masonry **/
+/*#pins {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.box {
+  margin: 12px;
+}
+
+.gallery-attachment  {
+  width: 350px;
+  position: relative;
+}
+
+.gallery-attachment img {
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+}*/
