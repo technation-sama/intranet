@@ -73,7 +73,12 @@
     <div class="container scoller">
         <div class="col-md-1 col-lg-1"></div>
        <div class="col-md-11 col-lg-11">
-            <p> <marquee><b>Admin updates :</b> Kindly remove gum below your desks : Food Sampling for new caterers coming soon : First Aider on duty &gt; Morris Maluni</marquee></p>
+            <p> <marquee>
+                <% notices.each do |notice, index|%>
+                <b><%=notice.title%>: </b><%=notice.content%> 
+                >>>
+                <%end%>
+            </marquee></p>
         </div>
     </div>
     <%= yield %>

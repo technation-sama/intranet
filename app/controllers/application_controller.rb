@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_action :prepare_unobtrusive_flash
-  
+  helper_method :notices
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   #ActiveAdmin custom authentication method 
@@ -21,11 +21,15 @@ class ApplicationController < ActionController::Base
     redirect_to admin_organizations_path, alert: exception.message
   end
   
+private
+  def notices
+    @notices=Notice.all
+  end
  protected
 
   def configure_permitted_parameters
     # Permit the `role and admin` parameter along with the other
     # sign up parameters.
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :admin])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:role, :admin])
   end
 end
