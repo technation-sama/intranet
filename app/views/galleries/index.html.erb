@@ -21,6 +21,8 @@
   </p>
 <%# end %>
 
-<%= link_to new_gallery_path, id: "floating-button" do %>
-	<i class="glyphicon glyphicon-pencil"></i>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to new_gallery_path, class: "btn-floating btn-large waves-effect waves-light blue page-corner", data: { toggle: "tooltip", placement: "left" }, title: "Add Gallery" do %>
+  	<i class="material-icons">add</i>
+  <% end %>
 <% end %>

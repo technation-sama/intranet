@@ -33,5 +33,6 @@ $('.post-body').readmore({
       isFitWidth: true
     });
   });
+  $('[data-toggle="tooltip"]').tooltip(); 
 });
  

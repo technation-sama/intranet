@@ -1,29 +1,22 @@
 class GalleriesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
-  # GET /galleries
-  # GET /galleries.json
   def index
     @galleries = Gallery.includes(:gallery_attachments)
   end
 
-  # GET /galleries/1
-  # GET /galleries/1.json
   def show
   end
 
-  # GET /galleries/new
   def new
     @gallery = Gallery.new
     @gallery_attachment = @gallery.gallery_attachments.build
   end
 
-  # GET /galleries/1/edit
   def edit
   end
 
-  # POST /galleries
-  # POST /galleries.json
   def create
     @gallery = Gallery.new(gallery_params)    
     if @gallery.save
@@ -38,8 +31,6 @@ class GalleriesController < ApplicationController
     end    
   end
 
-  # PATCH/PUT /galleries/1
-  # PATCH/PUT /galleries/1.json
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
@@ -52,8 +43,6 @@ class GalleriesController < ApplicationController
     end
   end
 
-  # DELETE /galleries/1
-  # DELETE /galleries/1.json
   def destroy
     @gallery.destroy
     respond_to do |format|
@@ -63,12 +52,10 @@ class GalleriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_gallery
       @gallery = Gallery.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
       params.require(:gallery).permit(:title, gallery_attachments_attributes: [:id, :gallery_id, :photo])
     end
