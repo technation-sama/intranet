@@ -1,7 +1,7 @@
 <div class="box gallery-attachment">
-	<%= link_to gallery_attachment.photo_url, class: "lightbox-show", data: { lightbox: @gallery.title.parameterize, title: @gallery.title } do %>
-    <%= image_tag gallery_attachment.photo.thumb.url %>
-  <% end %>
+	<%= link_to gallery_attachment.photo_url, class: "list-box", data: { lightbox: @gallery.title.parameterize, title: @gallery.title } do %>
+		<%= image_tag gallery_attachment.photo.thumb.url %>
+	<% end %>
 
 	<div class="user-download">
 		<div class="user"></div>

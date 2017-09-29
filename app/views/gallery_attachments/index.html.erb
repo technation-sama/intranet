@@ -8,8 +8,22 @@
 </div>  
  <!-- EOF breadcrumbs -->
 
-<div class="container-fluid">
-  <div id="pins" class="transitions-enabled">
-    <%= render @gallery_attachments %>
+<div class="container">
+  <div class="row box-gallery-attachments">
+    <% cache @gallery_attachments do %>
+      <%= render @gallery_attachments, cached: true %>
+    <% end %>
   </div>
 </div>
+
+<%# unless @gallery_attachments.current_page == @gallery_attachments.total_pages %>
+  <p id="view-more">
+    <%#= link_to 'View More', url_for(page: @gallery_attachments.current_page + 1), remote: true %>
+  </p>
+<%# end %>
+
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to new_gallery_gallery_attachment_path(@gallery), class: "btn-floating btn-large waves-effect waves-light blue page-corner", data: { toggle: "tooltip", placement: "left" }, title: "Add Photo to Gallery" do %>
+  	<i class="material-icons">add</i>
+  <% end %>
+<% end %>

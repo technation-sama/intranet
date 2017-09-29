@@ -1,4 +1,4 @@
-$('#pins').append("<%= j render @galleries %>");
+$('#gallery-box').append("<%= j render @galleries %>");
 
 <% if @galleries.current_page == @galleries.total_pages %>
   $('#view-more').remove();
