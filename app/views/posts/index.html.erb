@@ -51,26 +51,28 @@
 
           <%@posts.each do |post|%>
            <%@id=post.id%>
-         <div class="panel panel-default">
-            <div class="panel-body">
-              <section class="post-heading">
-                  <div class="row">
-                    <div class="col-md-11">
-                      <div class="media">
-                        <div class="media-left">
+         <div class="panel panel-default container-fluid">
+           <div class="panel heading">
+             <hr>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= link_to  post_path(post), class: "pull-left" do %>
+                    <h4><%=post.title%></h4>
+                  <%end%>
+                </div>
+                    <div class="col-md-6 col-lg-6">
+                      <!--<div class="media">-->
+                        <!--<div class="media-left">
                           <a href="#">
                             <%= image_tag(post.user.image, class:"media-object photo-profile")%>
                           </a>
-                        </div>
-                        <div class="media-body">
-                          <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a>
-                          <a href="#" class="anchor-time"><%=time_ago_in_words(post.created_at)%> Ago</a>
-                        </div>
-                      </div>
+                        </div>-->
+                        <span class="anchor-time pull-right">Posted <%=time_ago_in_words(post.created_at)%> Ago <i>by</i><span class="anchor-username"> <%=post.user.name%></span></span>
+                      <!--</div>-->
                     </div>
-
                   </div>
-              </section>
+           </div>
+            <div class="panel-body">
               <section class="post-body" >
                 <p>
                   <%= post.description.html_safe %>
@@ -147,7 +149,7 @@
                     <% if current_user %>
                     <% if comment.user.email == current_user.email %>
                        <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
-                         <i class="fa fa-times" aria-hidden="true"></i>
+                         <i data-toggle="tooltip" title="Delete Comment" class="fa fa-times" aria-hidden="true"></i>
                        <% end %>
                      <% end %>
                      <% end %>

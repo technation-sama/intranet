@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'categories/downloads'
   get "polls/chart"
   resources :downloads
-  mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
   get 'pages/download'
 
   resources :suggestions

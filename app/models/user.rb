@@ -8,7 +8,9 @@ class User < ApplicationRecord
 	#relationship between user and posts & comments
 	has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
-
+  #defined System Roles  	
+	 ROLES = %i[SuperUser Admin Fiance IT HR Banned]
+	 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

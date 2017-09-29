@@ -14,8 +14,8 @@ CKEDITOR.editorConfig = function (config) {
 	{ name: 'basicstyles', items : [ 'Bold','Italic','Underline'] },
 	{ name: 'paragraph', items : [ 'NumberedList','BulletedList'] },
 	{ name: 'colors', items : [ 'TextColor']},
-	{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },
-	{ name: 'insert', items : [ 'Image','Table','Smiley']},
+	{ name: 'links', items : [ 'Link','Unlink'] },
+	{ name: 'insert', items : ['Table','Smiley']},
 	//{ name: 'styles', items : ['FontSize' ]},
 	
 ];

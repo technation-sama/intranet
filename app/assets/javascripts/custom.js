@@ -7,6 +7,7 @@ $("#main").click(function() {
 });
 
 $(document).on('turbolinks:load',function(){
+  
 $('.post-body').readmore({
       collapsedHeight: 320,
       lessLink: '<a href="#">Show less</a>'
@@ -16,13 +17,17 @@ $('.post-body').readmore({
   $('#prodTabs a:first').tab('show');
 
   $(".select2" ).select2();
+  // dropdown menu
+  $('.dropdown-toggle').dropdown();
+  // tooltips 
+   $('[data-toggle="tooltip"]').tooltip(); 
    
   // article categories select
-  $("#post_tag_lit").select2({
+  $("#post_tag_list").select2({
     multiple: true,
     theme: "bootstrap",
     tokenSeparators: [',', ' '],
-    placeholder: 'seeelect ategory',
+    placeholder: 'Select Categories',
     width: "100%"
   });
 
@@ -33,6 +38,5 @@ $('.post-body').readmore({
       isFitWidth: true
     });
   });
-  $('[data-toggle="tooltip"]').tooltip(); 
 });
  

@@ -33,6 +33,7 @@ $(document).on ("turbolinks:load",function() {
             e.preventDefault();
             var $form = $(e.target);
             var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length
+            console.log(numInvalidFields)
             if (numInvalidFields>0) {
                 e.preventDefault();
                 return false;  
@@ -53,5 +54,8 @@ $(document).on ("turbolinks:load",function() {
               });
             }
         });
+        
+        /*Post Validation Form*/
+        
 });
 
