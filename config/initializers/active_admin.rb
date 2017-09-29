@@ -17,7 +17,8 @@ ActiveAdmin.setup do |config|
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
   # config.site_title_image = "logo.png"
-
+    # == Def
+  
   # == Default Namespace
   #
   # Set the default namespace each administration resource
@@ -35,6 +36,21 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.default_namespace = :admin
   #
+  
+ ActiveAdmin.setup do |config|
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add :label => "Visit Site", :url => "/", :priority => 0
+      # Downloads menu/ by categor
+      menu.add :label => "Downloads" do |sites|
+        sites.add :label => "Manage Categories", :url => proc{admin_categories_path}, :priority => 0 
+        Category.all.each do |c|
+          sites.add :label => c.name, :url => proc{admin_category_downloads_path(:category_id => c.id)}
+        end
+      end
+    end
+  end
+ end
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
   # within a namespace:
@@ -62,7 +78,7 @@ ActiveAdmin.setup do |config|
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
-  # config.authorization_adapter = ActiveAdmin::CanCanAdapter
+   config.authorization_adapter = ActiveAdmin::CanCanAdapter
 
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
@@ -70,14 +86,14 @@ ActiveAdmin.setup do |config|
   # config.pundit_default_policy = "MyDefaultPunditPolicy"
 
   # You can customize your CanCan Ability class name here.
-  # config.cancan_ability_class = "Ability"
+   config.cancan_ability_class = "Ability"
 
   # You can specify a method to be called on unauthorized access.
   # This is necessary in order to prevent a redirect loop which happens
   # because, by default, user gets redirected to Dashboard. If user
   # doesn't have access to Dashboard, he'll end up in a redirect loop.
   # Method provided here should be defined in application_controller.rb.
-  # config.on_unauthorized_access = :access_denied
+   config.on_unauthorized_access = :access_denied
 
   # == Current User
   #
@@ -200,6 +216,8 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
+     config.register_javascript 'ckeditor/init.js'
+
 
   # == CSV options
   #

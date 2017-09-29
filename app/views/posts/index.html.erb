@@ -24,7 +24,7 @@
           </li>
           <li class="active">Posts</li>
         </ol>
-      </div>  
+      </div>
        <!-- EOF breadcrumbs -->
       <div class="container"><!-- Page container -->
         <div class="row">
@@ -63,19 +63,18 @@
                           </a>
                         </div>
                         <div class="media-body">
-                          <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a> 
+                          <a href="#" class="anchor-username"><h4 class="media-heading"><%=post.user.name%></h4></a>
                           <a href="#" class="anchor-time"><%=time_ago_in_words(post.created_at)%> Ago</a>
                         </div>
                       </div>
                     </div>
-                    
-                  </div>             
+
+                  </div>
               </section>
-              <section class="post-body">
+              <section class="post-body" >
                 <p>
+                  <%= post.description.html_safe %>
                  <%= image_tag(post.image, class:"post-image")%>
-                 <%= post.description.html_safe %>
-                 
                 </p>
               </section>
               <section class="post-footer">
@@ -100,15 +99,15 @@
                     </li>
                   </ul>
                 </div>
-                <div id="toggle<%=post.id%>" class="panel collapse noborder panel-default">
+                <div id="toggle<%=post.id%>" class="panel collapse in noborder panel-default">
                   <div class="comment-form">
                      <% if user_signed_in? %>
-                  <%= form_for [post, post.comments.new ], html:{class: "well well-lg form-horizontal"} do |f| %>
+                  <%= form_for [post, post.comments.new ], html:{class: "well well-sm form-horizontal"} do |f| %>
                   <p>
-                    <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control", required: "required"%>
+                    <%= f.text_field :body, placeholder: "Leave a comment", class: "form-control", rows: "1", required: "required"%>
                   </p>
                   <p>
-                  <%= f.submit 'Comment', class:"btn btn-success pull-right" %>
+                  <%= f.submit 'Comment', class:"btn btn-success pull-right", style:"display:none" %>
                 </p>
                 <br>
               <% end %>
@@ -123,12 +122,12 @@
                           </a>
                       </div>
                       <div class="media-body">
-                         <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a> 
+                         <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a>
                           <a href="#" class="anchor-time"> <%=time_ago_in_words(comment.created_at)%> Ago</a>
                       </div>
                       <section class="post-body">
                         <p>
-                          <%=comment.body%> 
+                          <%=comment.body%>
                        </p>
                     </div>
                   <div class="post-footer-option container">
@@ -145,13 +144,20 @@
                         Like <%= comment.get_downvotes.size %>
                     </li>
                     <% end %>
+                    <% if current_user %>
+                    <% if comment.user.email == current_user.email %>
+                       <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
+                         <i class="fa fa-times" aria-hidden="true"></i>
+                       <% end %>
+                     <% end %>
+                     <% end %>
                   </ul>
                     </div>
                     <hr>
                     <%end%>
-                 
+
                 </div>
-                
+
                 </div>
               </section>
             </div>
@@ -163,5 +169,3 @@
       <!--/single blog post-->
             </div>
           </div>
-          
-       

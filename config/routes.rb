@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   ActiveAdmin.routes(self)
 
   resources :gallery_attachments

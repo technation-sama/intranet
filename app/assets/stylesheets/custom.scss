@@ -28,12 +28,14 @@ padding-top: 10px;
 
 
 /* Home Page Carousel */
-
 header.carousel {
-    height: 70%;
+    height: 55%;
   border-bottom:2px solid #FFD300;
 }
-
+.carousel{
+  top:-42px;
+  z-index:9;
+}
 header.carousel .item,
 header.carousel .item.active,
 header.carousel .carousel-inner {
@@ -102,18 +104,6 @@ p.lead{color:#ffd300;}
 
 /*Sliding stuff below::admin updates etc*/
 
-.scoller{
-    min-height: 5px;
-    padding: 5px;
-    bottom: 0;
-    margin-bottom: 18px;
-    background-color: #ffd300;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-}
-
 
 /* Footer Styles */
 
@@ -143,9 +133,7 @@ footer {
 
 /***inner_page_css****/
 
-.breadcrumb{
-  margin-top:30px
-}
+
 .breadcrumb li{
   border: none;
 }
@@ -160,7 +148,6 @@ footer {
 
 .nav1{
   font-family: "Helvetica"; 
-  margin-top:5px;
 }
 p{
   text-align:justify;
@@ -269,6 +256,9 @@ text-decoration: none;}
   }
   .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
     border-left: 0;
+  }
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
+    margin-left: -30px;
   }
 }
   /*****Left Arrow*****/
@@ -437,19 +427,15 @@ padding-top:5px;
 
 /** fixed bottom **/
 .scoller {
-    min-height: 5px;
-    padding: 5px;
-    margin-bottom: 0;
-    background-color: #ffd300;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    right: 0;
-    left: 0;
-
-    z-index: 1030;
-    bottom: 0px;
+ position: relative;
+ background:#fff;
+ opacity:0.8;
+ height: 30px;
+ border-radius:5px;
+ z-index: 876;
+}
+.scoller marquee{
+  padding-top:4px;
 }
 .copy>div p{
   background:#fff;
@@ -540,5 +526,14 @@ hr{
 }
 /***\posts page**/
 .post-image{
-  width: 500px;
+  max-height: 320px;
+  
+    padding: 5px;
+    border-radius: 5px;
+}
+.post-body{
+  
+}
+.well-sm{
+  height: 55px;
 }
