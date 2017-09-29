@@ -2,7 +2,21 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params  :email, :admin
+ permit_params  :email, :admin, :role
+ 
+  def update
+   @user = User.find(params[:id])
+   if params[:user][:password].blank?
+     @user.update_without_password(params[:user])
+   else
+     @user.update_attributes(params[:user])
+   end
+   if @user.errors.blank?
+     redirect_to admin_users_path, :notice => "User updated successfully."
+   else
+     render :edit
+   end
+ end
 #
 # or
 #
@@ -13,6 +27,7 @@ ActiveAdmin.register User do
 # end
 actions :all, :except => [:destroy]
 config.per_page = 20
+
 index do
   selectable_column
   column :image do |ad|
@@ -22,20 +37,29 @@ index do
   column :name
   column :gender
   column "Is Admin?", :admin do |admin|
-  status_tag (admin.admin ? "Yes" : "No"), (admin.admin ? :ok : :error) 
+  status_tag (admin.admin ? "Yes" : "No"), (admin.admin ? :ok : :error)
+  end
+  column "Administrator role", :role do |role|
+    status_tag (role.nil? ? role : "Agent"), (role.nil? ? :ok : :error)
   end
   actions
 end
 filter :name, as: :select
 config.clear_action_items!
 
+
  form do |f|
     f.inputs "Make User an admin" do
       f.input :email
-      f.input :admin, :label => "Administrator" 
+      f.input :admin, :label => "Administrator"
+      f.input :role, :label => 'User Role', :as => :select, :collection => User::ROLES.map{|u| [u,u]}
+      # f.input :password, :input_html => { :value => "password" }, as: :hidden
+      # f.input :password_confirmation, :input_html => { :value => "password" }, as: :hidden
+      # f.input :current_password, :input_html => { :value => "password" }, as: :hidden
     end
       actions
   end
+
 
   create_or_edit = Proc.new {
     @user            = User.find_or_create_by(:id=>params[:id])

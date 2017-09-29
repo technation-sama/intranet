@@ -35,7 +35,7 @@
 </div><!-- close col-lg-7  -->
 <%else%>
 <% if current_user %>
-<%= simple_form_for @poll, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
+<%= simple_form_for @poll, html: { class: 'well form-horizontal', id: 'polls_form' }, romote: true do |f|%>
 <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
 <fieldset>
 <legend>Vote for the employee of the month</legend>

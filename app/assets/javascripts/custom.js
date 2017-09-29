@@ -16,13 +16,14 @@ $('.post-body').readmore({
   $('#prodTabs a:first').tab('show');
 
   $(".select2" ).select2();
-   
+  // tooltips 
+   $('[data-toggle="tooltip"]').tooltip(); 
   // article categories select
-  $("#post_tag_lit").select2({
+  $("#post_tag_list").select2({
     multiple: true,
     theme: "bootstrap",
     tokenSeparators: [',', ' '],
-    placeholder: 'seeelect ategory',
+    placeholder: 'Select Categories',
     width: "100%"
   });
 
