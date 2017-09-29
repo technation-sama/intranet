@@ -81,7 +81,10 @@ header.carousel .fill {
 /* Blog home heading*/
 
 .blog_home_heading,.blog_home_sub_heading{color:#000;}
-p.lead{color:#ffd300;}
+p.lead {
+    color: #ffd300;
+    font-size: 15px !important;
+}
 .read_more_blog{background:#fff;border:1px solid #ccc;color:#000;}
 
 /*Logo styling*/
@@ -537,3 +540,30 @@ hr{
 .well-sm{
   height: 55px;
 }
+
+/***Jumbotron***/
+
+
+.jumbotron {
+    padding-bottom: 30px !important;
+    margin-top: 31px;
+    background-color: rgba(0, 0, 0, 0.35) !important;
+    border-radius: 5px;
+    height: 450px;
+    padding: 8px;
+    position: relative;
+    top: 75px;
+}
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 200;
+}
+
+.jumbotron .btn-primary {
+    color: #fff;
+    background-color: #000;
+    border: none;
+}
+   
