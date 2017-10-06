@@ -14,5 +14,5 @@ module Intranet
     
     config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
   end
-  config.assets.initialize_on_precompile = false
+  
 end
