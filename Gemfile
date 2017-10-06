@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Added gems
+gem 'rails_12factor', group: :production
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
@@ -16,7 +17,7 @@ gem 'ckeditor'
 gem 'cancancan', '~> 2.0'
 gem 'pdfjs_viewer-rails'
 
-# active admin gem
+# active admin gegem 'rails_12factor', group: :productionm
 gem 'activeadmin'
 gem 'arctic_admin'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
