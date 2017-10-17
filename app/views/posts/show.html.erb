@@ -15,129 +15,139 @@
 <div class="container"><!-- Page container -->
   <div class="row">
     <div class="col-md-2"><!--side bar  -->
-      <div class="categories ">
-         <ol>
-           <li><b>Blog Categories</b></li>
-           <% ActsAsTaggableOn::Tag.most_used(4).each do |tagging| %>
-             <li><%= link_to tagging, tag_path(tagging.name) %></li>
-           <% end %>
-         </ol>
-      <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
-       </div>
-     </div>
+            <div class="categories  hidden-sm hidden-xs panel panel-default">
+              <div class="panel-heading">
+                <b>Blog Categories</b>
+              </div>
+              <div class="panel-body">
+                <ol>
+                  <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
+                  <li><%= link_to tagging, tag_path(tagging.name) %></li>
+                  <% end %>
+                </ol>
+              </div>
+            </div>
+               <div class="panel noborder hidden-sm hidden-xs panel-default">
+               <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
+             </div>
+           </div>
     <!-- EOF side bar -->
     <div class="col-md-10"><!-- content body -->
-      <div class="single_post_full">
-        <h2><%=@post.title%></h2>
-        <p class="intro_top">
-          By <span class="the_author">Admin</span> <br>
-          Posted on
-          <span class="the_date"><%=time_ago_in_words(@post.created_at)%> ago</span> <br>
-          <!-- Tags -->
-          <p class="lead">
-            <% @post.tag_list.map do |t| %>
-              <span class="label label-primary"><%= link_to t, tag_path(t), style: "color: white;" %></span>
-            <% end %>
-          </p>
-        </p>
-        <div class="blog_image">
-          <%= image_tag(@post.image, class:"img-responsive")%>
-          <br>
-        </div>
-        <p>
-          <%= @post.description%>
-        </p>
-      </div><!-- EOF single post full -->
-    <!-- post likes -->
-      <div class="likes">
-      <%= link_to like_post_path(@post), class: "like", method: :put do %>
-        <%=fa_icon 'thumbs-up'%>
-        <span class="number_likes"><%= @post.get_upvotes.size %> </span>
-      <% end %>
-      <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
-        <%=fa_icon 'thumbs-down'%>
-        <span class="number_dislikes"><%= @post.get_downvotes.size %></span>
-      <% end %>
-      </div><!--EOF post likes  -->
-    </div><!-- EOF col 10 -->
-  </div><!-- EOF row -->
 
-  <!--starting of comments-->
-<div class="start_comments">
-  <div class="row">
-  <div class="col-md-10 col-md-offset-2">
-    <article> <!-- comments form -->
-      <!-- Justin >> Converted the form to rubyonrails form-->
-        <% if user_signed_in? %>
-         <%= form_for [@post, @comment ] do |f| %>
-        <!--<textarea class="form-control" placeholder="Leave a comment" >-->
-          <p>
-              <%= f.text_area :body, placeholder: "Leave a comment", class: "form-control", required: "required"%>
-          </p>
-          <!--</textarea><br>-->
-          <p>
-            <%= f.submit 'Comment', class:"btn btn-success color_btn" %>
-          </p>
-          <!--<button type="submit" class="btn btn-success color_btn">Comment</button>-->
-        <% end %>
-        <% end %>
-    </article><!--EOF comment form  -->
-
-    <h2 class="page-header">Comments (<%=@post.comments.count%>)</h2>
-    <!-- start of rails comments display -->
-      <%if @post.comments.count == 0 %>
-      <div class="alert alert-info">
-        <p>No comments at the moment</p>
-      </div>
-      <%end%>
-      <%@post.comments.each do |comment| %>
-    <section class="comment-list">
-      <!-- First Comment -->
-      <article class="row">
-        <div class="col-md-2 col-sm-2 hidden-xs">
-          <figure class="thumbnail">
-            <%= image_tag(comment.user.image, class:"img-responsive")%>
-          </figure>
-        </div>
-        <div class="col-md-10 col-sm-10">
-          <div class="panel panel-default arrow left">
-            <div class="panel-body">
-              <header class="text-left">
-                <div class="comment-user">
-                  <%=fa_icon 'user'%>
-                  <%= comment.user.name%>
+    <div class="panel panel-default container-fluid">
+       <div class="panel heading">
+          <div class="row">
+            <div class="col-md-6 col-lg-6">
+                  <h2><%=@post.title%></h2>
                 </div>
-                <time class="comment-date" datetime="16-12-2014 01:05">
-                  <%=fa_icon 'clock-o'%>
-                  <%=time_ago_in_words(comment.created_at)%> ago
-                </time>
-              </header>
-            <div class="comment-post">
-              <p>
-                <%=comment.body%>
-              </p>
-              <div class="comment_likes">
-              <%= link_to like_post_comment_path(comment.post, comment), class: "like", method: :put do %>
-                <%=fa_icon 'thumbs-up'%>
-                <span class="number_likes"><%= comment.get_upvotes.size %></span>
-              <% end %>
-              <%= link_to unlike_post_comment_path(comment.post, comment), class: "like", method: :put do %>
-                <%=fa_icon 'thumbs-down'%>
-                <span class="number_dislikes"><%= comment.get_downvotes.size %></span>
-              <% end %>
-             </div>
-             <!--Justin >> Delete single comment-->
-               <% if comment.user = current_user %>
-              <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
-                <i class="fa fa-times" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
+                  <div class="col-md-6 col-lg-6">
+                      <!--<div class="media">-->
+                        <!--<div class="media-left">
+                          <a href="#">
+                            <%= image_tag(@post.user.image, class:"media-object photo-profile")%>
+                          </a>
+                        </div>-->
+                        <span class="anchor-time pull-right">Posted <%=time_ago_in_words(@post.created_at)%> Ago <i>by</i><span class="anchor-username"> <%=@post.user.name%></span></span>
+                      <!--</div>-->
+                    </div>
+                  </div>
+           </div>
+           <div class="panel-body">
+              <section>
+                <div class="blog_image">
+                  <%= image_tag(@post.image, class:"img-responsive post-image",style:"float:left; padding-right;")%>
+                  </div>
+                <p>
+                  <%= @post.description.html_safe %>
+                </p>
+              </section>
+            </div>
+            <section class="post-footer">
+              <div class="post-footer-option container">
+                  <ul class="list-unstyled">
+                    <%= link_to like_post_path(@post), remote: true,data: { id: @post.id }, class: "like", method: :put do %>
+                    <li>
+                      <i class="glyphicon glyphicon-thumbs-up"></i>
+                        Like <%= @post.get_upvotes.size %>
+                    </li>
+                    <% end %>
+                    <%= link_to unlike_post_path(@post), remote: true,data: { id: @post.id }, class: "like", method: :put do %>
+                    <li>
+                      <i class="glyphicon glyphicon-thumbs-down"></i>
+                        Like <%= @post.get_downvotes.size %>
+                    </li>
+                    <% end %>
+                    <li><a data-toggle="collapse" data-target="#toggle<%=@post.id%>"  class="link">
+                      <i class="glyphicon glyphicon-comment"></i>Comments<span class="badge"><%=@post.comments.count%></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div id="toggle<%=@post.id%>" class="panel collapse in noborder panel-default">
+                  <div class="comment-form">
+                  <% if user_signed_in? %>
+                   <%= form_for [@post, @comment], html:{class: "well well-sm form-horizontal"} do |f| %>
+                      <p>
+                        <%= f.text_field :body, placeholder: "Leave a comment", class: "form-control", rows: "1", required: "required"%>
+                      </p>
+                      <p>
+                       <%= f.submit 'Comment', class:"btn btn-success pull-right", style:"display:none" %>
+                      </p>
+                     <br>
+                    <% end %>
+                 <% end %>
+                  </div>
+                  <div class="comment">
+                  <% @post.comments.each do |comment|%>
+                    <div class="media">
+                      <div class="media-left">
+                       <a href="#">
+                            <%= image_tag(comment.user.image, class:"media-object photo-profile")%>
+                          </a>
+                      </div>
+                      <div class="media-body">
+                         <a href="#" class="anchor-username"><h4 class="media-heading"><%= comment.user.name%></h4></a>
+                          <a href="#" class="anchor-time"> <%=time_ago_in_words(comment.created_at)%> Ago</a>
+                      </div>
+                      <section class="post-body">
+                        <p>
+                          <%=comment.body%>
+                       </p>
+                    </div>
+                  <div class="post-footer-option container">
+                    <ul class="list-unstyled">
+                       <%= link_to like_post_comment_path(comment.post, comment), remote: true, class: "like", method: :put do %>
+                      <li>
+                      <i class="glyphicon glyphicon-thumbs-up"></i>
+                        Like <%= comment.get_upvotes.size %>
+                    </li>
+                    <% end %>
+                    <%= link_to unlike_post_comment_path(comment.post, comment), remote: true, class: "like", method: :put do %>
+                    <li>
+                      <i class="glyphicon glyphicon-thumbs-down"></i>
+                        Like <%= comment.get_downvotes.size %>
+                    </li>
+                    <% end %>
+                    <% if current_user %>
+                    <% if comment.user.email == current_user.email %>
+                       <%= link_to post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} do %>
+                         <i data-toggle="tooltip" title="Delete Comment" class="fa fa-times" aria-hidden="true"></i>
+                       <% end %>
+                     <% end %>
+                     <% end %>
+                  </ul>
+                    </div>
+                    <hr>
+                    <%end%>
+
+                </div>
+
+                </div>
+              </section>
             </div>
           </div>
-        </div>
-        </div>
-      </article>
-    </section>
-    <%end%><!-- end of rails each -->
-    </div>
-  </div>
+      <!--/single blog post-->
+            </div>
+            </section>
+      </div>
+      </div>

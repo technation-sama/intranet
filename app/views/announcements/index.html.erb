@@ -11,18 +11,6 @@
 <div class="container"><!-- Page container -->
   <div class="row">
     <div class="col-md-2"><!--side bar  -->
-      <div class="categories panel panel-default">
-        <div class="panel-heading">
-          <b>Blog Categories</b>
-        </div>
-        <div class="panel-body">
-          <ol>
-            <% ActsAsTaggableOn::Tag.most_used(10).each do |tagging| %>
-            	<li><%= link_to tagging, tag_path(tagging.name) %></li>
-            <% end %>
-          </ol>
-        </div>
-      </div>
       <div class="panel noborder panel-default">
         <%= image_tag("Blog_Page_Sama.jpg", class:"img-responsive")%>
       </div>

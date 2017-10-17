@@ -12,67 +12,56 @@
         <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
+        <% if @events.count > 1 %>
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <%@events.each do |event|%>
+            <li data-target="#myCarousel" data-slide-to="<%=event.id%>"></li>
+            <%end%>
         </ol>
-
+        <%end%>
         <!-- Wrapper for slides -->
+  
         <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url(<%= asset_path 'slide1.jpg' %>);"></div>
+            <% if @events.count > 0%>
+            <%count=1%>
+            <%@events.each do |event|%>
+            <div class="item <%="active" if count ==1 %>">
+                <div class="fill" style="background-image:url(<%= asset_path event.image %>);"></div>
 				<div class="row">
 				<div class="col-md-6">
                 <div class="carousel-caption">
                     <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-
+                          <h4 class="event_title"><%=event.title%></h4>
+                          <p class="lead"><%= event.content %></p>
                           <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
                           </p>
-</div>
+                    </div>
               </div>
 			  </div>
 				</div>
             </div>
-            <div class="item">
+            <%count+=1%>
+            <%end%>
+            <%else%>
+            <div class="item active">
                 <div class="fill" style="background-image:url(<%= asset_path 'slide2.jpg' %>);"></div>
                <div class="row">
 				<div class="col-md-6">
                 <div class="carousel-caption">
                     <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-
-                          <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                          </p>
+                          <h4 class="event_title">Welcome</h4>
+                          <p class="lead">This is the Official SamaSource Nairobi Office Intranet</p>
+                          
 </div>
               </div>
 			  </div>
 				</div>
             </div>
-            <div class="item">
-                <div class="fill" style="background-image:url(<%= asset_path 'slide3.jpg' %>);"></div>
-               <div class="row">
-				<div class="col-md-6">
-                <div class="carousel-caption">
-                    <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-    
-                          <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                          </p>
-</div>
-              </div>
-			  </div>
-				</div>
-            </div>
+            <%end%>
         </div>
 
+        <% if @events.count > 1 %>
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
@@ -80,6 +69,7 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
         </a>
+        <%end%>
     </header>
 
     <!-- Page Content -->
@@ -95,7 +85,57 @@
         </div>-->
         
         
-        <!--  Icons Section -->
+        <!--  vision/mision Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Our Vision,Mission & Our values</h2>
+            </div>
+            <div class="col-md-12">
+
+                <ul id="myTab" class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-tree"></i> Our Vision</a>
+                    </li>
+                    <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-car"></i> What We do/Our Mission</a>
+                    </li>
+                    <li class=""><a href="#service-three" data-toggle="tab"><i class="fa fa-support"></i> The Sama way/Our Values</a>
+                    </li>
+                    
+                </ul>
+
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="service-one">
+                        
+                        <p>To connect the one billion people living in poverty around the world to work using technology.</p>
+                    </div>
+                    <div class="tab-pane fade" id="service-two">
+                      
+                        <p>Sama Group enterprises level the playing field for people who do not share equally in the benefits of human progress. We pioneer new technologies and business methods that harness the power of markets for social good.</p>
+                        <p>Each member of the Sama Group supports this mission:</p>
+                        <p><strong>Samasource</strong> connects marginalized women and youth to dignified work via the Internet.</p>
+                        <p><strong>SamaUSA</strong> provides low-income Americans with digital skills and access to internet-based jobs to help them move out of poverty.</p>
+                    </div>
+                    <div class="tab-pane fade" id="service-three">
+                        <p><strong>Grit</strong></p>
+                        <p>We’re creative and efficient with the resources we have. We push through obstacles and intentionally challenge the status quo.</p>
+
+                        <p><strong>Integrity</strong></p>
+                        <p>We’re ethically unyielding. Our actions are consistent with our values.</p>
+
+                         <p><strong>GTD</strong></p>
+                         <p>We’re impatient for results. We move, experiment, and learn fast. </p>
+
+                         <p><strong>Humanity</strong></p>
+                         <p>We’re in the business of empowering people through technology. Our people and and those we serve are at the core of our model. We strive to make them proud.</p>
+
+                    
+                    </div>
+
+            </div>
+        </div>
+
+        <!-- /.row -->
+
+        <!--  APPs Section -->
         <div class="row">
             <div class="col-lg-12 spacing_after_slide">
                 
@@ -136,7 +176,6 @@
             </div>
         </div>
         <!-- /.row -->
-
     
 
         <!-- Featured Articles Section -->

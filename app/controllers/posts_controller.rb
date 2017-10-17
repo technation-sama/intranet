@@ -7,12 +7,12 @@ class PostsController < ApplicationController
   def index
     if params[:tag]
       # filter posts by categories
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(5)
     else
       # change here if you need to add search
-      @posts = Post.all
+      @posts = Post.page(params[:page]).per(5)
     end
-    @posts = Post.page(params[:page]).per(5)
+    #@posts = Post.page(params[:page]).per(5)
   end
 
   # GET /posts/1
@@ -35,9 +35,10 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post =  current_user.posts.build(post_params)
+    @post =  current_user.posts.build(post_params,fghfd)
     respond_to do |format|
       if @post.save
+        flash[:notice] = 
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

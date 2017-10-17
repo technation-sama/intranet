@@ -25,10 +25,17 @@ $('.post-body').readmore({
   // article categories select
   $("#post_tag_list").select2({
     multiple: true,
+    tags: true,
     theme: "bootstrap",
     tokenSeparators: [',', ' '],
     placeholder: 'Select Categories',
-    width: "100%"
+    width: "100%",
+    createTag: function(newTag) {
+        return {
+            id: newTag.term,
+            text: newTag.term + '*'
+        };
+    }
   });
 
   // masonry transitions

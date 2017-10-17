@@ -433,12 +433,12 @@ padding-top:5px;
  position: relative;
  background:#fff;
  opacity:0.8;
- height: 30px;
+ height: 27px;
  border-radius:5px;
  z-index: 876;
 }
 .scoller marquee{
-  padding-top:6px;
+  padding-top:5px;
 }
 .copy>div p{
   background:#fff;
@@ -530,10 +530,8 @@ hr{
 }
 /***\posts page**/
 .post-image{
-  max-height: 320px;
-  
-    padding: 5px;
-    border-radius: 5px;
+    float:left;
+    padding-right: 10px;
 }
 .post-body{
   
@@ -550,10 +548,10 @@ hr{
     margin-top: 31px;
     background-color: rgba(0, 0, 0, 0.35) !important;
     border-radius: 5px;
-    height: 450px;
+    height: 400px;
     padding: 8px;
     position: relative;
-    top: 75px;
+    top: 44px
 }
 
 .jumbotron p {
@@ -567,4 +565,19 @@ hr{
     background-color: #000;
     border: none;
 }
-   
+
+/**home tab content for sama values**/
+.tab-content {
+    padding-top: 20px;
+    border-bottom: #ddd solid 1px;
+    padding-bottom: 25px;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover {
+    border-bottom-color: #FFD300;
+}
+
+.nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    color: #000;
+}
