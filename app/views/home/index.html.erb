@@ -12,67 +12,56 @@
         <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
+        <% if @events.count > 1 %>
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <%@events.each do |event|%>
+            <li data-target="#myCarousel" data-slide-to="<%=event.id%>"></li>
+            <%end%>
         </ol>
-
+        <%end%>
         <!-- Wrapper for slides -->
+  
         <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url(<%= asset_path 'slide1.jpg' %>);"></div>
+            <% if @events.count > 0%>
+            <%count=1%>
+            <%@events.each do |event|%>
+            <div class="item <%="active" if count ==1 %>">
+                <div class="fill" style="background-image:url(<%= asset_path event.image %>);"></div>
 				<div class="row">
 				<div class="col-md-6">
                 <div class="carousel-caption">
                     <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-
+                          <h4 class="event_title"><%=event.title%></h4>
+                          <p class="lead"><%= event.content %></p>
                           <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
                           </p>
-</div>
+                    </div>
               </div>
 			  </div>
 				</div>
             </div>
-            <div class="item">
+            <%count+=1%>
+            <%end%>
+            <%else%>
+            <div class="item active">
                 <div class="fill" style="background-image:url(<%= asset_path 'slide2.jpg' %>);"></div>
                <div class="row">
 				<div class="col-md-6">
                 <div class="carousel-caption">
                     <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-
-                          <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                          </p>
+                          <h4 class="event_title">Welcome</h4>
+                          <p class="lead">This is the Official SamaSource Nairobi Office Intranet</p>
+                          
 </div>
               </div>
 			  </div>
 				</div>
             </div>
-            <div class="item">
-                <div class="fill" style="background-image:url(<%= asset_path 'slide3.jpg' %>);"></div>
-               <div class="row">
-				<div class="col-md-6">
-                <div class="carousel-caption">
-                    <div class="jumbotron">
-                          <h4 class="event_title">Title</h4>
-                          <p class="lead">Content</p>
-    
-                          <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                          </p>
-</div>
-              </div>
-			  </div>
-				</div>
-            </div>
+            <%end%>
         </div>
 
+        <% if @events.count > 1 %>
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
@@ -80,6 +69,7 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
         </a>
+        <%end%>
     </header>
 
     <!-- Page Content -->

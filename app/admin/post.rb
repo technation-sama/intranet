@@ -12,6 +12,8 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
+
+  
 index do
   selectable_column
   column :title
