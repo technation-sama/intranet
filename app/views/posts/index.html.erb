@@ -77,7 +77,6 @@
               <section class="post-body" >
                 <p>
                   <%= post.description.html_safe %>
-                 <%= image_tag(post.image, class:"post-image")%>
                 </p>
               </section>
               <section class="post-footer">
@@ -102,7 +101,7 @@
                     </li>
                   </ul>
                 </div>
-                <div id="toggle<%=post.id%>" class="panel collapse in noborder panel-default">
+                <div id="toggle<%=post.id%>" class="panel collapse noborder panel-default">
                   <div class="comment-form">
                      <% if user_signed_in? %>
                   <%= form_for [post, post.comments.new ], html:{class: "well well-sm form-horizontal"} do |f| %>

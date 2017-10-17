@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :title, required: true, input_html: { class: "form-control"}  %>
      <label>:. Categories</label>
-     <%= f.select :tag_list,  ActsAsTaggableOn::Tag.all.map { |u| [u.name, u.name] },{include_blank: false, required: true},{:multiple => true,required: true, :class => "form-control"} %>
+     <%= f.select :tag_list,  ActsAsTaggableOn::Tag.all.map { |u| [u.name, u.name] },{include_blank: false, required: true},{:multiple => true,required: true, name: "post[tag_list]", :class => "form-control"} %>
     <label>:. Content</label>
      <%= f.cktext_area :description, class: "ckeditor" , label: ":. Content" %>
      <%= f.input :image, as: :file, input_html: { class: "hidden" }, label: false%>
