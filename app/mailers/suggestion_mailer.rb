@@ -5,13 +5,11 @@ class SuggestionMailer < ApplicationMailer
   #
   #   en.suggestion_mailer.new_suggestion.subject
   #
-  def new_suggestion()
-    #@suggestion = suggestion
-
-
-      mail( :from => "ndwigajustin@gmail.com",
-            :to => "ndwigajustin@gmail.com",
-            :subject => 'Thanks for signing up for our amazing app'
+  def new_suggestion(suggestion)
+    @suggestion = suggestion
+      mail( :from => "eric.miriti@nbo.samadc.org",
+            :to => "eric.miriti@nbo.samadc.org",
+            :subject => @suggestion.subject
       )
   end
 end

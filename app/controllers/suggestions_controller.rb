@@ -21,7 +21,7 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       if @suggestion.save
-        SuggestionMailer.new_suggestion().deliver
+        SuggestionMailer.new_suggestion(@suggestion).deliver_later
         format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully created.' }
         format.json { render :show, status: :created, location: @suggestion }
       else

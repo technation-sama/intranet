@@ -38,8 +38,8 @@ $(document).on ("turbolinks:load",function() {
                 e.preventDefault();
                 return false;  
             }
-            else{
-                 // console.log($form.serialize())
+            else{ 
+                  //console.log($form.serialize())
               $.ajax({
                  type: "POST",
                  url: $form.attr('action'),

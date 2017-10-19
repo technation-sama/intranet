@@ -62,10 +62,10 @@ class PollsController < ApplicationController
     end
     # function to set the voting period
     def set_period
-      Date.today.strftime("%B")<<Date.today.strftime("%Y")
+      Date.today.strftime("%B") << Date.today.strftime("%Y") 
     end
     def last_month
-      1.month.ago.strftime("%B")<<1.month.ago.strftime("%Y")
+      1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y") 
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
