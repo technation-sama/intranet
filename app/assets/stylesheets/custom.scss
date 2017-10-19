@@ -544,14 +544,8 @@ hr{
 
 
 .jumbotron {
-    padding-bottom: 30px !important;
-    margin-top: 31px;
     background-color: rgba(0, 0, 0, 0.35) !important;
     border-radius: 5px;
-    height: 400px;
-    padding: 8px;
-    position: relative;
-    top: 44px
 }
 
 .jumbotron p {
@@ -564,6 +558,15 @@ hr{
     color: #fff;
     background-color: #000;
     border: none;
+}
+@media screen and (min-width: 768px)
+ {
+  .jumbotron {
+    left: 0px;
+    padding-top: 0px;
+    width: 370px;
+    height: 203px;
+  }
 }
 
 /**home tab content for sama values**/
