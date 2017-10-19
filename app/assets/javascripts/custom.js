@@ -33,7 +33,7 @@ $('.post-body').readmore({
     createTag: function(newTag) {
         return {
             id: newTag.term,
-            text: newTag.term + '*'
+            text: newTag.term + '*new*'
         };
     }
   });

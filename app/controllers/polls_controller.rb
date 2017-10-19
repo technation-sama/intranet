@@ -28,7 +28,7 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(poll_params)
     @poll.period=set_period
-    @poll.voter_id=current_user.id
+    @poll.voter_id=current_user.id #used this since build will expect a user_id field i db
     respond_to do |format|
       if @poll.save 
         flash[:success]= 'You have successfully voted.'

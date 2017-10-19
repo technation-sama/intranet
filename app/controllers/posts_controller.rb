@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post =  current_user.posts.build(post_params,fghfd)
+    @post =  current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         flash[:notice] = 
@@ -93,6 +93,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :image, :tag_list, :user_id)
     end
+  
     
     def check_login
       redirect_to user_google_oauth2_omniauth_authorize_path if !current_user
