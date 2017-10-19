@@ -6,7 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 # Added gems
-gem 'rails_12factor', group: :production
+group :production, :test do
+  gem 'rails_12factor'
+  gem 'dalli'
+end
+
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
