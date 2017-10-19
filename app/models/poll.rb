@@ -1,5 +1,5 @@
 class Poll < ApplicationRecord
-  belongs_to :user, counter_cache: true
+  belongs_to :user, counter_cache: true, dependent: :destroy
   validates :user_id, :body, :project_name, presence: true
 
   def after_save
