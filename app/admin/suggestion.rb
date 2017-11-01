@@ -4,7 +4,7 @@ ActiveAdmin.register Suggestion do
 #
 filter :subject
 filter :created_at
-
+config.clear_action_items!
  permit_params :subject, :message
 #
 # or
