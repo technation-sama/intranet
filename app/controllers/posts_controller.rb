@@ -7,10 +7,10 @@ class PostsController < ApplicationController
   def index
     if params[:tag]
       # filter posts by categories
-      @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(5)
+      @posts = Post.where(published: "true" ).tagged_with(params[:tag]).page(params[:page]).per(5)
     else
       # change here if you need to add search
-      @posts = Post.page(params[:page]).per(5)
+      @posts = Post.where(published: "true" ).page(params[:page]).per(5)
     end
     #@posts = Post.page(params[:page]).per(5)
   end

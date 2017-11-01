@@ -188,20 +188,39 @@
             <div class="col-sm-6">
                <!-- First Featured Post -->
                <!-- sigle blog post -->
-               <% @posts.each do | post|%>
-                <h2>
-                    <a href="#" class="blog_home_heading"><%=post.title%></a>
-                </h2>
-                <p class="lead">
-                    by <a href="#" class="blog_home_sub_heading">Admin</a>
+               <br>
+               <% @posts.each do | post|%> 
+               <div class="panel panel-default container-fluid">
+           <div class="panel1 heading">
+             <hr>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <%= link_to  post_path(post), class: "pull-left" do %>
+                    <h4><%=post.title%></h4>
+                  <%end%>
+                </div>
+                    <div class="col-md-6 col-lg-6">
+                      <!--<div class="media">-->
+                        <!--<div class="media-left">
+                          <a href="#">
+                            <%= image_tag(post.user.image, class:"media-object photo-profile")%>
+                          </a>
+                        </div>-->
+                        <span class="anchor-time pull-right">Posted <%=time_ago_in_words(post.created_at)%> Ago <i>by</i><span class="anchor-username"> <%=post.user.name%></span></span>
+                      <!--</div>-->
+                    </div>
+                  </div>
+           </div>
+            <div class="panel-body">
+              <section class="post-body" >
+                <p>
+                  <%= 
+                  truncate(post.description, :length => 530, :omission => "....." , :separator => ' ', :escape => false)%>
                 </p>
-                <p><i class="fa fa-clock-o"></i><%=time_ago_in_words(post.created_at)%> ago</p>
-               
-              
-                <p><%=post.description%> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-                <a class="btn btn-primary read_more_blog" href="#">Read More... </a>
-
-                <hr>
+                <%=link_to "Read more", post_path(post), class:"btn btn-sm btn-primary"%>
+              </section>
+            </div>
+          </div>
                 <%end%>
                 <!-- Second Featured Post  -->
                 
