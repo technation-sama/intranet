@@ -12,6 +12,12 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
+#actions :all, :except => [:edit]
+
+action_item :view, only: :show do
+  link_to 'View on site', post_path(post), target: :_blank if post.published
+end
+
 controller do
    def create
     super do |format|
@@ -26,8 +32,6 @@ controller do
   end
 end
  
-
-  
 index do
   selectable_column
   column :title
@@ -45,6 +49,13 @@ index do
   end
   actions
 end
+
+show do
+    h1 post.title
+    div do
+      simple_format post.description
+    end
+  end
 
  form do |f|
     f.inputs  do
