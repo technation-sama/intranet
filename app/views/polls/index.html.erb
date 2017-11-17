@@ -1,102 +1,47 @@
 <div class="container nav1">
-   <div class="row">
-
-   <div class="col-md-12 nav2">
-    <ol class="breadcrumb">
-  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></a></li>
-  <li class="breadcrumb-item">Vote</li>
-</ol>
-   </div>
-   </div>
-  </div>
-   <div class="container">
+    <div class="row">
+        <div class="col-md-12 nav2">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+                <li class="breadcrumb-item">Vote</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
    <!--- sama worker typing image top ---->
-   <div class="row">
-      <div class="col-md-12">
-         <%= image_tag("sama_worker_typing.jpg", class:"img-responsive")%>
-
+    <div class="row">
+        <div class="col-md-12">
+           <%= image_tag("sama_worker_typing.jpg", class:"img-responsive")%>
         </div>
 
-   </div>
-      <!--- Typing Script ---->
-  <!--  <div class="row">
-   <div class="col-md-12 type_container">
-
-<h1 class="typer"></h1>
-
-   </div>
-   </div> -->
-      <br>
-   <div class="row">
- <div id="poll-div" class="col-md-7">
-
-<% if @voted!=nil && @voted>0 %>
-<div class="alert alert-success">You have already submated your vote for this month!! </div>
-</div><!-- close col-lg-7  -->
-<%else%>
-<% if current_user %>
-<%= simple_form_for @poll, html: { class: 'well form-horizontal', id: 'polls_form' }, romote: true do |f|%>
-<!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
-<fieldset>
-<legend>Vote for the employee of the month</legend>
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-5 control-label">Name (FirstName LastName)</label>
-  <div class="col-md-7 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-  <%= f.select :user_id, User.all.map { |u| [u.name, u.id] },{ :prompt => 'Select  name of the nominee', include_blank: false},{ :class => "form-control select2"} %>
     </div>
-  </div>
-</div>
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-5 control-label">Please select the name of your project</label>
-    <div class="col-md-7 selectContainer">
-    <div class="input-group">
-     <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-     <%= f.select :project_name, Project.all.map { |r| [r.name, r.name] },{ :prompt => 'Select Project of the nominee', include_blank: false},{ :class => "form-control select2"} %>
-  </div>
-</div>
-</div>
-<!-- Text area -->
-<div class="form-group">
-  <label class="col-md-5 control-label">Why you are voting for the Nominee</label>
-    <div class="col-md-7 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-        <%= f.input :body, as: :text, label: false, prompt: "Why you are voting for the Nominee", input_html:{class: 'form-control'}%>
-        	<!-- <textarea class="form-control" name="body" placeholder="Why you are voting for the Nominee"></textarea> -->
-  </div>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-5 control-label"></label>
-  <div class="col-md-7">
-  <%= button_tag type: "submit", class: "btn btn-warning" do%>
-    Send <%= fa_icon "paper-plane" %>
-     <% end %>
-  </div>
+    <br>
+    <div class="row">
+        <div id="poll-div" class="col-md-7">
+            <!--Dispaly  message if user has alredy voted during the current period-->
+            <% if @voted!=nil && @voted>0 %>
+                <div class="alert alert-success">
+                    <span>You have already submitted your vote for this month!!</span> 
+                </div>
+                </div><!-- close col-lg-7 inside if -->
+            <%else%>
+                <% if current_user %>
+                    <!--if user logged in, display form-->
+                    <%= render :partial => 'form', :locals => {:poll => @poll} %>
+                    </div><!--close col-lg-7 inside else-->
+                <%else%><!--if user is not logged in-->
+                    <!-- if user not logged in. prompt login-->
+                    <div class="alert alert-danger text-center colouring_sama">
+                        <h2>You need to Sign in first!!!</h2>
+                        <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
+                    </div>
+                    </div>
+                <%end%><!--end iside if-->
+            <%end%>
+        <div class="col-md-5">
+            <%= image_tag("workers_sama.png", class:"img-responsive")%>
+        </div>
+    </div>
 </div>
 
-</fieldset>
-<%end%>
- </div>
- <%else%>
- <div class="alert alert-danger text-center">
-     <h2>You need to Sign in first!!!</h2>
-     <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
- </div>
- </div>
-     <%end%>
-   <%end%>
-    <div class="col-md-5">
-      <%= image_tag("workers_sama.png", class:"img-responsive")%>
-      </div>
-   </div>
-<hr>
-  <%if current_user%>
-  <%= render 'votercharts'%>
-  <%end%>

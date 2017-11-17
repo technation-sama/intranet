@@ -1,12 +1,61 @@
-<!--<%= simple_form_for(@poll) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :body %>
-  </div>
+<%= simple_form_for poll, html: { class: 'well form-horizontal', id: 'polls_form' }, romote: true do |f|%>
+  <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
+  <fieldset>
+    <legend>Vote for the employee of the month</legend>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-5 control-label">Name (FirstName LastName)</label>
+      <div class="col-md-7 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <%= f.select :user_id, User.all.map {
+            |u| [u.name, u.id] },
+            { :prompt => 'Select  name of the nominee',
+            include_blank: false},
+            { :class => "form-control select2"} 
+          %>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-5 control-label">Please select the name of your project</label>
+      <div class="col-md-7 selectContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+          <%= f.select :project_name, Project.all.map {
+            |r| [r.name, r.name] },
+            { :prompt => 'Select Project of the nominee',
+            include_blank: false},
+            { :class => "form-control select2"}
+          %>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Text area -->
+    <div class="form-group">
+      <label class="col-md-5 control-label">Why you are voting for the Nominee</label>
+        <div class="col-md-7 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+          <%= f.input :body, as: :text, label: false, prompt: "Why you are voting for the Nominee", input_html:{class: 'form-control'}%>
+          <!-- <textarea class="form-control" name="body" placeholder="Why you are voting for the Nominee"></textarea> -->
+        </div>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %> -->
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-5 control-label"></label>
+      <div class="col-md-7">
+        <%= button_tag type: "submit", class: "btn btn-warning" do%>
+          Send <%= fa_icon "paper-plane" %>
+        <% end %>
+      </div>
+    </div>
+  </fieldset>
+<%end%>
