@@ -14,17 +14,7 @@ class PollsController < ApplicationController
   # GET /polls/1/edit
   def edit
   end
-# method to populate highcharts data
-  def chart
-    polls= Poll.where(period: set_period).map(&:user_id).uniq
-    users=User.where('id IN (?)', polls).order(polls_count: :desc).limit(5)
-    all = users.collect{|user|
-        [user.name, 
-         user.polls_count
-        ]}
-        render json: all
-  end
-
+ 
   def create
     @poll = Poll.new(poll_params)
     @poll.period=set_period
@@ -60,6 +50,7 @@ class PollsController < ApplicationController
     def set_poll
       @poll = Poll.find(params[:id])
     end
+    
     # function to set the voting period
     def set_period
       Date.today.strftime("%B") << Date.today.strftime("%Y") 

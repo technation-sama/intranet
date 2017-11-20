@@ -35,22 +35,7 @@
 		        </section>
 
 		        <section class="post-body">
-		          <p>
-		             <% if announcement.content.length > 700 %>
-		                <%= truncate(announcement.content, length: 700) %>
-		                <%= link_to '...Show more', '',data: { no_turbolink: true }, class: "read-more-#{announcement.id}" %>
-		               <script>
-		               $(document).on('turbolinks:load',function(){
-		                $('.read-more-<%= announcement.id %>').on('click', function(e) {
-		                 e.preventDefault()
-		                $(this).parent().html('<%= escape_javascript announcement.content%><%= link_to "...Show less", "" ,data: { no_turbolink: true }, class: "read-less-#{announcement.id}" %> ')
-		               });
-		               });
-		              </script>
-		            <% else %>
-		           <%= announcement.content %>
-		            <% end %>
-		          </p>
+		        	 <%= announcement.content.html_safe %>
 		        </section>
 
 		      </div>

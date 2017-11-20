@@ -11,34 +11,86 @@ ActiveAdmin.register Post do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+scope :all, default: true
+scope :featured
+scope :published
+scope :unpublished
 
-#actions :all, :except => [:edit]
+actions :all, :except => [:destroy,:edit]
 
 action_item :view, only: :show do
   link_to 'View on site', post_path(post), target: :_blank if post.published
 end
 
-controller do
-   def create
-    super do |format|
-      redirect_to collection_url and return if resource.valid?
-    end
-  end
-  
-  def update
-    super do |format|
-      redirect_to collection_url and return if resource.valid?
-    end
-  end
+action_item :publish, only: [:show] do 
+    link_to "Publish", publish_admin_post_path(post), method: :put if !post.published? 
 end
+
+action_item :unpublish, only: [:show] do 
+    link_to "UnPublish", unpublish_admin_post_path(post), method: :put if post.published? 
+end
+
+action_item :featured, only: [:show] do 
+    link_to "Feature Post", featured_admin_post_path(post), method: :put if !post.featured? 
+end
+
+action_item :unfeature, only: [:show] do 
+    link_to "Remove Featured", unfeature_admin_post_path(post), method: :put if post.featured? 
+end
+
+member_action :publish, method: :put do 
+    post = Post.find(params[:id])
+    post.update(published: true)
+    #flash[:notice] = "post sucessfully published"
+    redirect_to admin_post_path(post)
+end
+
+member_action :unpublish, method: :put do 
+    post = Post.find(params[:id])
+    post.update(published: false)
+    #flash[:notice] = "post sucessfully unpublished"
+    redirect_to admin_post_path(post)
+end
+
+member_action :featured, method: :put do 
+    post = Post.find(params[:id])
+    post.update(featured: true)
+    #flash[:notice] = "post sucessfully marked as featured"
+    redirect_to admin_post_path(post)
+end
+
+member_action :unfeature, method: :put do 
+    post = Post.find(params[:id])
+    post.update(featured: false)
+    #flash[:notice] = "post sucessfully marked as not featured"
+    redirect_to admin_post_path(post)
+end
+
+filter :user, as: :select
+
+# controller do
+#    def create
+#     super do |format|
+#       redirect_to collection_url and return if resource.valid?
+#     end
+#   end
+  
+#   def update
+#     super do |format|
+#       redirect_to collection_url and return if resource.valid?
+#     end
+#   end
+# end
  
 index do
   selectable_column
-  column :title
+  column :title do |post|
+    link_to post.title, admin_post_path(post)
+  end
   column :description do |desc|
      truncate(desc.description,length: 300,:omission => "..." , :separator => ' ', :escape => false)
   end
-  column "Created By", :user_id do |user|
+  column "Posted By", :user_id do |user|
      link_to user.user.name, admin_user_path(user)
   end
   column "Featured?", :featured do |featured|
