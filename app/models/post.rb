@@ -7,4 +7,14 @@ class Post < ApplicationRecord
 	default_scope { order('created_at DESC') }
 	
     mount_uploader :image, ImageUploader
+    scope :published, ->{ 
+		where.not(published: false )
+	}
+	scope :unpublished, -> { 
+		where(published: false)
+	}
+	scope :featured, ->{
+		where(featured: true)
+	}
+
 end
