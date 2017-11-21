@@ -32,7 +32,7 @@ header.carousel {
     height: 55%;
   border-bottom:2px solid #FFD300;
 }
-.carousel{
+.carousel-main{
   top:-42px;
   z-index:9;
 }
@@ -591,4 +591,19 @@ hr{
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+//employee of the month
+.img-emp{
+  height:121px;
+}
+@media (max-width: 991px){
+#carousel-example{
+  height: 240px;
+}
+}
+
+
+.yellow{
+  color:red;
 }

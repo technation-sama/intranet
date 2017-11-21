@@ -1,5 +1,5 @@
    <!-- Header Carousel -->
-    <div id="fb-root"></div>
+    <div id="fb-root">
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -9,8 +9,8 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     </div>
     
-        <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel carousel-main slide">
         <!-- Indicators -->
         <% if @events.count > 1 %>
         <ol class="carousel-indicators">
@@ -73,183 +73,221 @@
     </header>
 
     <!-- Page Content -->
-    <div class="container">
-        
-  <!--  <div class="row">
-            <div class="col-md-12 "><div class="quote_section">
-           <h3>Quote of the Day</h3>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi</p>
-           </div>
-            </div>
-        </div>-->
-        
-        
-        <!--  vision/mision Section -->
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
-                <h3>Our Vision,Mission & Our values</h2>
-            </div>
-            <div class="col-sm-12">
-
-                <ul id="myTab" class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-tree"></i> Our Vision</a>
-                    </li>
-                    <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-car"></i> What We do/Our Mission</a>
-                    </li>
-                    <li class=""><a href="#service-three" data-toggle="tab"><i class="fa fa-support"></i> The Sama way/Our Values</a>
-                    </li>
-                    
-                </ul>
-
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active in" id="service-one">
-                        
-                        <p>To connect the one billion people living in poverty around the world to work using technology.</p>
+            <div class="col-sm-1"></div>
+            <div style="background-color:#FBFBF9;"  class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h3 class="text-center">Our Vision,Mission & values</h3>
+                        <ul id="myTab" class="nav nav-tabs nav-justified">
+                            <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-tree"></i> Our Vision</a>
+                            </li>
+                            <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-car"></i> What We do/Our Mission</a>
+                            </li>
+                            <li class=""><a href="#service-three" data-toggle="tab"><i class="fa fa-support"></i> The Sama way/Our Values</a>
+                            </li>
+                            
+                        </ul>
+            
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="service-one">
+                                <p>To connect the one billion people living in poverty around the world to work using technology.</p>
+                            </div>
+                            <div class="tab-pane fade" id="service-two">
+                              
+                                <p>Sama Group enterprises level the playing field for people who do not share equally in the benefits of human progress. We pioneer new technologies and business methods that harness the power of markets for social good.</p>
+                                <p>Each member of the Sama Group supports this mission:</p>
+                                <p><strong>Samasource</strong> connects marginalized women and youth to dignified work via the Internet.</p>
+                                <p><strong>SamaUSA</strong> provides low-income Americans with digital skills and access to internet-based jobs to help them move out of poverty.</p>
+                            </div>
+                            <div class="tab-pane fade" id="service-three">
+                                <p><strong>Grit</strong></p>
+                                <p>We’re creative and efficient with the resources we have. We push through obstacles and intentionally challenge the status quo.</p>
+            
+                                <p><strong>Integrity</strong></p>
+                                <p>We’re ethically unyielding. Our actions are consistent with our values.</p>
+            
+                                 <p><strong>GTD</strong></p>
+                                 <p>We’re impatient for results. We move, experiment, and learn fast. </p>
+            
+                                 <p><strong>Humanity</strong></p>
+                                 <p>We’re in the business of empowering people through technology. Our people and and those we serve are at the core of our model. We strive to make them proud.</p>
+                            </div>
+            
                     </div>
-                    <div class="tab-pane fade" id="service-two">
-                      
-                        <p>Sama Group enterprises level the playing field for people who do not share equally in the benefits of human progress. We pioneer new technologies and business methods that harness the power of markets for social good.</p>
-                        <p>Each member of the Sama Group supports this mission:</p>
-                        <p><strong>Samasource</strong> connects marginalized women and youth to dignified work via the Internet.</p>
-                        <p><strong>SamaUSA</strong> provides low-income Americans with digital skills and access to internet-based jobs to help them move out of poverty.</p>
+                </div>   
+                    <div class="col-sm-2 hidden-xs">
+                        <h5>Employee of the month</h5>
+                        <%if current_user%>
+                        <%= image_tag(current_user.image, :class=>"img-emp") %>
+                        <h4><%= current_user.name %></h4>
+                        <% end %>
                     </div>
-                    <div class="tab-pane fade" id="service-three">
-                        <p><strong>Grit</strong></p>
-                        <p>We’re creative and efficient with the resources we have. We push through obstacles and intentionally challenge the status quo.</p>
-
-                        <p><strong>Integrity</strong></p>
-                        <p>We’re ethically unyielding. Our actions are consistent with our values.</p>
-
-                         <p><strong>GTD</strong></p>
-                         <p>We’re impatient for results. We move, experiment, and learn fast. </p>
-
-                         <p><strong>Humanity</strong></p>
-                         <p>We’re in the business of empowering people through technology. Our people and and those we serve are at the core of our model. We strive to make them proud.</p>
-
-                    
-                    </div>
-
-            </div>
-        </div>
-
-        <!-- /.row -->
-
-        <!--  APPs Section -->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 spacing_after_slide">
+                </div>
+                <!-- /.row -->
                 
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-default ">
-                    <div class="panel-heading colouring_sama">
-                        <h4><i class="fa fa-folder-open" aria-hidden="true"></i> HRIS</h4>
+                <!--apllications-->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-default ">
+                            <div class="panel-heading colouring_sama">
+                                <h4><i class="fa fa-folder-open" aria-hidden="true"></i> HRIS</h4>
+                            </div>
+                            <div class="panel-body">
+                                <p>HRIS </p>
+                                
+                                <a href="http://192.168.2.6" target="_blank" class="colouring_sama btn btn-default">Open</a>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-sm-4">
+                            <div class="panel panel-default ">
+                                <div class="panel-heading colouring_sama">
+                                    <h4><i class="fa fa-briefcase" aria-hidden="true"></i> Samabox</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Samabox</p>
+                                    
+                                    <a href="http://samabox.samasource.org/" target="_blank" class="btn colouring_sama btn-default">Open</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading colouring_sama">
+                                    <h4><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Voting</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Employee of the month Voting</p>
+                                    <%=link_to "Open.", polls_url, class: "colouring_sama btn btn-default", target: "_blank" %>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <!--latest announcements-->
+                <div style="background-color:#EFEFEF;" class="row">
+                        <h4 class="text-center"> Latest Announcements</h4>
+                        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <%sliced = @announcements.in_groups_of(4)%>
+                                <%count_slice=1%>
+                                <%sliced.each do |slice|%>
+                                    <div class="item <%="active" if count_slice ==1 %>">
+                                        <div class="row">
+                                            <% slice.compact.each do |announcement|%>
+                                                <div class="col-sm-3">
+                                        	   		<div class="panel panel-default">
+                                        		      <div class="panel-body">
+                                        		        <section class="post-heading">
+                                        		            <div class="row">
+                                        		              <div class="col-md-11">
+                                        		                <div class="media">
+                                        		                  <div class="media-body">
+                                        		                    <a href="#" class="anchor-username">
+                                        		                        <h4 class="media-heading"><%= announcement.title %> </h4>
+                                        		                    </a>
+                                        		                   <hr>
+                                        		                  </div>
+                                        		                </div>
+                                        		              </div>              
+                                        		            </div>             
+                                        		        </section>
+                                        		        <section class="post-body">
+                                        		            <p>
+                                                              <%=truncate(announcement.content, :length => 150, :omission => "....." , :separator => ' ', :escape => false)%>
+                                                            </p>
+                                                            <%=link_to "Read more", announcements_path, class:"btn btn-sm btn-primary"%>
+                                        		        </section>
+                                        		      </div>
+                                        		    </div>
+                                        		    </div>
+                                            <% end %> 
+                                        </div>
+                                    </div>
+                                <% count_slice += 1%>
+                                <%end%>
+                            </div>
+                    </div> 
+                </div>
+                <hr>
+                <br>
+                <!-- Featured Articles Section -->
+                <div class="row">
+                    <div data-no-turbolink="true" class="hidden-xs col-sm-3">
+                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                   <a href="https://twitter.com/Samasource" data-size="large" class="twitter-follow-button" data-show-count="false">Follow @Samasource</a>
+                  <a class="twitter-timeline"  data-height="900" data-chrome="nofooter" data-link-color="#820bbb" data-border-color="#a80000" href="https://www.twitter.com/Samasource">Tweets by Samasource</a> 
+                </div>
+                    <div class="col-sm-6">
+                       <!-- First Featured Post -->
+                       <!-- sigle blog post -->
+                       <br>
+                       <h4>Featured Articles</h4>
+                       <% @posts.each do | post|%> 
+                       <div class="panel panel-default container-fluid">
+                   <div class="panel1 heading">
+                     <hr>
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                          <%= link_to  post_path(post), class: "pull-left" do %>
+                            <h4><%=post.title%></h4>
+                          <%end%>
+                        </div>
+                            <div class="col-md-6 col-lg-6">
+                              <!--<div class="media">-->
+                                <!--<div class="media-left">
+                                  <a href="#">
+                                    <%= image_tag(post.user.image, class:"media-object photo-profile")%>
+                                  </a>
+                                </div>-->
+                                <span class="anchor-time pull-right">Posted <%=time_ago_in_words(post.created_at)%> Ago <i>by</i><span class="anchor-username"> <%=post.user.name%></span></span>
+                              <!--</div>-->
+                            </div>
+                          </div>
+                   </div>
                     <div class="panel-body">
-                        <p>HRIS</p>
-                        <a href="http://192.168.2.6" target="_blank" class="colouring_sama btn btn-default">Open</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-default ">
-                    <div class="panel-heading colouring_sama">
-                        <h4><i class="fa fa-briefcase" aria-hidden="true"></i> Samabox</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Samabox</p>
-                        <a href="http://samabox.samasource.org/" target="_blank" class="btn colouring_sama btn-default">Open</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading colouring_sama">
-                        <h4><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Voting</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Employee of the month voting</p>
-                        <%=link_to "Open.", polls_url, class: "colouring_sama btn btn-default" %>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-    
-
-        <!-- Featured Articles Section -->
-        <div class="row">
-        <div data-no-turbolink="true" class="hidden-xs col-sm-3">
-             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-           <a href="https://twitter.com/Samasource" data-size="large" class="twitter-follow-button" data-show-count="false">Follow @Samasource</a>
-          <a class="twitter-timeline"  data-height="900" data-chrome="nofooter" data-link-color="#820bbb" data-border-color="#a80000" href="https://www.twitter.com/Samasource">Tweets by Samasource</a> 
-        </div>
-            <div class="col-sm-6">
-               <!-- First Featured Post -->
-               <!-- sigle blog post -->
-               <br>
-               <% @posts.each do | post|%> 
-               <div class="panel panel-default container-fluid">
-           <div class="panel1 heading">
-             <hr>
-              <div class="row">
-                <div class="col-md-6 col-lg-6">
-                  <%= link_to  post_path(post), class: "pull-left" do %>
-                    <h4><%=post.title%></h4>
-                  <%end%>
-                </div>
-                    <div class="col-md-6 col-lg-6">
-                      <!--<div class="media">-->
-                        <!--<div class="media-left">
-                          <a href="#">
-                            <%= image_tag(post.user.image, class:"media-object photo-profile")%>
-                          </a>
-                        </div>-->
-                        <span class="anchor-time pull-right">Posted <%=time_ago_in_words(post.created_at)%> Ago <i>by</i><span class="anchor-username"> <%=post.user.name%></span></span>
-                      <!--</div>-->
+                      <section class="post-body" >
+                        <p>
+                          <%= 
+                          truncate(post.description, :length => 530, :omission => "....." , :separator => ' ', :escape => false)%>
+                        </p>
+                        <%=link_to "Read more", post_path(post), class:"btn btn-sm btn-primary"%>
+                      </section>
                     </div>
                   </div>
-           </div>
-            <div class="panel-body">
-              <section class="post-body" >
-                <p>
-                  <%= 
-                  truncate(post.description, :length => 530, :omission => "....." , :separator => ' ', :escape => false)%>
-                </p>
-                <%=link_to "Read more", post_path(post), class:"btn btn-sm btn-primary"%>
-              </section>
-            </div>
-          </div>
-                <%end%>
-                <!-- Second Featured Post  -->
-                
-
-                
-            </div>
-                
-             <div class="col-sm-3 hidden-xs"> 
-             <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-             <h2>
-                 <p>
-                    <div class="fb-page" data-href="https://www.facebook.com/samaimpact/" data-tabs="timeline" data-height="900px" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
-                        <blockquote cite="https://www.facebook.com/samaimpact/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/samaimpact/">Samasource</a>
-                        </blockquote>
+                        <%end%>
+                        <!-- Second Featured Post  -->
+                        
+        
+                        
                     </div>
-                </p>
-             </h2>
-                
-         </div>
-        </div>
-        <!-- /.row -->
-
-      <br>
-       
+                        
+                     <div class="col-sm-3 hidden-xs"> 
+                     <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                     <h2>
+                         <p>
+                            <div class="fb-page" data-href="https://www.facebook.com/samaimpact/" data-tabs="timeline" data-height="900px" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
+                                <blockquote cite="https://www.facebook.com/samaimpact/" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/samaimpact/">Samasource</a>
+                                </blockquote>
+                            </div>
+                        </p>
+                     </h2>
+                        
+                 </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <div class="col-sm-1"></div>
+         </div> 
+     </div> 
