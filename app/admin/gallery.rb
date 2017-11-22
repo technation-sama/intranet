@@ -2,7 +2,8 @@ ActiveAdmin.register Gallery do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 
-  scope :everything, default: true
+  scope :all, default: true
+  scope :empty
   permit_params :title, gallery_attachments_attributes: [:id, :gallery_id, :photo]
   
   filter :title
@@ -11,10 +12,8 @@ ActiveAdmin.register Gallery do
     column :title do |post|
       link_to post.title, admin_post_path(post)
     end
-    column 'images', :slug do |slug|
-      @gallery = Gallery.find_by_slug(slug.to_s)
-      #@gallery.gallery_attachments.size
-      link_to slug
+    column 'Image count', :slug do |slug|
+      slug.gallery_attachments.size
     end
     actions
   end

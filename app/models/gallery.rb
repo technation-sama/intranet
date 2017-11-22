@@ -5,7 +5,9 @@ class Gallery < ApplicationRecord
 	has_many :gallery_attachments, dependent: :destroy
 	accepts_nested_attributes_for :gallery_attachments
 	
-	scope :everything, ->{ 
-		Gallery.all
+	default_scope { order('created_at DESC') }
+	
+	scope :empty, ->{ 
+		joins(:gallery_attachments).group('galleries.id').having('count(gallery_id) < 0')
 	}
 end
