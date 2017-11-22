@@ -1,21 +1,29 @@
 ActiveAdmin.register Gallery do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  ActiveAdmin.register GalleryAttachment do
+    belongs_to :gallery, optional: true
+  end
 
   scope :all, default: true
   scope :empty
   permit_params :title, gallery_attachments_attributes: [:id, :gallery_id, :photo]
   
   filter :title
+
   index do
-    selectable_column
-    column :title do |post|
-      link_to post.title, admin_post_path(post)
+    index_column
+    column :title do |gallery|
+      link_to gallery.title, admin_gallery_gallery_attachments_path(gallery)
     end
-    column 'Image count', :slug do |slug|
+    column :published_at do |publish|
+      publish.created_at
+    end
+    column :image_count do |slug|
       slug.gallery_attachments.size
     end
-    actions
+
+    actions do |gallery|
+      a "View in page", href: gallery_gallery_attachments_path(gallery), class: "member_link"
+    end
   end
   
   action_item only: :show do
