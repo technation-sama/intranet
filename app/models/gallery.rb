@@ -8,6 +8,6 @@ class Gallery < ApplicationRecord
 	default_scope { order('created_at DESC') }
 	
 	scope :empty, ->{ 
-		joins(:gallery_attachments).group('galleries.id').having('count(gallery_id) < 42')
+		joins(:gallery_attachments).group('galleries.id').having('count(gallery_id) > 42')
 	}
 end

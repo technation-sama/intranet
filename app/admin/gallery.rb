@@ -1,13 +1,28 @@
 ActiveAdmin.register Gallery do
   ActiveAdmin.register GalleryAttachment do
     belongs_to :gallery, optional: true
+    index do
+      column :photo do |pic|
+        image_tag pic.photo.thumb.url, class: "admin-thumb-image"
+      end
+      actions
+    end
+  end
+  
+  # Disable slug from activeadmin
+  before_filter do
+    Gallery.class_eval do
+      def to_param
+        id.to_s
+      end
+    end
   end
 
   scope :all, default: true
   scope :empty
   permit_params :title, gallery_attachments_attributes: [:id, :gallery_id, :photo]
   
-  filter :title
+  filter :title, as: :select
 
   index do
     index_column
@@ -32,13 +47,13 @@ ActiveAdmin.register Gallery do
   end
   
   controller do
-    def find_resource
-      begin
-        scoped_collection.where(slug: params[:id]).first!
-      rescue ActiveRecord::RecordNotFound
-        scoped_collection.find(params[:id])
-      end
-    end
+    # def find_resource
+    #   begin
+    #     scoped_collection.where(slug: params[:id]).first!
+    #   rescue ActiveRecord::RecordNotFound
+    #     scoped_collection.find(params[:id])
+    #   end
+    # end
     
     def create
       @gallery = Gallery.new(permitted_params[:gallery])
@@ -56,3 +71,17 @@ ActiveAdmin.register Gallery do
   end
 
 end
+
+
+### ToDo
+## Gallery attachments
+# show page of image
+# image should link to show page
+# view button should read 'view on page' and lead to page
+# remove edit button
+# rename side menu of GA to 'All Photos'
+## Gallery
+# work on empty
+# view should lead to /gallery_attachments
+# Edit should be 'edit title'
+# delete 'Delete entire gallery'
