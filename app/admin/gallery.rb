@@ -1,14 +1,4 @@
 ActiveAdmin.register Gallery do
-  ActiveAdmin.register GalleryAttachment do
-    belongs_to :gallery, optional: true
-    index do
-      column :photo do |pic|
-        image_tag pic.photo.thumb.url, class: "admin-thumb-image"
-      end
-      actions
-    end
-  end
-  
   # Disable slug from activeadmin
   before_filter do
     Gallery.class_eval do
@@ -47,14 +37,6 @@ ActiveAdmin.register Gallery do
   end
   
   controller do
-    # def find_resource
-    #   begin
-    #     scoped_collection.where(slug: params[:id]).first!
-    #   rescue ActiveRecord::RecordNotFound
-    #     scoped_collection.find(params[:id])
-    #   end
-    # end
-    
     def create
       @gallery = Gallery.new(permitted_params[:gallery])
       if @gallery.save
@@ -63,12 +45,26 @@ ActiveAdmin.register Gallery do
             @gallery_attachment = @gallery.gallery_attachments.create!(photo: pic)
           end
         end
-        redirect_to gallery_gallery_attachments_path(@gallery)
+        redirect_to admin_gallery_gallery_attachments_path(@gallery)
       else
         render json: @gallery.errors, status: :unprocessable_entity 
       end
     end
   end
+  
+  form do |f|
+    f.inputs 'Details' do
+      f.input :title
+    end
+  
+    f.inputs do
+      f.has_many :gallery_attachments, new_record: 'Upload Images' do |pic|
+        pic.input :photo, input_html: { name: "gallery_attachments[photo][]", multiple: true }
+      end
+    end
+    f.actions
+  end
+
 
 end
 
@@ -85,3 +81,4 @@ end
 # view should lead to /gallery_attachments
 # Edit should be 'edit title'
 # delete 'Delete entire gallery'
+# add photo to this gallery
