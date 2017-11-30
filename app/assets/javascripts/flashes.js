@@ -7,7 +7,7 @@ $(document).on('turbolinks:load',function(){
       nonblock: {
 			  nonblock: true
 		  },
-		  delay: 6000,
+		  delay: 10000,
 		  styling: "bootstrap3",
 		  width: "40%",
 		  cornerclass: "round",

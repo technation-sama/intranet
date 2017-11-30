@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 	#relationship between user and posts & comments
 	has_many :posts, dependent: :destroy
+	has_many :polls, dependent: :destroy
 	has_many :comments, dependent: :destroy
   #defined System Roles  	
 	 ROLES = %i[SuperUser Admin Fiance IT HR Banned]

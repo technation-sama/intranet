@@ -16,7 +16,7 @@ scope :featured
 scope :published
 scope :unpublished
 
-actions :all, :except => [:destroy,:edit]
+actions :all, :except => [:edit]
 
 action_item :view, only: :show do
   link_to 'View on site', post_path(post), target: :_blank if post.published

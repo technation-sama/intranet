@@ -20,7 +20,7 @@ $(document).on ("turbolinks:load",function() {
                 validators: {
                       stringLength: {
                         min: 10,
-                        max: 200,
+                        max: 500,
                         message:'Please enter at least 10 characters and no more than 200'
                     },
                     notEmpty: {
@@ -29,33 +29,7 @@ $(document).on ("turbolinks:load",function() {
                     }
                 }
             }
-        }).on('success.form.bv', function (e) {
-            e.preventDefault();
-            var $form = $(e.target);
-            var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length
-            console.log(numInvalidFields)
-            if (numInvalidFields>0) {
-                e.preventDefault();
-                return false;  
-            }
-            else{ 
-                  //console.log($form.serialize())
-              $.ajax({
-                 type: "POST",
-                 url: $form.attr('action'),
-                 data: $form.serialize(),
-                 success: function(data){
-                    console.log(data)
-                  },
-                  error: function(data){
-                    console.log(data)
-                    return false
-                  }
-              });
-            }
-        });
-        
-        /*Post Validation Form*/
+        })
         
 });
 
