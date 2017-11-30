@@ -1,10 +1,10 @@
 
-<%= simple_form_for poll, html: { class: 'well form-horizontal', id: 'polls_form' }, romote: true do |f|%>
+<%= simple_form_for poll, html: { class: 'well form-horizontal', id: 'polls_form' } do |f|%>
   <!-- <form class="well form-horizontal" action=" " method="post"  id="contact_form"> -->
   <fieldset>
     <legend>Vote for the employee of the month</legend>
-    
     <!-- Text input-->
+    <%= flash[:error] %>
     <div class="form-group">
       <label class="col-md-5 control-label">Name (FirstName LastName)</label>
       <div class="col-md-7 inputGroupContainer">
@@ -13,8 +13,8 @@
           <%= f.select :user_id, User.all.map {
             |u| [u.name, u.id] },
             { :prompt => 'Select  name of the nominee',
-            include_blank: false},
-            { :class => "form-control select2"} 
+            include_blank: true},
+            { :class => "form-control select2", :required => "required"} 
           %>
         </div>
       </div>

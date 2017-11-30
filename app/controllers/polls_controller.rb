@@ -25,7 +25,7 @@ class PollsController < ApplicationController
         format.html { redirect_to polls_url}
         format.json { render :show, status: :created, location: @poll }
       else
-        flash[:error] =@poll.errors.full_messages.join("\n")
+        flash[:error] = flash[:error] =@poll.errors.messages.values.join("\n")
         format.html {redirect_to polls_url}
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
@@ -50,7 +50,6 @@ class PollsController < ApplicationController
     def set_poll
       @poll = Poll.find(params[:id])
     end
-    
     # function to set the voting period
     def set_period
       Date.today.strftime("%B") << Date.today.strftime("%Y") 
