@@ -1,13 +1,4 @@
 ActiveAdmin.register Gallery do
-  # Disable slug from activeadmin
-  before_filter do
-    Gallery.class_eval do
-      def to_param
-        id.to_s
-      end
-    end
-  end
-
   scope :all, default: true
   scope :empty
   permit_params :title, gallery_attachments_attributes: [:id, :gallery_id, :photo]
@@ -31,11 +22,6 @@ ActiveAdmin.register Gallery do
       item 'View on site', gallery_gallery_attachments_path(gallery), class: 'member_link'
       item 'Delete Gallery', admin_gallery_path(gallery), class: 'btn-danger member_link', method: :delete
     end
-  end
-  
-  action_item only: :show do
-    @gallery = Gallery.friendly.find(params[:id])
-    link_to 'View on site', gallery_gallery_attachments_path(@gallery)
   end
   
   controller do
