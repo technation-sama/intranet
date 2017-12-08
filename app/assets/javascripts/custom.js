@@ -7,12 +7,10 @@ $("#main").click(function() {
 });
 
 $(document).on('turbolinks:load',function(){
-  
-$('.post-body').readmore({
-      collapsedHeight: 320,
-      lessLink: '<a href="#">Show less</a>'
-});
-    
+  $('.post-body').readmore({
+        collapsedHeight: 320,
+        lessLink: '<a href="#">Show less</a>'
+  });      
   // to show the first tab
   $('#prodTabs a:first').tab('show');
 
@@ -43,6 +41,13 @@ $('.post-body').readmore({
     $('#pins').masonry({
       itemSelector: '.box',
       isFitWidth: true
+    });
+  });
+
+  // hover on download button. Gallery
+  $(".gallery-attachment").hover(function() {
+    $(".download_hover").css({
+      visibility: "visible"
     });
   });
 });

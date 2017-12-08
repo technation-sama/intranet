@@ -53,7 +53,7 @@ class GalleriesController < ApplicationController
 
   private
     def set_gallery
-      @gallery = Gallery.friendly.find(params[:id])
+      @gallery = Gallery.find(params[:id])
     end
 
     def gallery_params

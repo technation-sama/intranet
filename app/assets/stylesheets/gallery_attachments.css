@@ -62,6 +62,13 @@
   width: 16px;
 }
 
+.download_hover {
+  visibility: hidden;
+}
+.download_hover:hover {
+  visibility: visible;
+}
+
 /** for masonry **/
 /*#pins {
   margin: 0 auto;

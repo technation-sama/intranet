@@ -59,7 +59,7 @@ class GalleryAttachmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def get_gallery
-      @gallery = Gallery.friendly.find(params[:gallery_id])
+      @gallery = Gallery.find(params[:gallery_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
