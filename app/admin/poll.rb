@@ -1,6 +1,7 @@
 ActiveAdmin.register Poll do
   includes :user
   scope ->{Date.today.strftime("%B") << Date.today.strftime("%Y")}, :current_month, default: true
+  scope :all
   actions :all, :except => [:new,:destroy,:edit]
   
 controller do
@@ -20,9 +21,8 @@ member_action :poll_comments, :method => :get do
     render 'poll_show', locals: { poll: polls }
 end
 
-
-
-index(:paginate => false) do
+index do
+user_count=controller.instance_variable_get(:@polls).map(&:user_id).uniq
 users= controller.instance_variable_get(:@polls).map(&:user_id).uniq
     table_for User.where('id IN (?)', users).order(polls_count: :desc)do
       column "Project", :id do|user|
@@ -31,7 +31,9 @@ users= controller.instance_variable_get(:@polls).map(&:user_id).uniq
       column "Nominee ", :id do |usr|
         link_to usr.name, poll_comments_admin_poll_path(usr)
       end
-      column "Number of Votes",:polls_count
+      column "Number of Votes",:id do |user|
+        user_count.select {|e| e == user.id}.count
+      end
       actions defaults: false do |poll|
         item 'View all comments', poll_comments_admin_poll_path(poll), class: 'member_link'
       end
