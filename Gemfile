@@ -85,6 +85,11 @@ group :development do
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'tty-progressbar'
   gem 'rack-mini-profiler', '~> 0.10.5'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
