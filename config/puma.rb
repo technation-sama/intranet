@@ -10,7 +10,7 @@ shared_dir = "#{app_dir}/shared"
 # Default to production
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
-
+#
 # Set up socket location
 bind "unix://#{shared_dir}/sockets/puma.sock"
 
