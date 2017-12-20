@@ -7,7 +7,8 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'fda9cc5b854f3c967cff20213727908cdac2f1991b88573d0d6613afabc65f23f6a2afa5c73d62ec73d7a99e7634c9a2a369d754b84504b085af0f02088df9b1'
-
+  
+  config.secret_key = ENV["SECRET_KEY_BASE"] if Rails.env.production? 
 
   config.omniauth :google_oauth2, '444134830637-jj09ksa6jvgrp420rcjpbmkapb6rkcju.apps.googleusercontent.com', 'V9H9ZozGUuexMjE4CNRzfGp6', {
     hd: %w(nbo.samadc.org samasource.org)
