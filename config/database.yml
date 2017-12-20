@@ -24,4 +24,10 @@ test:
 
 production:
   <<: *default
-  database: intranet_production
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: intranet_production  
+  pool: 5
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
