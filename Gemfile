@@ -45,7 +45,7 @@ gem 'rails', '~> 5.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -85,6 +85,7 @@ group :development do
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'tty-progressbar'
   gem 'rack-mini-profiler', '~> 0.10.5'
+  gem 'rollbar'   
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false

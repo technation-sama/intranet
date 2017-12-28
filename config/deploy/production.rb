@@ -1,4 +1,4 @@
-# Change these
+  # Change these
 server '192.168.2.8', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:technation-sama/intranet.git'
@@ -74,7 +74,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
+      invoke! 'puma:restart'
     end
   end
 
