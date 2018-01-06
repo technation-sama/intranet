@@ -1,9 +1,9 @@
-  # Change these
-server '192.168.2.8', port: 22, roles: [:web, :app, :db], primary: true
+#Change these
+server '192.168.2.27', port: 27, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:technation-sama/intranet.git'
 set :application,     'intranet'
-set :user,            'deploy'
+set :user,            'sama'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -11,22 +11,17 @@ set :puma_workers,    0
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
-set :migration_role,  :attendance_tracker
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{release_path}/log/puma.access.log"
-set :puma_error_log,  "#{release_path}/log/puma.error.log"
+set :puma_access_log, "#{release_path}/log/puma.error.log"
+set :puma_error_log,  "#{release_path}/log/puma.access.log"
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
-
-set :rollbar_token, '1a1ae3c240bc4d978055d92466c2a8f9'
-set :rollbar_env, proc { fetch :stage }
-set :rollbar_role, proc { :app }
 
 ## Defaults:
 # set :scm,           :git
@@ -36,7 +31,7 @@ set :rollbar_role, proc { :app }
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/application.yml config/database.yml config/secrets.yml}
+# set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
@@ -71,17 +66,17 @@ namespace :deploy do
     end
   end
 
-  # desc 'Restart application'
-  # task :restart do
-  #   on roles(:app), in: :sequence, wait: 5 do
-  #     invoke! 'puma:restart'
-  #   end
-  # end
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'puma:restart'
+    end
+  end
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  #after  :finishing,    :restart
+  after  :finishing,    :restart
 end
 
 # ps aux | grep puma    # Get puma pid
