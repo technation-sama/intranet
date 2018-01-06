@@ -1,5 +1,5 @@
 #Change these
-server '192.168.2.27', port: 27, roles: [:web, :app, :db], primary: true
+server '192.168.2.27', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:technation-sama/intranet.git'
 set :application,     'intranet'
