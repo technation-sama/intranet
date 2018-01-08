@@ -15,5 +15,7 @@
 //= require poll
 //= require typer
 //= require custom
+//= require jquery.countdown.min
 //= require readmore
 //= require ckeditor/init
+
