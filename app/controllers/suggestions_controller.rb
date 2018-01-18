@@ -4,12 +4,11 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.json
   def index
+    @new = Suggestion.new
     @suggestions = Suggestion.all
   end
-
   # GET /suggestions/1
   # GET /suggestions/1.json
-
   # GET /suggestions/1/edit
   def edit
   end
@@ -18,14 +17,14 @@ class SuggestionsController < ApplicationController
   # POST /suggestions.json
   def create
     @suggestion = Suggestion.new(suggestion_params)
-
     respond_to do |format|
       if @suggestion.save
         SuggestionMailer.new_suggestion(@suggestion).deliver_later
-        format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully created.' }
+         flash[:success]= 'Suggestion was successfully created.'
+        format.html { redirect_to suggestions_url }
         format.json { render :show, status: :created, location: @suggestion }
       else
-        format.html { render :new }
+        format.html { redirect_to suggestions_url }
         format.json { render json: @suggestion.errors, status: :unprocessable_entity }
       end
     end
