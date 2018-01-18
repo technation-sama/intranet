@@ -5,15 +5,16 @@ ActiveAdmin.register Poll do
   actions :all, :except => [:new,:destroy,:edit]
   
 before_filter :only => :index do
-  @period = params[:q]
+ @peri = params[:q]
 end
 
 
 member_action :poll_comments, :method => :get do
     user = User.find params[:id]
     polls = user.polls
+  
     @page_title = "#{user.name}'s poll comments"
-    render 'poll_show', locals: { poll: polls }
+    render 'poll_show', locals: { poll: polls, period: params[:period_eq] }
 end
 
 
