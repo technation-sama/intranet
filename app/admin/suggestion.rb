@@ -5,7 +5,15 @@ ActiveAdmin.register Suggestion do
 filter :subject
 filter :created_at
 config.clear_action_items!
- permit_params :subject, :message
+
+controller do
+   def destroy
+    super do |format|
+      flash[:notice] = "This is a test notice!"
+      redirect_to collection_url and return if resource.valid?
+    end
+  end
+end
  
 index do
     index_column

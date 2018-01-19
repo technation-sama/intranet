@@ -53,17 +53,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-    config.action_mailer.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :domain               => "mail.google.com",
-  :port                 => 587,
-  :user_name            => ENV['GMAIL_USERNAME'],
-  :password             => ENV['GMAIL_PASSWORD'],
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-  #:openssl_verify_mode  => 'none'
+ config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :domain               => "mail.google.com",
+    :port                 => 587,
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+    #:openssl_verify_mode  => 'none'
   }
 
-    config.action_mailer.default_url_options = { host: 'https://intranet-thadeveloper.c9users.io' }
+    config.action_mailer.default_url_options = { host: 'https://sama-intranet-ericmwenda.c9users.io' }
 end
