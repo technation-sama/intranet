@@ -6,6 +6,7 @@ class PollsController < ApplicationController
   def index
      @poll = Poll.new
      @users=User.all
+    PollPeriod.is_poll_period_open.count == 1 ? @is_poll_active = true : @is_poll_active = false
     if current_user
       @voted=Poll.where('period = ? AND voter_id = ?', set_period,current_user.id).count
     end

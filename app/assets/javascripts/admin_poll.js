@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   $('.open_poll_btn').click(function(e) {
-    $(this).attr('href', '#')
+    $(this).css("display", "none");
     e.stopPropagation();  // prevent Rails UJS click event
     e.preventDefault();
     $.post("poll_periods",{}, function(data,status){
@@ -10,7 +10,7 @@ $(document).ready(function() {
   })
   
   $('.close_poll_btn').click(function(e) {
-    $(this).attr('href', '#')
+    $(this).css("display", "none");
     e.stopPropagation();  // prevent Rails UJS click event
     e.preventDefault();
     var idd = $(this).attr('id')

@@ -1,5 +1,6 @@
 ActiveAdmin.register Poll do
   includes :user
+  
   scope ->{Date.today.strftime("%B") << Date.today.strftime("%Y")}, :current_month, default: true
   scope :all
   actions :all, :except => [:new,:destroy,:edit]
@@ -12,10 +13,13 @@ member_action :poll_comments, :method => :get do
     render 'poll_show', locals: { poll: polls, period: periodd }
 end
 
-action_item :open_poll, only: [:index] do 
-    link_to "Open #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", admin_poll_periods_path, method: :post, class: 'open_poll_btn' if !PollPeriod.current_poll_period
-    
-    link_to "Close #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", admin_poll_period_path(PollPeriod.current_poll_period.ids), method: :put, class: 'close_poll_btn', id:PollPeriod.current_poll_period.ids if !PollPeriod.is_poll_period_open
+action_item :open_poll, only: [:index] do
+  @period = Date.today.strftime("%B") << Date.today.strftime("%Y")
+  if PollPeriod.current_poll_period.count <= 0
+    link_to "Open #{@period} polls", admin_poll_periods_path, method: :post, class: 'open_poll_btn'
+  elsif PollPeriod.is_poll_period_open.count == 1
+    link_to "Close #{@period} polls", admin_poll_period_path(PollPeriod.current_poll_period.ids), method: :put, class: 'close_poll_btn', id:PollPeriod.current_poll_period.ids
+  end
 end
 
 index do
