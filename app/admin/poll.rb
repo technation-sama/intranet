@@ -12,12 +12,10 @@ member_action :poll_comments, :method => :get do
     render 'poll_show', locals: { poll: polls, period: periodd }
 end
 
-collection_action :open_poll do
-    redirect_to collection_path, notice: "CSV imported successfully!"
-end
 action_item :open_poll, only: [:index] do 
-    link_to "Open #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", open_poll_admin_polls_path, method: :put
-    # link_to "Open #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", open_poll_admin_polls_path(post), method: :put if !post.published? 
+    link_to "Open #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", admin_poll_periods_path, method: :post, class: 'open_poll_btn' if !PollPeriod.current_poll_period
+    
+    link_to "Close #{Date.today.strftime("%B") << Date.today.strftime("%Y")} polls", admin_poll_period_path(PollPeriod.current_poll_period.ids), method: :put, class: 'close_poll_btn', id:PollPeriod.current_poll_period.ids if !PollPeriod.is_poll_period_open
 end
 
 index do

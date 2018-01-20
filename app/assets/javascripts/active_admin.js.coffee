@@ -3,4 +3,6 @@
 #= require pnotify
 #= require unobtrusive_flash
 #= require flashes
+#= require admin_poll
 CKEDITOR_BASEPATH = '/assets/ckeditor/';
+

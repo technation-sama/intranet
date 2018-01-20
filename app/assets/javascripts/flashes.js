@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load',function(){
   $(window).bind('rails:flash', function(e, params) {
     new PNotify({
       title: params.type,
