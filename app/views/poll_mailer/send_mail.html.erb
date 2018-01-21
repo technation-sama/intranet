@@ -1,0 +1,5 @@
+​​Hello <%= @user.name %>,
+
+<p>It is time to nominate our Employee of the Month (<%= Date.today.strftime("%B") << " "<< Date.today.strftime("%Y")%>).</p>
+
+Please nominate your candidate <%= link_to "Here", polls_path %>​

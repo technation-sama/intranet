@@ -9,6 +9,7 @@ controller do
      pollperiod.period = current 
      pollperiod.active = true
      pollperiod.save!
+     PollMailer.open_poll_email
     end
     def update
      poll = PollPeriod.find(params[:id])
