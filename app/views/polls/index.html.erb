@@ -20,24 +20,29 @@
     <div class="row">
         <div id="poll-div" class="col-md-7">
             <!--Dispaly  message if user has alredy voted during the current period-->
-            <% if @voted!=nil && @voted>0 %>
-                <div class="alert alert-success">
-                    <span>You have already submitted your vote for this month!!</span> 
+            <% if @is_poll_active %>
+                <% if @voted!=nil && @voted>0 %>
+                    <div class="alert alert-success">
+                        <span>Tankyou! You already submitted your vote for this month!!</span> 
+                    </div>
+                    </div><!-- close col-lg-7 inside if -->
+                    <% elsif current_user %>
+                        <!--if user logged in, display form-->
+                        <%= render :partial => 'form', :locals => {:poll => @poll} %>
+                        </div><!--close col-lg-7 inside else-->
+                    <%else%><!--if user is not logged in-->
+                        <!-- if user not logged in. prompt login-->
+                        <div class="alert alert-danger text-center colouring_sama">
+                            <h2>You need to Sign in first!!!</h2>
+                            <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
+                        </div>
+                        </div>
+                <%end%><!--end iside if-->
+            <%else%>
+             <div class="alert alert-info">
+                    <span> <b><%= Date.today.strftime("%B") << " " << Date.today.strftime("%Y")%></b> voting period is not open yet OR has been closed</span> 
                 </div>
                 </div><!-- close col-lg-7 inside if -->
-            <%else%>
-                <% if current_user %>
-                    <!--if user logged in, display form-->
-                    <%= render :partial => 'form', :locals => {:poll => @poll} %>
-                    </div><!--close col-lg-7 inside else-->
-                <%else%><!--if user is not logged in-->
-                    <!-- if user not logged in. prompt login-->
-                    <div class="alert alert-danger text-center colouring_sama">
-                        <h2>You need to Sign in first!!!</h2>
-                        <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
-                    </div>
-                    </div>
-                <%end%><!--end iside if-->
             <%end%>
         <div class="col-md-5">
             <%= image_tag("workers_sama.png", class:"img-responsive")%>

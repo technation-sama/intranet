@@ -35,15 +35,14 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Text area -->
     <div class="form-group">
       <label class="col-md-5 control-label">Why you are voting for the Nominee</label>
         <div class="col-md-7 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-          <%= f.input :body, as: :text, label: false, prompt: "Why you are voting for the Nominee", input_html:{class: 'form-control'}%>
-          <!-- <textarea class="form-control" name="body" placeholder="Why you are voting for the Nominee"></textarea> -->
+          <%= f.text_area :body, class: "form-control", placeholder: "Why you are voting for the Nominee"%>
         </div>
       </div>
     </div>

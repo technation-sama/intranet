@@ -24,6 +24,9 @@ $primary-color: #2dbb43;
     width: 50%;
 }
 
+#title_bar #titlebar_right .action_item .close_poll_btn{
+  background-color: #FF0000;
+}
 .active_admin .cke_button_label {
     display: none;
     padding-left: 3px;

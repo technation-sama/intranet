@@ -8,7 +8,6 @@ $(document).on('turbolinks:load',function(){
 			  nonblock: true
 		  },
 		  delay: 10000,
-		  styling: "bootstrap3",
 		  width: "40%",
 		  cornerclass: "round",
 		  addclass: "stack-bar-top",

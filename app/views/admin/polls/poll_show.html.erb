@@ -1,7 +1,16 @@
 <div>
-   <% poll.each do |pll| %>
-   <h5><%=pll.period%></h5>
-   <p><%=pll.body%></p>
-   <hr>
-   <%end%>
+<% (0...period.length).each do |x|%>
+   <h3><%= period[x] %> Comments</h3>
+   <table>
+      <% poll.each do |pll| %>
+         <%if pll.period == period[x]%>
+            <tr>
+               <td>
+                 <%=pll.body%>  
+               </td> 
+            </tr>
+         <%end%>
+      <%end%>
+   </table>
+<%end%>
 </div>
