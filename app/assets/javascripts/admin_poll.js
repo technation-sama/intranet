@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  $('.open_poll_btn').click(function(e) {
+  $('.opevvn_poll_btn').click(function(e) {
     $(this).css("display", "none");
     e.stopPropagation();  // prevent Rails UJS click event
     e.preventDefault();
@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
   })
   
-  $('.close_poll_btn').click(function(e) {
+  $('.closevv_poll_btn').click(function(e) {
     $(this).css("display", "none");
     e.stopPropagation();  // prevent Rails UJS click event
     e.preventDefault();

@@ -8,13 +8,18 @@ controller do
      pollperiod = PollPeriod.new
      pollperiod.period = current 
      pollperiod.active = true
-     pollperiod.save!
-     PollMailer.open_poll_email
+    if pollperiod.save
+      PollMailer.open_poll_email
+      redirect_to admin_polls_path
+    end
+
     end
     def update
-     poll = PollPeriod.find(params[:id])
-     poll.active = false
-     poll.save!
+      poll = PollPeriod.find(params[:id])
+      poll.active = false
+      if poll.save
+        redirect_to admin_polls_path
+      end
     end
 end
 # See permitted parameters documentation:
