@@ -1,5 +1,4 @@
 class SuggestionMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -7,8 +6,7 @@ class SuggestionMailer < ApplicationMailer
   #
   def new_suggestion(suggestion)
     @suggestion = suggestion
-      mail( :from => "eric.miriti@nbo.samadc.org",
-            :to => "eric.miriti@nbo.samadc.org",
+      mail( :to => "eric.miriti@nbo.samadc.org",
             :subject => @suggestion.subject
       )
   end

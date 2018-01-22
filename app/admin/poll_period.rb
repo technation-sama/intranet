@@ -9,7 +9,7 @@ controller do
      pollperiod.period = current 
      pollperiod.active = true
     if pollperiod.save
-      PollMailer.open_poll_email
+      PollMailer.open_poll_email(current).deliver_later
       redirect_to admin_polls_path
     end
 
