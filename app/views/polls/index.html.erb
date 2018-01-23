@@ -40,7 +40,7 @@
                 <%end%><!--end iside if-->
             <%else%>
              <div class="alert alert-info">
-                    <span> <b><%= Date.today.strftime("%B") << " " << Date.today.strftime("%Y")%></b> voting period is not open yet OR has been closed</span> 
+                    <span> <b><%= 1.month.ago.strftime("%B") << " " << 1.month.ago.strftime("%Y")%></b> voting period is not open yet OR has been closed</span> 
                 </div>
                 </div><!-- close col-lg-7 inside if -->
             <%end%>

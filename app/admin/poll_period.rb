@@ -4,7 +4,7 @@ menu false
 controller do
     skip_before_action :verify_authenticity_token
     def create
-     current = Date.today.strftime("%B") << Date.today.strftime("%Y")
+     current = 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y")
      pollperiod = PollPeriod.new
      pollperiod.period = current 
      pollperiod.active = true

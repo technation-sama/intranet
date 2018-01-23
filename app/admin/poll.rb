@@ -1,7 +1,6 @@
 ActiveAdmin.register Poll do
   includes :user
-  
-  scope ->{Date.today.strftime("%B") << Date.today.strftime("%Y")}, :current_month, default: true
+  scope ->{1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y")}, :current_month, default: true
   scope :all
   actions :all, :except => [:new,:destroy,:edit]
   
@@ -14,7 +13,7 @@ member_action :poll_comments, :method => :get do
 end
 
 action_item :open_poll, only: [:index] do
-  @period = Date.today.strftime("%B") << Date.today.strftime("%Y")
+  @period = 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y")
   if PollPeriod.current_poll_period.count <= 0
     link_to "Open #{@period} polls", admin_poll_periods_path, method: :post, class: 'open_poll_btn'
   elsif PollPeriod.is_poll_period_open.count == 1

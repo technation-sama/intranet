@@ -1,9 +1,9 @@
 class PollPeriod < ApplicationRecord
-   @@period= Date.today.strftime("%B") << Date.today.strftime("%Y")
   scope :current_poll_period, -> {
-    where(period: @@period)
+    where(period: 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y"))
    }
+   
   scope :is_poll_period_open, -> {
-    where(period: @@period, active: true)
+    where(period: 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y"), active: true)
    }
 end

@@ -8,7 +8,7 @@ class PollsController < ApplicationController
      @users=User.all
     PollPeriod.is_poll_period_open.count == 1 ? @is_poll_active = true : @is_poll_active = false
     if current_user
-      @voted=Poll.where('period = ? AND voter_id = ?', set_period,current_user.id).count
+      @voted=Poll.where('period = ? AND voter_id = ?', last_month,current_user.id).count
     end
   end
 
@@ -18,15 +18,15 @@ class PollsController < ApplicationController
  
   def create
     @poll = Poll.new(poll_params)
-    @poll.period=set_period
-    @poll.voter_id=current_user.id #used this since build will expect a user_id field i db
+    @poll.period=last_month
+    @poll.voter_id=current_user.id #used this since build will expect a user_id field in db
     respond_to do |format|
       if @poll.save 
         flash[:success]= 'You have successfully voted.'
         format.html { redirect_to polls_url}
         format.json { render :show, status: :created, location: @poll }
       else
-        flash[:error] = flash[:error] =@poll.errors.messages.values.join("\n")
+        flash[:error] = flash[:error] = @poll.errors.messages.values.join("\n")
         format.html {redirect_to polls_url}
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
@@ -51,9 +51,6 @@ class PollsController < ApplicationController
       @poll = Poll.find(params[:id])
     end
     # function to set the voting period
-    def set_period
-      Date.today.strftime("%B") << Date.today.strftime("%Y") 
-    end
     def last_month
       1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y") 
     end
