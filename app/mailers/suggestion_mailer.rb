@@ -3,7 +3,7 @@ class SuggestionMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.suggestion_mailer.new_suggestion.subject
-  #
+  # 
   def new_suggestion(suggestion)
     @suggestion = suggestion
       mail( :to => "eric.miriti@nbo.samadc.org",
