@@ -4,12 +4,13 @@ menu false
 controller do
     skip_before_action :verify_authenticity_token
     def create
-     current = Date.today.strftime("%B") << Date.today.strftime("%Y")
+     current = 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y")
+     poll_month = 1.month.ago.strftime("%B") << " "<< 1.month.ago.strftime("%Y")
      pollperiod = PollPeriod.new
      pollperiod.period = current 
      pollperiod.active = true
     if pollperiod.save
-      PollMailer.open_poll_email(current).deliver_later
+      PollMailer.open_poll_email(poll_month).deliver_later
       redirect_to admin_polls_path
     end
 
