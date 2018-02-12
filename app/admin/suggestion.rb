@@ -5,7 +5,7 @@ ActiveAdmin.register Suggestion do
 filter :subject
 filter :created_at
 config.clear_action_items!
-
+menu :label => "Suggestion Box"
 controller do
    def destroy
     super do |format|

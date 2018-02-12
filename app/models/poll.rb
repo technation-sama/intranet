@@ -1,5 +1,5 @@
 class Poll < ApplicationRecord
-  belongs_to :user, counter_cache: true
+  belongs_to :user, counter_cache: false
   has_many :poll_periods, :foreign_key => "period"
   validates_presence_of :user_id,:message => "You Must select name of the person to vote for!" 
   validates_presence_of :body, :message => "Reason for voting must be provided!" 
@@ -25,4 +25,5 @@ class Poll < ApplicationRecord
   scope :current_month, -> {
     where(period: @@period)
   }
+  
 end

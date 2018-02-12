@@ -24,6 +24,7 @@ gem 'pdfjs_viewer-rails'
 # active admin gegem 'rails_12factor', group: :productionm
 gem 'activeadmin'
 gem 'arctic_admin'
+gem 'chartkick' 
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
