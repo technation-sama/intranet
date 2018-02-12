@@ -12,5 +12,5 @@ ActiveAdmin.register Notice do
 #   permitted
 # end
 
-menu :label => "Notice board"
+menu :label => "Notice Board"
 end

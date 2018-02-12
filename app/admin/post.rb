@@ -16,6 +16,8 @@ scope :featured
 scope :published
 scope :unpublished
 
+menu :label => "Blog Posts"
+
 actions :all, :except => [:edit]
 
 action_item :view, only: :show do
@@ -105,7 +107,7 @@ end
 show do
     h1 post.title
     div do
-      simple_format post.description
+      simple_format post.description.html_safe
     end
   end
 
