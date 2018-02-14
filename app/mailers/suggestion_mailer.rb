@@ -6,7 +6,7 @@ class SuggestionMailer < ApplicationMailer
   # 
   def new_suggestion(suggestion)
     @suggestion = suggestion
-      mail( :to => "eric.miriti@nbo.samadc.org",
+      mail( :to => "intranet@nbo.samadc.org",
             :subject => @suggestion.subject
       )
   end
