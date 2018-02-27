@@ -11,6 +11,7 @@ group :production, :test do
   gem 'dalli'
 end
 
+
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
@@ -20,6 +21,7 @@ gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
 gem 'ckeditor'
 gem 'cancancan', '~> 2.0'
 gem 'pdfjs_viewer-rails'
+
 
 # active admin gegem 'rails_12factor', group: :productionm
 gem 'activeadmin'
@@ -40,6 +42,7 @@ gem 'select2-rails'
 gem 'rails_admin', '~> 1.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
 gem 'actionpack-page_caching'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
