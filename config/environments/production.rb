@@ -97,5 +97,5 @@ config.action_mailer.delivery_method = :smtp
   #:openssl_verify_mode  => 'none'
   }
 
-    config.action_mailer.default_url_options = { host: 'https://samaintranet.herokuapp.com' }
+    config.action_mailer.default_url_options = { host: 'https://sama-dc-intranet.herokuapp.com' }
 end
