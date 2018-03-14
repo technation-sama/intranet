@@ -65,5 +65,5 @@ Rails.application.configure do
     #:openssl_verify_mode  => 'none'
   }
 
-    config.action_mailer.default_url_options = { host: 'https://sama-intranet-ericmwenda.c9users.io' }
+    config.action_mailer.default_url_options = { host: 'https://sama-dc-intranet.herokuapp.com' }
 end
