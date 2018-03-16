@@ -28,5 +28,31 @@ $(document).ready(function() {
         })
         
         /*Post Validation Form*/
-        
+    $('#mteam_form').bootstrapValidator({
+        fields: {
+            'mteam[title]': {
+                validators: {
+                        stringLength: {
+                        min: 5,
+                    },
+                        notEmpty: {
+                        message: 'Please Enter your subject of concern. 5 characters'
+                    } 
+                }
+            },
+
+            'mteam[question]': {
+                validators: {
+                      stringLength: {
+                        min: 10,
+                        max: 200,
+                        message:'Please enter at least 10 characters and no more than 200'
+                    },
+                    notEmpty: {
+                        message: 'This field is required'
+                    }
+                    }
+                }
+            }
+        })   
 });

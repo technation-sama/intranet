@@ -3,7 +3,7 @@
         <div class="col-md-12 nav2">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
-                <li class="breadcrumb-item">Suggestion box</li>
+                <li class="breadcrumb-item">Ask M-Team</li>
             </ol>
         </div>
    </div>
@@ -16,10 +16,10 @@
 </br>
 
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-8 col-md-offset-2">
     <% if current_user %>
       <!--Form-->
-      <%= render 'form', suggestion: @new %>
+      <%= render 'form', question: @new %>
       <!--EOF Form--> 
     <%else%>
         <div class="alert alert-danger text-center colouring_sama">
@@ -28,10 +28,5 @@
         </div>
     <%end%>
 </div>
-
- <div class="col-md-5"><%= image_tag("udaku_sama.png", class:"img-responsive")%></div>
-
-</div> 
-
-
-     <!-- Call to Action Section -->
+</div>
+ <!-- Call to Action Section -->

@@ -1,0 +1,37 @@
+<%= simple_form_for question, url: mteam_index_path, :html=> { class: "well form-horizontal", id: "mteam_form"} do |f|%>
+    <fieldset>
+        <legend>Ask Management Team</legend>
+        <!-- Text input-->
+        <%= f.error_notification %>
+        <div class="form-group">
+            <label class="col-md-5 control-label">Subject </label>
+            <div class="col-md-7 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                    <%= f.text_field :title, class: "form-control", placeholder:"Subject" %>
+                </div>
+            </div>
+        </div>
+        <!-- Text area -->
+        <div class="form-group">
+            <label class="col-md-5 control-label">What is your question ?</label>
+            <div class="col-md-7 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                    <%= f.text_area :question, class: "form-control", placeholder: "Enter your message here"%>
+                </div>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-5 control-label"></label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <%= button_tag type: "submit", class: "btn btn-warning" do%>
+                    Send <%= fa_icon "paper-plane" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+<% end %>
