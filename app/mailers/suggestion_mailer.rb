@@ -3,7 +3,8 @@ class SuggestionMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.suggestion_mailer.new_suggestion.subject
-  # 
+  #
+  default from: 'suggestions@samadc.org'
   def new_suggestion(suggestion)
     @suggestion = suggestion
       mail( :to => "intranet@nbo.samadc.org",
