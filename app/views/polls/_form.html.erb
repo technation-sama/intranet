@@ -26,10 +26,7 @@
       <div class="col-md-7 selectContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-          <%= f.collection_select :project_name, Project.all, :name, :name,
-            { prompt: 'Select Project of the nominee'},
-            {class: 'form-control select2'}
-          %>
+          <%= f.text_area :project_name, class: "form-control", placeholder: "Project of the nominee"%>
         </div>
       </div>
     </div>
