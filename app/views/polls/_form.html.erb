@@ -26,11 +26,9 @@
       <div class="col-md-7 selectContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-          <%= f.select :project_name, Project.all.map {
-            |r| [r.name, r.name] },
-            { :prompt => 'Select Project of the nominee',
-            include_blank: false},
-            { :class => "form-control select2"}
+          <%= f.collection_select :project_name, Project.all, :name, :name,
+            { prompt: 'Select Project of the nominee'},
+            {class: 'form-control select2'}
           %>
         </div>
       </div>
