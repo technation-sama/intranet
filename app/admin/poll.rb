@@ -44,7 +44,12 @@ users= controller.instance_variable_get(:@polls).map(&:user_id).uniq
     end
     
 end
-
+csv do
+  column("Nominee Name") { |user| user.user.name }
+  column ("Comment"){|poll| poll.body}
+  column ("Project Name"){|poll| poll.project_name}
+  column ("Voting Month"){|poll| poll.period}
+end
 filter :user
 filter :period, as: :select
 # config.clear_action_items!
