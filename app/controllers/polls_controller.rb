@@ -4,9 +4,9 @@ class PollsController < ApplicationController
   # GET /polls
   # GET /polls.json
   def index
-     @poll = Poll.new
-     @users=User.all
-    PollPeriod.is_poll_period_open.count == 1 ? @is_poll_active = true : @is_poll_active = false
+    @poll = Poll.new
+    @users=User.all
+    @is_poll_active = PollPeriod.is_poll_period_open.count == 1
     if current_user
       @voted=Poll.where('period = ? AND voter_id = ?', last_month,current_user.id).count
     end
