@@ -53,6 +53,4 @@ csv do
 end
 filter :user
 filter :period, as: :select
-# config.clear_action_items!
-
 end

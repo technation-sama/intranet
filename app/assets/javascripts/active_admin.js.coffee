@@ -1,4 +1,5 @@
 #= require arctic_admin/base
+#= require activeadmin_addons/all
 #= require admin_ckeditor
 #= require pnotify
 #= require unobtrusive_flash

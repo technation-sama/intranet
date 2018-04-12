@@ -1,13 +1,11 @@
 class Poll < ApplicationRecord
   belongs_to :user, counter_cache: false
-  has_many :poll_periods, :foreign_key => "period"
   validates_presence_of :user_id,:message => "You Must select name of the person to vote for!" 
   validates_presence_of :body, :message => "Reason for voting must be provided!" 
   validates_presence_of :project_name,:message => " Sorry, Please select a project to vote!" 
   @@period= 1.month.ago.strftime("%B") << 1.month.ago.strftime("%Y")
-  def self.ransackable_scopes(_auth_object = nil)
-    [:current_month]
-  end 
+  
+   
   
   def after_save
    self.update_counter_cache
