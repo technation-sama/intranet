@@ -49,6 +49,7 @@ csv do
   column ("Comment"){|poll| poll.body}
   column ("Project Name"){|poll| poll.project_name}
   column ("Voting Month"){|poll| poll.period}
+  column ("Comments"){|poll| poll.body}
 end
 filter :user
 filter :period, as: :select
