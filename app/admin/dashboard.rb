@@ -25,11 +25,11 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Employee of the month polls (#{1.month.ago.strftime("%B") << " "<< 1.month.ago.strftime("%Y")})" do
-          d={}
-          Poll.current_month.group(:user_id).count.each do|b,c|
-             d[User.find(b).name]=c
+          data={}
+          Poll.current_month.group(:user_id).count.each do|user,count|
+             data[User.find(user).name]=count
           end
-          div column_chart d, stacked: true, xtitle: "Employees", ytitle: "No of Votes"
+          div column_chart data, stacked: true, xtitle: "Employees", ytitle: "No of Votes"
         end
       end
     end

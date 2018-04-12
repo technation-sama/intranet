@@ -21,7 +21,7 @@ action_item :open_poll, only: [:index] do
   end
 end
 
-index do
+index(:paginate => false) do
 user_count=controller.instance_variable_get(:@polls).map(&:user_id)
 period=controller.instance_variable_get(:@polls).map(&:period).uniq.join(",")
 users= controller.instance_variable_get(:@polls).map(&:user_id).uniq
