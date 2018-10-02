@@ -9,7 +9,7 @@ Devise.setup do |config|
   config.secret_key = 'fda9cc5b854f3c967cff20213727908cdac2f1991b88573d0d6613afabc65f23f6a2afa5c73d62ec73d7a99e7634c9a2a369d754b84504b085af0f02088df9b1'
 
   config.omniauth :google_oauth2, '444134830637-jj09ksa6jvgrp420rcjpbmkapb6rkcju.apps.googleusercontent.com', 'V9H9ZozGUuexMjE4CNRzfGp6', {
-    hd: %w(nbo.samadc.org gmail.com samasource.org)
+    hd: %w(gmail.com)
   }
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
