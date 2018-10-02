@@ -25,7 +25,7 @@ class User < ApplicationRecord
       user.hd = auth.extra.id_info.hd
       user.gender = auth.extra.raw_info.gender
       user.profile = auth.extra.raw_info.profile
-      user.admin = true if auth.info.email == "intranet@nbo.samadc.org"  #first super user admin
+      user.admin = true if auth.info.email == "ericmwenda@gmail.com"  #first super user admin
         # user.skip_confirmation!
       #user.skip_verify_authenticity_token
     end
