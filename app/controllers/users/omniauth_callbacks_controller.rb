@@ -9,12 +9,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         # render json: request.env['omniauth.auth']
       else
       session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
-       flash[:error] = @user.errors[:hd].join(' ')
+#        flash[:error] = @user.errors[:hd].join(' ')
        redirect_to root_path
       end
   end
-  def failure
-    flash[:error] =  I18n.t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: 'You didn\'t use a samasource email'
-    redirect_to root_path
-  end
+#   def failure
+#     flash[:error] =  I18n.t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: 'You didn\'t use a samasource email'
+#     redirect_to root_path
+#   end
 end
