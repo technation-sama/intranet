@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   acts_as_voter
-  validates :hd, presence: { message: "Only samasorce eployees with a valid samasource email are authorized to login to this site. If you're an employee and not able to login please contact admin" }
+  #validates :hd, presence: { message: "Only samasorce eployees with a valid samasource email are authorized to login to this site. If you're an employee and not able to login please contact admin" }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:google_oauth2]
