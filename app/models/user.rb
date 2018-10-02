@@ -22,10 +22,10 @@ class User < ApplicationRecord
       user.oauth_refresh_token = auth.credentials.refresh_token if auth.credentials.refresh_token
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.hd = auth.extra.id_info.hd
+#       user.hd = auth.extra.id_info.hd
       user.gender = auth.extra.raw_info.gender
       user.profile = auth.extra.raw_info.profile
-      user.admin = true if auth.info.email == "ericmwenda@gmail.com"  #first super user admin
+      user.admin = true if auth.info.email == "ericmwenda5@gmail.com"  #first super user admin
         # user.skip_confirmation!
       #user.skip_verify_authenticity_token
     end
