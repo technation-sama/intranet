@@ -20,7 +20,7 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       if @suggestion.save
         SuggestionMailer.new_suggestion(@suggestion).deliver_later
-        flash[:success]= 'Thank you!! Your suggestion was submated successfully.'
+        flash[:success]= 'Thank you!! Your suggestion was submitted successfully.'
         format.html { redirect_to suggestions_url }
         format.json { render :show, status: :created, location: @suggestion }
       else
