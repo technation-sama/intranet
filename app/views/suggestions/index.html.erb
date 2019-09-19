@@ -17,16 +17,11 @@
 
 <div class="row">
     <div class="col-md-7">
-    <% if current_user %>
+    
       <!--Form-->
       <%= render 'form', suggestion: @new %>
       <!--EOF Form--> 
-    <%else%>
-        <div class="alert alert-danger text-center colouring_sama">
-           <h2>You need to Sign in first!!!</h2>
-            <%= link_to "Sign in with your Samasource email", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success'%>
-        </div>
-    <%end%>
+    
 </div>
 
  <div class="col-md-5"><%= image_tag("udaku_sama.png", class:"img-responsive")%></div>
