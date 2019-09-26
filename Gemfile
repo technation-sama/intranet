@@ -9,7 +9,6 @@ end
 group :production, :test do
   gem 'rails_12factor'
   gem 'dalli'
-  # Use postgresql as the database for Active Record
   gem 'pg'
 end
 
