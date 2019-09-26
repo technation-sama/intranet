@@ -9,7 +9,7 @@ end
 group :production, :test do
   gem 'rails_12factor'
   gem 'dalli'
-  gem 'pg'
+  gem 'pg', '1.1.4'
 end
 
 gem 'kaminari'
@@ -27,7 +27,7 @@ gem 'pdfjs_viewer-rails'
 gem 'activeadmin'
 gem 'arctic_admin'
 gem 'activeadmin_addons'
-gem 'chartkick' 
+gem 'chartkick'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
@@ -89,7 +89,7 @@ group :development do
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'tty-progressbar'
   gem 'rack-mini-profiler', '~> 0.10.5'
-  gem 'rollbar'   
+  gem 'rollbar'
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false

@@ -237,6 +237,7 @@ GEM
       json (> 1.8.4)
       rails (> 4.2.0)
       sass-rails (~> 5.0)
+    pg (1.1.4)
     pnotify-rails (3.0.0)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
@@ -414,6 +415,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   omniauth-google-oauth2
   pdfjs_viewer-rails
+  pg (= 1.1.4)
   pnotify-rails
   pry-rails (~> 0.3.6)
   puma
