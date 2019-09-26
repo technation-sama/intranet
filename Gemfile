@@ -9,7 +9,7 @@ end
 group :production, :test do
   gem 'rails_12factor'
   gem 'dalli'
-  #gem 'pg'
+  gem 'pg'
 end
 
 gem 'kaminari'
