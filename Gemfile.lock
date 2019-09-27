@@ -415,14 +415,14 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   omniauth-google-oauth2
   pdfjs_viewer-rails
-  pg (= 1.1.4)
+  pg
   pnotify-rails
   pry-rails (~> 0.3.6)
   puma
   rack-mini-profiler (~> 0.10.5)
   rails (~> 5.0.3)
   rails_12factor
-  rails_admin (~> 1.2)
+  rails_admin (~> 1.3)
   rollbar
   ruby-progressbar (~> 1.8, >= 1.8.3)
   sass-rails (~> 5.0)
