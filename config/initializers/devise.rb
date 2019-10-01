@@ -8,7 +8,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   config.secret_key = 'fda9cc5b854f3c967cff20213727908cdac2f1991b88573d0d6613afabc65f23f6a2afa5c73d62ec73d7a99e7634c9a2a369d754b84504b085af0f02088df9b1'
 
-  config.omniauth :google_oauth2, '138783970468-scmbh5o6k3g82unboedti5g8ilmbr4et.apps.googleusercontent.com', 'UAqV034pW533sy2zHcX02Gvs', {
+  config.omniauth :google_oauth2, '143616412943-kul24cinf5g5tm4a2f0smf0ndonjo7k5.apps.googleusercontent.com', 'Eo8B3NFzDZexPUwG1lIPnAu9', {
     hd: %w(nbo.samadc.org samasource.org)
   }
   # ==> Mailer Configuration
