@@ -2,9 +2,9 @@ class RepairRequestsController < ApplicationController
 
   def index
     
-    @new = Repair_request.new
+    @new = RepairRequest.new
 
-    @Repair_requests = Repair_request.all
+    @RepairRequests = RepairRequest.all
   end
 end
 
