@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :repair_requests
   resources :mteam
 
   mount Ckeditor::Engine => '/ckeditor'
