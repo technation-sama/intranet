@@ -4,7 +4,7 @@ class RepairRequestsController < ApplicationController
     
     @new = RepairRequest.new
 
-    @RepairRequests = RepairRequest.all
+    
   end
 end
 
