@@ -1,9 +1,10 @@
-class RepairRequestsController < InheritedResources::Base
+class RepairRequestsController < ApplicationController
 
-  private
+  def index
+    
+    @new = Repair_request.new
 
-    def repair_request_params
-      params.require(:repair_request).permit(:area, :category, :description)
-    end
+    @Repair_requests = Repair_request.all
+  end
 end
 
