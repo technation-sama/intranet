@@ -35,6 +35,16 @@
       ['Heating & Cooling','Heating & Cooling'],
       ['Access Control','Access Control'],['Roofing','Roofing']]) %>
 
+    <%= f.label :description, "description", :value => "description" %>
+    <%= f.select(:description, [['Spillage','Spillage'],['Cracked Tiles','Cracked Tiles']]) %>
+    <%= f.select(:description, [['Broken Chairs','Broken Chairs'],['Misplaced','Misplaced'],
+      ['Malfactioning Lever','Malfactioning Lever'],['Broken Lockers','Broken Lockers']]) %>
+    <%= f.select(:description, [['Broken','Broken'],['Malfactioning Hinges','Malfactioning Hinges'],
+      ['Spoiled Handles','Spoiled Handles']]) %>
+    <%= f.select(:description, [['Malfunctioning Sockets','Malfunctioning Sockets'],
+    ['Malfunctioning Switches','Malfunctioning Switches'],['Broken Sockets','Broken Sockets'],
+    ['Broken Switches','Broken Switches']]) %>
+
     <%= f.input :description %>
 
   </div>
