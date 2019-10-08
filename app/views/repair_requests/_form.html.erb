@@ -29,14 +29,15 @@
     <%= f.radio_button(:area, "D1 Cafeteria") %>
     <%= f.label :area, "D1 Cafeteria", :value => "D1 Cafeteria" %>
     </div>
-
+    <div class="block" >
     <%= f.label :category, "category", :value => "category" %>
     <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
       ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
       ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
       ['Heating & Cooling','Heating & Cooling'],
       ['Access Control','Access Control'],['Roofing','Roofing']]) %>
-
+    </div>
+    <div class="block" >
     <%= f.label :description, "description", :value => "description" %>
     <%= f.select(:description, [['Spillage','Spillage'],['Cracked Tiles','Cracked Tiles']]) %>
     <%= f.select(:description, [['Broken Chairs','Broken Chairs'],['Misplaced','Misplaced'],
@@ -66,7 +67,7 @@
 
     <%= f.select(:description, [['Cracks','Cracks'],['Leakages','Leakages'],
     ['Moist/Misplaced Ceiling','Moist/Misplaced Ceiling']]) %>
-
+    </div>
     <%= f.input :description%>
 
   </div>
