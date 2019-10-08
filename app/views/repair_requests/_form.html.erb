@@ -42,9 +42,30 @@
     <%= f.select(:description, [['Broken','Broken'],['Malfactioning Hinges','Malfactioning Hinges'],
       ['Spoiled Handles','Spoiled Handles']]) %>
     <%= f.select(:description, [['Malfunctioning Sockets','Malfunctioning Sockets'],
-    ['Malfunctioning Switches','Malfunctioning Switches'],['Broken Sockets','Broken Sockets'],
-    ['Broken Switches','Broken Switches']]) %>
+      ['Malfunctioning Switches','Malfunctioning Switches'],['Broken Sockets','Broken Sockets'],
+      ['Broken Switches','Broken Switches'],['Malfunctioning Bulbs','Malfunctioning Bulbs']]) %>
 
+    <%= f.select(:description, [['Washroom Blockage','Washroom Blockage'],
+      ['Kitchen Blockage','Kitchen Blockage'],['Washroom Leakage','Washroom Leakage'],
+      ['Kitchen Leakage','Kitchen Leakage'],['Blocked toilet Sinks','Blocked toilet Sinks'],
+      ['Blocked Toilet Bowls','Blocked Toilet Bowls'],['Blocked Kitchen Sinks','Blocked Kitchen Sinks'],
+      ['Soap Dispensers','Soap Dispensers'],['Hand Driers','Hand Driers']]) %>
+
+    <%= f.select(:description, [['Spoiled/ Dropped Fire Extinguisher','Spoiled/ Dropped Fire Extinguisher'],
+      ['Spoiled Fire Alarm','Spoiled Fire Alarm'],
+      ['Replenishing of the first aid Box','Replenishing of the first aid Box']]) %>
+
+    <%= f.select(:description, [['AC not working','AC not working'],
+    ['Microwave-Breakage,Malfunctioning e.t.c','Microwave-Breakage,Malfunctioning e.t.c'],
+    ['Refrigerator-Breakage,Malfunctioning e.t.c','Refrigerator-Breakage,Malfunctioning e.t.c']]) %>
+
+    <%= f.select(:description, [['AC not working','AC not working'],['Door Access','Door Access'],
+      ['Biometrics not working','Biometrics not working']]) %>
+
+    <%= f.select(:description, [['Cracks','Cracks'],['Leakages','Leakages'],
+    ['Moist/Misplaced Ceiling','Moist/Misplaced Ceiling']]) %>
+
+    <%= f.label :description, "other", :value => "other" %>
     <%= f.input :description %>
 
   </div>
