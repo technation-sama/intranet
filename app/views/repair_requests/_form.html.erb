@@ -28,8 +28,7 @@
     <%= f.label :area, "D1 Cafeteria", :value => "D1 Cafeteria" %>
     </div>
 
-    <%= f.input :category %>
-
+    <%= f.label :category, "category", :value => "category" %>
     <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
       ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
       ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
@@ -37,6 +36,7 @@
       ['Access Control','Access Control'],['Roofing','Roofing']]) %>
 
     <%= f.input :description %>
+
   </div>
 
   <div class="form-actions">
