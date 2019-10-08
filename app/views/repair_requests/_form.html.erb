@@ -30,7 +30,11 @@
 
     <%= f.input :category %>
 
-    <%= f.select(:category, [['Lisbon', 1], ['Madrid', 2], ['Berlin', 3]]) %>
+    <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
+      ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
+      ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
+      ['Heating & Cooling','Heating & Cooling'],
+      ['Access Control','Access Control'],['Roofing','Roofing']]) %>
 
     <%= f.input :description %>
   </div>
