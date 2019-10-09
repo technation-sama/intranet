@@ -3,7 +3,7 @@
 
   <div class="form-inputs" >
 
-    <h1> Affected area (Floor and Block) </h1>
+    <h2> Affected area (Floor and Block) </h2>
     <div class="block" >
     <%= f.radio_button(:area, "C1 5th Floor") %>
     <%= f.label :area, "C1 5th Floor", :value => "C1 5th Floor" %>
@@ -37,36 +37,24 @@
       ['Heating & Cooling','Heating & Cooling'],
       ['Access Control','Access Control'],['Roofing','Roofing']]) %>
     </div>
+
     <div class="block" >
     <%= f.label :description, "description", :value => "description" %>
     <%= f.select(:description, [['Spillage','Spillage'],['Cracked Tiles','Cracked Tiles']]) %>
-    <%= f.select(:description, [['Broken Chairs','Broken Chairs'],['Misplaced','Misplaced'],
-      ['Malfactioning Lever','Malfactioning Lever'],['Broken Lockers','Broken Lockers']]) %>
-    <%= f.select(:description, [['Broken','Broken'],['Malfactioning Hinges','Malfactioning Hinges'],
-      ['Spoiled Handles','Spoiled Handles']]) %>
-    <%= f.select(:description, [['Malfunctioning Sockets','Malfunctioning Sockets'],
-      ['Malfunctioning Switches','Malfunctioning Switches'],['Broken Sockets','Broken Sockets'],
-      ['Broken Switches','Broken Switches'],['Malfunctioning Bulbs','Malfunctioning Bulbs']]) %>
 
-    <%= f.select(:description, [['Washroom Blockage','Washroom Blockage'],
-      ['Kitchen Blockage','Kitchen Blockage'],['Washroom Leakage','Washroom Leakage'],
-      ['Kitchen Leakage','Kitchen Leakage'],['Blocked toilet Sinks','Blocked toilet Sinks'],
-      ['Blocked Toilet Bowls','Blocked Toilet Bowls'],['Blocked Kitchen Sinks','Blocked Kitchen Sinks'],
-      ['Soap Dispensers','Soap Dispensers'],['Hand Driers','Hand Driers']]) %>
+    <div class="block" >
+    <%= f.radio_button(:description, "Furniture") %>
+    <%= f.label :area, "Broken Chairs", :value => "Broken Chairs" %>
+    </div>
+    <div class="block" >
+    <%= f.radio_button(:description, "Furniture") %>
+    <%= f.label :description, "Broken Chairs", :value => "Broken Chairs" %>
+    </div>
+    <div class="block" >
+    <%= f.radio_button(:description, "Furniture") %>
+    <%= f.label :description, "Broken Chairs", :value => "Broken Chairs" %>
+    </div>
 
-    <%= f.select(:description, [['Spoiled/ Dropped Fire Extinguisher','Spoiled/ Dropped Fire Extinguisher'],
-      ['Spoiled Fire Alarm','Spoiled Fire Alarm'],
-      ['Replenishing of the first aid Box','Replenishing of the first aid Box']]) %>
-
-    <%= f.select(:description, [['AC not working','AC not working'],
-    ['Microwave-Breakage,Malfunctioning e.t.c','Microwave-Breakage,Malfunctioning e.t.c'],
-    ['Refrigerator-Breakage,Malfunctioning e.t.c','Refrigerator-Breakage,Malfunctioning e.t.c']]) %>
-
-    <%= f.select(:description, [['AC not working','AC not working'],['Door Access','Door Access'],
-      ['Biometrics not working','Biometrics not working']]) %>
-
-    <%= f.select(:description, [['Cracks','Cracks'],['Leakages','Leakages'],
-    ['Moist/Misplaced Ceiling','Moist/Misplaced Ceiling']]) %>
     </div>
     <%= f.input :description%>
 
