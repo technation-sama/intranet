@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :repair 
+` get '/repair/new', to: 'RepairController#new', as: 'maintainacereport'
+
+  resources :repair
 
   resources :mteam
 
