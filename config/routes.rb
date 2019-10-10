@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :repair
-  
+  resources :repair , :path => 'maintainace_reports'
+
   resources :mteam
 
   mount Ckeditor::Engine => '/ckeditor'
