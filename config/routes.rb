@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'repair/new'
+  resources :repair
   resources :mteam
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -40,5 +42,5 @@ Rails.application.routes.draw do
 
   # routes for tags/categories
   get 'tags/:tag', to: 'posts#index', as: :tag
-  
+
 end
