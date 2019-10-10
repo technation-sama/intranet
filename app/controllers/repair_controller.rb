@@ -1,5 +1,5 @@
 class RepairController < ApplicationController
   def new
-    @maintainaceReport = MaintainaceReport.new
+    @maintainacereport = MaintainaceReport.new
   end
 end
