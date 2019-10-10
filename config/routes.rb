@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'repair/new'
-  resources :repair :path => 'repair'
+  resources :repairs, :path => 'repairs'
   resources :mteam
 
   mount Ckeditor::Engine => '/ckeditor'
