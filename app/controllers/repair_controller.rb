@@ -1,6 +1,9 @@
 class RepairController < ApplicationController
   def new
-    render plain: params[:repair].inspect
+
   end
 
+  def create
+    render plain: params[:repair].inspect
+  end
 end
