@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :repair , :path => 'maintainace_reports'
+  resources :repair 
 
   resources :mteam
 
