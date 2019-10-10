@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :repairs
-  match '/repairs/new', :to get => 'RepairController#new', :as => :new_repair
+  resources :repair
+  
   resources :mteam
 
   mount Ckeditor::Engine => '/ckeditor'
