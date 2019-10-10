@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'repair/new'
+  
   resources :repairs, :path => 'repairs'
   resources :mteam
 
