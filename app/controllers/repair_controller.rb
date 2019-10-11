@@ -1,7 +1,7 @@
 class RepairController < ApplicationController
 
-  def index
-
+  def show
+    @repair = MaintainaceReport.find(params[:id])
   end
 
   def new
@@ -9,9 +9,9 @@ class RepairController < ApplicationController
   end
 
   def create
-    @maintainacereport = MaintainaceReport.new(repair_params)
-    @maintainacereport.save
-    redirect_to @maintainacereport
+    @repair = MaintainaceReport.new(repair_params)
+    @repair.save
+    redirect_to @repair
   end
 
   private
