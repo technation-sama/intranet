@@ -9,7 +9,8 @@ class User < ApplicationRecord
 	has_many :posts, dependent: :destroy
 	has_many :polls, dependent: :destroy
 	has_many :comments, dependent: :destroy
-  #defined System Roles  	
+  has_many :MaintainaceReports
+  #defined System Roles
 	 ROLES = %i[SuperUser Admin Fiance IT HR Banned]
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -29,5 +30,5 @@ class User < ApplicationRecord
         # user.skip_confirmation!
       #user.skip_verify_authenticity_token
     end
-  end 
+  end
 end
