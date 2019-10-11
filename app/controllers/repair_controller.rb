@@ -16,6 +16,6 @@ class RepairController < ApplicationController
 
   private
     def repair_params
-      params.require(:repair).permit(user_id, :location, :category, :description)
+      params.require(:repair).permit(:user_id, :location, :category, :description)
     end
 end
