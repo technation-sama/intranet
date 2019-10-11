@@ -11,7 +11,7 @@ class RepairController < ApplicationController
   def create
     @repair = MaintainaceReport.new(repair_params)
     @repair.save
-    redirect_to @repair
+    
   end
 
   private
