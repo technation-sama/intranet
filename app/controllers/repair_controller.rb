@@ -9,7 +9,9 @@ class RepairController < ApplicationController
   end
 
   def create
-    render plain: params[:repair].inspect
+    @repair = MaintainaceReport.new(repair_params)
+    @repair.save
+    redirect_to action: "show", id: @repair.id
   end
 
   private
