@@ -9,6 +9,13 @@ class RepairController < ApplicationController
   end
 
   def create
-    render plain: params[:repair].inspect
+    @maintainacereport = MaintainaceReport.new(repair_params)
+    @maintainacereport.save
+    redirect_to @maintainacereport
   end
+
+  private
+    def repair_params
+      params.require(:repair).permit(user_id, :location, :category, :description)
+    end
 end
