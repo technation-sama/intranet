@@ -22,31 +22,46 @@ $(function(){
   var page=1;
   $("#Next").click(function() {
     if (page == 1) {
+      //load section 2 category page
       $('#section2').toggleClass('hidden');
       $('#section1').toggleClass('hidden');
+      $('#Back').toggleClass('hidden')
       page = 2;
     } else if(page == 2) {
+      //load section 3 description page
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
-      $('#Back').toggleClass('hidden');
-      $('#buttonsubmit').toggleClass('hidden');
+
+      var x = $("#id").val()
+      $(x).toggleClass('hidden');
       page = 3;
+    }else if(page == 3) {
+      //load section 4
+      $('#buttonsubmit').toggleClass('hidden');
+      $('#section3').toggleClass('hidden');
+      page =4;
     }
 
   });
 
   $("#Back").click(function() {
-    if (page == 3) {
+    if(page ==4) {
+      //load section 3
+      $('#section3').toggleClass('hidden');
+      $('#buttonsubmit').toggleClass('hidden');
+      page = 1;
+    } else if (page == 3) {
+      //load section 2
       $('#section3').toggleClass('hidden');
       $('#section2').toggleClass('hidden');
-      $('#buttonsubmit').toggleClass('hidden');
       page = 2;
     } else if(page == 2) {
+      //load section 1
       $('#section2').toggleClass('hidden');
       $('#section1').toggleClass('hidden');
       $('#Back').toggleClass('hidden');
       page = 1;
-    }
+      }
   });
 
 });
