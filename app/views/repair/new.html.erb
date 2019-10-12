@@ -2,11 +2,12 @@
 <div class="row p-3 mb-2 bg-warning well well-lg""> </div>
 <div class="container" >
 
-  <h1>SamaDC Maintainance Form</h1>
-  <p>Your email address <% current_user %> will be recorded when you submit this form.</p>
+
   <div class="row">
     <div class="col-sm-4 " > </div>
     <div class="col-sm-4 well" >
+      <h1>SamaDC Maintainance Form</h1>
+      <p>Your email address <%= current_user %> will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
         <%= f.error_notification %>
 
@@ -211,7 +212,7 @@
         <div class="form-actions btn-group" >
           <button type="button" class="btn btn-default hidden btn-space" id="Back" >BACK</button>
           <button type="button" class="btn btn-default btn-space" id="Next" >NEXT</button>
-          <%= f.button :submit "SUBMIT", class: 'btn-primary hidden btn-space', id: 'buttonsubmit '%>
+          <%= f.button :submit, "SUBMIT", class: 'btn-primary hidden btn-space', id: 'buttonsubmit '%>
 
         </div>
 
