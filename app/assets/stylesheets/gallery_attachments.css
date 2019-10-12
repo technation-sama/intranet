@@ -4,13 +4,13 @@
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
- -webkit-column-gap: 1em;    
+ -webkit-column-gap: 1em;
 }
 
 .box {
  display: inline-block;
  margin:  12px 12px -35px 12px;
- width:  100%; 
+ width:  100%;
  /*padding:  1rem;*/
 }
 
