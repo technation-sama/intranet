@@ -19,7 +19,7 @@
 //= require readmore
 //= require ckeditor/init
 $(function(){
-  var x = 0;
+  var x = "";
   var page=1;
   $("#Next").click(function() {
     if (page == 1) {
@@ -36,7 +36,9 @@ $(function(){
       $('#section3').removeClass('hidden');
       //get selected category and show corresponding list
       x = $("#repair_category").find(":selected").val();
-      $("#[id='"+x+"']").toggleClass('hidden');
+      x="#[id='"+x+"']";
+
+      $(x).toggleClass('hidden');
       page = 3;
     }else if(page == 3) {
       //load section 4
@@ -57,14 +59,14 @@ $(function(){
       //load section 2
       $('#section3').addClass('hidden');
       $('#section2').removeClass('hidden');
-      $("#"+x).removeClass('hidden');
+      $(x).toggleClass('hidden');
       page = 2;
     } else if(page == 2) {
       //load section 1
       $('#section2').addClass('hidden');
       $('#section1').removeClass('hidden');
       $('#Back').addClass('hidden');
-      $("#[id='"+x+"']").toggleClass('hidden');
+      $(x).toggleClass('hidden');
       page = 1;
       }
   });
