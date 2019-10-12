@@ -24,6 +24,10 @@ padding-top: 10px;
 .navbar-inverse .navbar-nav>li>a {
     color: #fffa0c;
 }
+.well-repair{
+  bgcolor:#FF9800;
+}
+
 
 
 
@@ -48,7 +52,7 @@ header.carousel .fill {
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
-  
+
 }
 
 .carousel-caption h2 {
@@ -92,9 +96,9 @@ p.lead {
 /*Logo styling*/
 .image_logo{-webkit-border-radius: 0px 0px 8px 8px;/**chrome**/
              border-radius: 0px 0px 8px 8px;/**mozilla**/
-              
+
         }
-        
+
 
 /*Quote section home page*/
 
@@ -152,7 +156,7 @@ footer {
 }
 
 .nav1{
-  font-family: "Helvetica"; 
+  font-family: "Helvetica";
 }
 p{
   text-align:justify;
@@ -174,7 +178,7 @@ ol {
 
 .categories{
   border: solid rgba(128, 128, 128, 0.35) 1px;
-  
+
 }
 .categories a{color:#000;}
 .categories img{margin:auto;}
@@ -205,7 +209,7 @@ text-decoration: none;}
 
 .the_author{ color:#000;}
 .the_date{color:#000;}
-  
+
 
 /***commenting for blog***/
 .comment-list .row {
@@ -283,7 +287,7 @@ text-decoration: none;}
     border-right-color: #FFFFFF;
     border-width: 15px;
   }
-  
+
 .comment-list .comment-post {
   margin-top: 6px;
 }
@@ -485,7 +489,7 @@ hr{
   cursor:pointer;
 }
 .anchor-username h4{
-    font-weight:bold;    
+    font-weight:bold;
 }
 
 .anchor-time{
@@ -536,7 +540,7 @@ hr{
     padding-right: 10px;
 }
 .post-body{
-  
+
 }
 .well-sm{
   height: 55px;
