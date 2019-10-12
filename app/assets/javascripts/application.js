@@ -32,8 +32,7 @@ $(function(){
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
 
-      var x = $("#id").find(":selected").text();
-      alert(x);
+      var x = $("#repair_category").find(":selected").text();
       $(x).toggleClass('hidden');
       page = 3;
     }else if(page == 3) {
