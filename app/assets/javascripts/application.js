@@ -29,7 +29,7 @@ $(function(){
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
       $('#Back').toggleClass('hidden');
-      $('.form-actions').toggleClass('hidden');
+      $('#buttonsubmit').toggleClass('hidden');
       page = 3;
     }
 
@@ -39,7 +39,7 @@ $(function(){
     if (page == 3) {
       $('#section3').toggleClass('hidden');
       $('#section2').toggleClass('hidden');
-      $('.form-actions').toggleClass('hidden');
+      $('#buttonsubmit').toggleClass('hidden');
       page = 2;
     } else if(page == 2) {
       $('#section2').toggleClass('hidden');

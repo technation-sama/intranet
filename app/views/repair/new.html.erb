@@ -36,7 +36,7 @@
         <%= f.label :location, "D1 Cafeteria", :value => "D1 Cafeteria" %>
         </div>
       </div>
-      <div class="form-group" id="section2" class="hidden">
+      <div id="section2" class="hidden">
         <%= f.label :category, "category", :value => "category" %>
         <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
           ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
@@ -209,7 +209,8 @@
       <button type="button" class="btn btn-default" id="Back" class="hidden" >Back</button>
       <button type="button" class="btn btn-default" id="Next" >Next</button>
     </div>
-    <div class="form-actions" class="hidden">
+    <div class="hidden" id="buttonsubmit">
+    <div class="form-actions" >
       <%= f.button :submit %>
     </div>
   <% end %>
