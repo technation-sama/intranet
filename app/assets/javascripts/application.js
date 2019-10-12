@@ -19,6 +19,7 @@
 //= require readmore
 //= require ckeditor/init
 $(function(){
+  var x = 0;
   var page=1;
   $("#Next").click(function() {
     if (page == 1) {
@@ -31,8 +32,8 @@ $(function(){
       //load section 3 description page
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
-
-      var x = $("#repair_category").find(":selected").val();
+      //get selected category and show corresponding list
+      x = $("#repair_category").find(":selected").val();
       $("#"+x).toggleClass('hidden');
       page = 3;
     }else if(page == 3) {
@@ -54,6 +55,7 @@ $(function(){
       //load section 2
       $('#section3').toggleClass('hidden');
       $('#section2').toggleClass('hidden');
+      $("#"+x).toggleClass('hidden');
       page = 2;
     } else if(page == 2) {
       //load section 1
