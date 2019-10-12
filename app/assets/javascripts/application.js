@@ -32,7 +32,7 @@ $(function(){
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
 
-      var x = $("#id").val()
+      var x = $("#id").find(":selected").text();
       alert(x);
       $(x).toggleClass('hidden');
       page = 3;
