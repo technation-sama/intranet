@@ -24,6 +24,7 @@ $(function(){
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
+      $('#buttonsubmit').addClass('hidden');
       $('#sectionHead').text("Choose Category")
       $('#section2').removeClass('hidden');
       $('#section1').addClass('hidden');
