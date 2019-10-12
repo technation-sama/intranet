@@ -19,19 +19,20 @@
 //= require readmore
 //= require ckeditor/init
 $(function(){
-
+  var page=1;
   $("#Next").click(function() {
-    if ($(this).val() == "yes") {
-      $('#otherFieldDiv').show();
-      $('#otherField').attr('required', '');
-      $('#otherField').attr('data-error', 'This field is required.');
-    } else {
-      $('#otherFieldDiv').hide();
-      $('#otherField').removeAttr('required');
-      $('#otherField').removeAttr('data-error');
+    if (page == 1) {
+      $('#section2').toggleClass('hidden');
+      $('#section1').toggleClass('hidden');
+      page = 2;
+    } else if(page == 2) {
+      $('#section2').toggleClass('hidden');
+      $('#section3').toggleClass('hidden');
+      page = 3;
     }
+
   });
-  $("#seeAnotherField").trigger("change");
+
 
   $("#seeAnotherFieldGroup").change(function() {
     if ($(this).val() == "yes") {
@@ -48,5 +49,5 @@ $(function(){
       $('#otherField2').removeAttr('data-error');
     }
   });
-  $("#seeAnotherFieldGroup").trigger("change");
+
 });
