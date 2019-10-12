@@ -4,8 +4,8 @@
 
 
   <div class="row">
-    <div class="col-sm-4 " > </div>
-    <div class="col-sm-4 well" >
+    <div class="col-sm-4" > </div>
+    <div class="col-sm-4 border" >
       <h1>SamaDC Maintainance Form</h1>
       <p>Your email address <%= current_user %> will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
@@ -218,5 +218,6 @@
 
       <% end %>
     </div>
+    <div class="col-sm-4" > </div>
   </div>
 </div>
