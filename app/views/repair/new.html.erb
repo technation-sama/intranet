@@ -1,217 +1,223 @@
 
 
 
-<div class="container" class="col-md-4 col-md-offset-6" >
+<div class="container" >
+
   <h1>SamaDC Maintainance Form</h1>
+  <div class="row">
+    <div class="col-sm-4" > </div>
+    <div class="col-sm-4" >
+      <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
+        <%= f.error_notification %>
 
-  <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs" >
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <h3 id="sectionHead"> Affected location (Floor and Block) </h3>
-      <div id="section1">
-        <div class="block" >
-        <%= f.radio_button(:location, "C1 5th Floor") %>
-        <%= f.label :location, "C1 5th Floor", :value => "C1 5th Floor" %>
+        <div class="form-inputs" >
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <h3 id="sectionHead"> Affected location (Floor and Block) </h3>
+          <div id="section1">
+            <div class="block" >
+            <%= f.radio_button(:location, "C1 5th Floor") %>
+            <%= f.label :location, "C1 5th Floor", :value => "C1 5th Floor" %>
+            </div>
+            <div class="block" >
+            <%= f.radio_button(:location, "C3 5th Floor") %>
+            <%= f.label :location, "C3 5th Floor", :value => "C3 5th Floor" %>
+            </div>
+            <div class="block" >
+            <%= f.radio_button(:location, "D3 2nd Floor") %>
+            <%= f.label :location, "D3 2nd Floor", :value => "D3 2nd Floor" %>
+            </div>
+            <div class="block" >
+            <%= f.radio_button(:location, "D3 3rd Floor") %>
+            <%= f.label :location, "D3 3rd Floor", :value => "D3 3rd Floor" %>
+            </div>
+            <div class="block" >
+            <%= f.radio_button(:location, "D3 4th Floor") %>
+            <%= f.label :location, "D3 4th Floor", :value => "D3 4th Floor" %>
+            </div>
+            <div class="block" >
+            <%= f.radio_button(:location, "D1 Cafeteria") %>
+            <%= f.label :location, "D1 Cafeteria", :value => "D1 Cafeteria" %>
+            </div>
+          </div>
+          <div id="section2" class="hidden">
+            <%= f.label :category, "category", :value => "category" %>
+            <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
+              ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
+              ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
+              ['Heating & Cooling','Heating & Cooling'],
+              ['Access Control','Access Control'],['Roofing','Roofing']]) %>
+          </div>
+          <div id="section3" class="hidden">
+            <div id="Flooring" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Spillage") %>
+              <%= f.label :description, "Spillage", :value => "Spillage" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Cracked Tiles") %>
+              <%= f.label :description, "Cracked Tiles", :value => "Cracked Tiles" %>
+              </div>
+            </div>
+            <div id="Furniture" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Broken Chairs") %>
+              <%= f.label :description, "Broken Chairs", :value => "Broken Chairs" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Misplaced") %>
+              <%= f.label :description, "Misplaced", :value => "Misplaced" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Malfactioning Lever") %>
+              <%= f.label :description, "Malfactioning Lever", :value => "Malfactioning Lever" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Broken Lockers") %>
+              <%= f.label :description, "Broken Lockers", :value => "Broken Lockers" %>
+              </div>
+            </div>
+            <div id="Doors and Windows" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Broken") %>
+              <%= f.label :description, "Broken", :value => "Broken" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Malfactioning Hinges") %>
+              <%= f.label :description, "Malfactioning Hinges", :value => "Malfactioning Hinges" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Spoiled Handles") %>
+              <%= f.label :description, "Spoiled Handles", :value => "Spoiled Handles" %>
+              </div>
+            </div>
+            <div id="Lighting" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Malfunctioning Sockets") %>
+              <%= f.label :description, "Malfunctioning Sockets", :value => "Malfunctioning Sockets" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Malfunctioning Switches") %>
+              <%= f.label :description, "Malfunctioning Switches", :value => "Malfunctioning Switches" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Broken Sockets") %>
+              <%= f.label :description, "Broken Sockets", :value => "Broken Sockets" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Broken Switches") %>
+              <%= f.label :description, "Broken Switches", :value => "Broken Switches" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Malfunctioning Bulbs") %>
+              <%= f.label :description, "Malfunctioning Bulbs", :value => "Malfunctioning Bulbs" %>
+              </div>
+            </div>
+            <div id="Plumbing" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Washroom Blockage") %>
+              <%= f.label :description, "Washroom Blockage", :value => "Washroom Blockage" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Kitchen Blockage") %>
+              <%= f.label :description, "Kitchen Blockage", :value => "Kitchen Blockage" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Washroom Leakage") %>
+              <%= f.label :description, "Washroom Leakage", :value => "Washroom Leakage" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Kitchen Leakage") %>
+              <%= f.label :description, "Kitchen Leakage", :value => "Kitchen Leakage" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Blocked toilet Sinks") %>
+              <%= f.label :description, "Blocked toilet Sinks", :value => "Blocked toilet Sinks" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Blocked Toilet Bowls") %>
+              <%= f.label :description, "Blocked Toilet Bowls", :value => "Blocked Toilet Bowls" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Blocked Kitchen Sinks") %>
+              <%= f.label :description, "Blocked Kitchen Sinks", :value => "Blocked Kitchen Sinks" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Soap Dispensers") %>
+              <%= f.label :description, "Soap Dispensers", :value => "Soap Dispensers" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Hand Driers") %>
+              <%= f.label :description, "Hand Driers", :value => "Hand Driers" %>
+              </div>
+            </div>
+            <div id="Fire Equipment" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Spoiled/ Dropped Fire Extinguisher") %>
+              <%= f.label :description, "Spoiled/ Dropped Fire Extinguisher", :value => "Spoiled/ Dropped Fire Extinguisher" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Spoiled Fire Alarm") %>
+              <%= f.label :description, "Spoiled Fire Alarm", :value => "Spoiled Fire Alarm" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Replenishing of the first aid Box") %>
+              <%= f.label :description, "Replenishing of the first aid Box", :value => "Replenishing of the first aid Box" %>
+              </div>
+            </div>
+            <div id="Heating & Cooling" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "AC not working") %>
+              <%= f.label :description, "AC not working", :value => "AC not working" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Microwave-Breakage,Malfunctioning e.t.c") %>
+              <%= f.label :description, "Microwave-Breakage,Malfunctioning e.t.c", :value => "Microwave-Breakage,Malfunctioning e.t.c" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Refrigerator-Breakage,Malfunctioning e.t.c") %>
+              <%= f.label :description, "Refrigerator-Breakage,Malfunctioning e.t.c", :value => "Refrigerator-Breakage,Malfunctioning e.t.c" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Dispenser- Leakage, Malfunctioning e.t.c") %>
+              <%= f.label :description, "Dispenser- Leakage, Malfunctioning e.t.c", :value => "Dispenser- Leakage, Malfunctioning e.t.c" %>
+              </div>
+            </div>
+            <div id="Access Control" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Door Access") %>
+              <%= f.label :description, "Door Access", :value => "Door Access" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Biometrics not working") %>
+              <%= f.label :description, "Biometrics not working", :value => "Biometrics not working" %>
+              </div>
+            </div>
+            <div id="Roofing" class="hidden">
+              <div class="block" >
+              <%= f.radio_button(:description, "Cracks") %>
+              <%= f.label :description, "Cracks", :value => "Cracks" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Leakages") %>
+              <%= f.label :description, "Leakages", :value => "Leakages" %>
+              </div>
+              <div class="block" >
+              <%= f.radio_button(:description, "Moist/Misplaced Ceiling") %>
+              <%= f.label :description, "Moist/Misplaced Ceiling", :value => "Moist/Misplaced Ceiling" %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="block" >
-        <%= f.radio_button(:location, "C3 5th Floor") %>
-        <%= f.label :location, "C3 5th Floor", :value => "C3 5th Floor" %>
+        <div class="form-group" >
+          <button type="button" class="btn btn-default hidden" id="Back" >Back</button>
+          <button type="button" class="btn btn-default" id="Next" >Next</button>
         </div>
-        <div class="block" >
-        <%= f.radio_button(:location, "D3 2nd Floor") %>
-        <%= f.label :location, "D3 2nd Floor", :value => "D3 2nd Floor" %>
-        </div>
-        <div class="block" >
-        <%= f.radio_button(:location, "D3 3rd Floor") %>
-        <%= f.label :location, "D3 3rd Floor", :value => "D3 3rd Floor" %>
-        </div>
-        <div class="block" >
-        <%= f.radio_button(:location, "D3 4th Floor") %>
-        <%= f.label :location, "D3 4th Floor", :value => "D3 4th Floor" %>
-        </div>
-        <div class="block" >
-        <%= f.radio_button(:location, "D1 Cafeteria") %>
-        <%= f.label :location, "D1 Cafeteria", :value => "D1 Cafeteria" %>
-        </div>
-      </div>
-      <div id="section2" class="hidden">
-        <%= f.label :category, "category", :value => "category" %>
-        <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
-          ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
-          ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
-          ['Heating & Cooling','Heating & Cooling'],
-          ['Access Control','Access Control'],['Roofing','Roofing']]) %>
-      </div>
-      <div id="section3" class="hidden">
-        <div id="Flooring" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Spillage") %>
-          <%= f.label :description, "Spillage", :value => "Spillage" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Cracked Tiles") %>
-          <%= f.label :description, "Cracked Tiles", :value => "Cracked Tiles" %>
+        <div class="hidden" id="buttonsubmit">
+          <div class="form-actions" >
+            <%= f.button :submit %>
           </div>
         </div>
-        <div id="Furniture" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Broken Chairs") %>
-          <%= f.label :description, "Broken Chairs", :value => "Broken Chairs" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Misplaced") %>
-          <%= f.label :description, "Misplaced", :value => "Misplaced" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Malfactioning Lever") %>
-          <%= f.label :description, "Malfactioning Lever", :value => "Malfactioning Lever" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Broken Lockers") %>
-          <%= f.label :description, "Broken Lockers", :value => "Broken Lockers" %>
-          </div>
-        </div>
-        <div id="Doors and Windows" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Broken") %>
-          <%= f.label :description, "Broken", :value => "Broken" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Malfactioning Hinges") %>
-          <%= f.label :description, "Malfactioning Hinges", :value => "Malfactioning Hinges" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Spoiled Handles") %>
-          <%= f.label :description, "Spoiled Handles", :value => "Spoiled Handles" %>
-          </div>
-        </div>
-        <div id="Lighting" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Malfunctioning Sockets") %>
-          <%= f.label :description, "Malfunctioning Sockets", :value => "Malfunctioning Sockets" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Malfunctioning Switches") %>
-          <%= f.label :description, "Malfunctioning Switches", :value => "Malfunctioning Switches" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Broken Sockets") %>
-          <%= f.label :description, "Broken Sockets", :value => "Broken Sockets" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Broken Switches") %>
-          <%= f.label :description, "Broken Switches", :value => "Broken Switches" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Malfunctioning Bulbs") %>
-          <%= f.label :description, "Malfunctioning Bulbs", :value => "Malfunctioning Bulbs" %>
-          </div>
-        </div>
-        <div id="Plumbing" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Washroom Blockage") %>
-          <%= f.label :description, "Washroom Blockage", :value => "Washroom Blockage" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Kitchen Blockage") %>
-          <%= f.label :description, "Kitchen Blockage", :value => "Kitchen Blockage" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Washroom Leakage") %>
-          <%= f.label :description, "Washroom Leakage", :value => "Washroom Leakage" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Kitchen Leakage") %>
-          <%= f.label :description, "Kitchen Leakage", :value => "Kitchen Leakage" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Blocked toilet Sinks") %>
-          <%= f.label :description, "Blocked toilet Sinks", :value => "Blocked toilet Sinks" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Blocked Toilet Bowls") %>
-          <%= f.label :description, "Blocked Toilet Bowls", :value => "Blocked Toilet Bowls" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Blocked Kitchen Sinks") %>
-          <%= f.label :description, "Blocked Kitchen Sinks", :value => "Blocked Kitchen Sinks" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Soap Dispensers") %>
-          <%= f.label :description, "Soap Dispensers", :value => "Soap Dispensers" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Hand Driers") %>
-          <%= f.label :description, "Hand Driers", :value => "Hand Driers" %>
-          </div>
-        </div>
-        <div id="Fire Equipment" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Spoiled/ Dropped Fire Extinguisher") %>
-          <%= f.label :description, "Spoiled/ Dropped Fire Extinguisher", :value => "Spoiled/ Dropped Fire Extinguisher" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Spoiled Fire Alarm") %>
-          <%= f.label :description, "Spoiled Fire Alarm", :value => "Spoiled Fire Alarm" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Replenishing of the first aid Box") %>
-          <%= f.label :description, "Replenishing of the first aid Box", :value => "Replenishing of the first aid Box" %>
-          </div>
-        </div>
-        <div id="Heating & Cooling" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "AC not working") %>
-          <%= f.label :description, "AC not working", :value => "AC not working" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Microwave-Breakage,Malfunctioning e.t.c") %>
-          <%= f.label :description, "Microwave-Breakage,Malfunctioning e.t.c", :value => "Microwave-Breakage,Malfunctioning e.t.c" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Refrigerator-Breakage,Malfunctioning e.t.c") %>
-          <%= f.label :description, "Refrigerator-Breakage,Malfunctioning e.t.c", :value => "Refrigerator-Breakage,Malfunctioning e.t.c" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Dispenser- Leakage, Malfunctioning e.t.c") %>
-          <%= f.label :description, "Dispenser- Leakage, Malfunctioning e.t.c", :value => "Dispenser- Leakage, Malfunctioning e.t.c" %>
-          </div>
-        </div>
-        <div id="Access Control" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Door Access") %>
-          <%= f.label :description, "Door Access", :value => "Door Access" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Biometrics not working") %>
-          <%= f.label :description, "Biometrics not working", :value => "Biometrics not working" %>
-          </div>
-        </div>
-        <div id="Roofing" class="hidden">
-          <div class="block" >
-          <%= f.radio_button(:description, "Cracks") %>
-          <%= f.label :description, "Cracks", :value => "Cracks" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Leakages") %>
-          <%= f.label :description, "Leakages", :value => "Leakages" %>
-          </div>
-          <div class="block" >
-          <%= f.radio_button(:description, "Moist/Misplaced Ceiling") %>
-          <%= f.label :description, "Moist/Misplaced Ceiling", :value => "Moist/Misplaced Ceiling" %>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <div class="form-group" >
-      <button type="button" class="btn btn-default hidden" id="Back" >Back</button>
-      <button type="button" class="btn btn-default" id="Next" >Next</button>
-    </div>
-    <div class="hidden" id="buttonsubmit">
-    <div class="form-actions" >
-      <%= f.button :submit %>
-    </div>
-  <% end %>
+  </div>
 </div>

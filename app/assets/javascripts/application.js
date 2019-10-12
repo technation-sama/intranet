@@ -36,7 +36,7 @@ $(function(){
       $('#section3').removeClass('hidden');
       //get selected category and show corresponding list
       x = $("#repair_category").find(":selected").val();
-      x="#[id='"+x+"']";
+      x="[id='"+x+"']";
 
       $(x).toggleClass('hidden');
       page = 3;
