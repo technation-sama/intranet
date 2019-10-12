@@ -33,6 +33,7 @@ $(function(){
       $('#section3').toggleClass('hidden');
 
       var x = $("#repair_category").find(":selected").text();
+      alert(x);
       $(x).toggleClass('hidden');
       page = 3;
     }else if(page == 3) {
