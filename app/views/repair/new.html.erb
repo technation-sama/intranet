@@ -1,5 +1,5 @@
 
-<div class="row p-3 mb-2 bg-warning well well-lg""> </div>
+<div class="row p-3 mb-2 bg-warning well well-lg"> </div>
 <div class="container" >
 
 
@@ -10,7 +10,6 @@
       <p>Your email address <%= current_user %> will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
         <%= f.error_notification %>
-
         <div class="form-inputs" >
           <%= f.hidden_field :user_id, value: current_user.id %>
           <h4 id="sectionHead"> Affected location (Floor and Block) </h4>
@@ -41,6 +40,7 @@
             </div>
           </div>
           <div id="section2" class="hidden">
+            <h3>Issue To Report</h3>
             <%= f.label :category, "category", :value => "category" %>
             <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
               ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
@@ -49,6 +49,7 @@
               ['Access Control','Access Control'],['Roofing','Roofing']]) %>
           </div>
           <div id="section3" class="hidden">
+            <h3 id="section3heading" class="well">Issue To Report</h3>
             <div id="Flooring" class="hidden">
               <div class="block" >
               <%= f.radio_button(:description, "Spillage") %>
@@ -212,7 +213,7 @@
         <div class="form-actions btn-toolbar " >
           <button type="button" class="btn btn-default hidden" id="Back" >BACK</button>
           <button type="button" class="btn btn-default" id="Next" >NEXT</button>
-          <%= f.button :submit, "SUBMIT", class: 'hidden btn-primary', id: 'buttonsubmit '%>
+          <%= f.button :submit, "SUBMIT", class: 'btn-primary', id: 'buttonsubmit '%>
 
         </div>
 
