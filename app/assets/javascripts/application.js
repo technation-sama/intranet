@@ -24,22 +24,24 @@ $(function(){
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
+      $('#sectionHead').text("Category")
       $('#section2').removeClass('hidden');
       $('#section1').addClass('hidden');
       $('#Back').removeClass('hidden');
       page = 2;
     } else if(page == 2) {
+      $('#sectionHead').text("Please choose the specific category")
       //load section 3 description page
       $('#section2').addClass('hidden');
       $('#section3').removeClass('hidden');
       //get selected category and show corresponding list
       x = $("#repair_category").find(":selected").val();
-      $("#"+x).toggleClass('hidden');
+      $("#[id='"+x+"']").toggleClass('hidden');
       page = 3;
     }else if(page == 3) {
       //load section 4
       $('#buttonsubmit').toggleClass('hidden');
-      $('#section3').addClass('hidden');;
+      $('#section3').addClass('hidden');
       page =4;
     }
 
@@ -48,20 +50,21 @@ $(function(){
   $("#Back").click(function() {
     if(page ==4) {
       //load section 3
-      $('#section3').toggleClass('hidden');
-      $('#buttonsubmit').toggleClass('hidden');
+      $('#section3').removeClass('hidden');
+      $('#buttonsubmit').addClass('hidden');
       page = 1;
     } else if (page == 3) {
       //load section 2
-      $('#section3').toggleClass('hidden');
-      $('#section2').toggleClass('hidden');
-      $("#"+x).toggleClass('hidden');
+      $('#section3').addClass('hidden');
+      $('#section2').removeClass('hidden');
+      $("#"+x).removeClass('hidden');
       page = 2;
     } else if(page == 2) {
       //load section 1
-      $('#section2').toggleClass('hidden');
-      $('#section1').toggleClass('hidden');
-      $('#Back').toggleClass('hidden');
+      $('#section2').addClass('hidden');
+      $('#section1').removeClass('hidden');
+      $('#Back').addClass('hidden');
+      $("#[id='"+x+"']").toggleClass('hidden');
       page = 1;
       }
   });

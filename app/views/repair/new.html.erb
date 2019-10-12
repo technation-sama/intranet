@@ -9,7 +9,7 @@
 
     <div class="form-inputs" >
       <%= f.hidden_field :user_id, value: current_user.id %>
-      <h3> Affected location (Floor and Block) </h3>
+      <h3 id="sectionHead"> Affected location (Floor and Block) </h3>
       <div id="section1">
         <div class="block" >
         <%= f.radio_button(:location, "C1 5th Floor") %>
