@@ -28,25 +28,24 @@ $(function(){
     } else if(page == 2) {
       $('#section2').toggleClass('hidden');
       $('#section3').toggleClass('hidden');
+      $('#Back').toggleClass('hidden');
+      $('.form-actions').toggleClass('hidden');
       page = 3;
     }
 
   });
 
-
-  $("#seeAnotherFieldGroup").change(function() {
-    if ($(this).val() == "yes") {
-      $('#otherFieldGroupDiv').show();
-      $('#otherField1').attr('required', '');
-      $('#otherField1').attr('data-error', 'This field is required.');
-      $('#otherField2').attr('required', '');
-      $('#otherField2').attr('data-error', 'This field is required.');
-    } else {
-      $('#otherFieldGroupDiv').hide();
-      $('#otherField1').removeAttr('required');
-      $('#otherField1').removeAttr('data-error');
-      $('#otherField2').removeAttr('required');
-      $('#otherField2').removeAttr('data-error');
+  $("#Back").click(function() {
+    if (page == 3) {
+      $('#section3').toggleClass('hidden');
+      $('#section2').toggleClass('hidden');
+      $('.form-actions').toggleClass('hidden');
+      page = 2;
+    } else if(page == 2) {
+      $('#section2').toggleClass('hidden');
+      $('#section1').toggleClass('hidden');
+      $('#Back').toggleClass('hidden');
+      page = 1;
     }
   });
 
