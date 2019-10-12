@@ -3,6 +3,7 @@
 <div class="container" >
 
   <h1>SamaDC Maintainance Form</h1>
+  <p>Your email address <% current_user %> will be recorded when you submit this form.</p>
   <div class="row">
     <div class="col-sm-4 " > </div>
     <div class="col-sm-4 well" >
@@ -207,12 +208,11 @@
             </div>
           </div>
         </div>
-        <div class="form-actions btn-group btn-group-justified" >
+        <div class="form-actions btn-group" >
           <button type="button" class="btn btn-default hidden" id="Back" >Back</button>
           <button type="button" class="btn btn-default" id="Next" >Next</button>
-          <div class="hidden" id="buttonsubmit">
-            <%= f.button :submit, class: 'btn-primary'%>
-          </div>
+          <%= f.button :submit, class: 'btn-primary', id: 'buttonsubmit'%>
+
         </div>
 
       <% end %>
