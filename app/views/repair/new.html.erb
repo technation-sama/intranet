@@ -1,6 +1,5 @@
 
-p-3 mb-2 bg-warning text-dark
-<div class="row p-3 mb-2 bg-warning text-dark"> </div>
+<div class="row p-3 mb-2 bg-warning well well-lg""> </div>
 <div class="container" >
 
   <h1>SamaDC Maintainance Form</h1>
@@ -208,14 +207,14 @@ p-3 mb-2 bg-warning text-dark
             </div>
           </div>
         </div>
-        <div class="form-actions" >
+        <div class="form-actions btn-group btn-group-justified" >
           <button type="button" class="btn btn-default hidden" id="Back" >Back</button>
           <button type="button" class="btn btn-default" id="Next" >Next</button>
           <div class="hidden" id="buttonsubmit">
-            <%= f.button :submit %>
+            <%= f.button :submit class: 'btn-primary'%>
           </div>
         </div>
-        
+
       <% end %>
     </div>
   </div>
