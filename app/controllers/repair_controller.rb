@@ -14,7 +14,15 @@ class RepairController < ApplicationController
   def create
     @repair = MaintainaceReport.new(repair_params)
     @repair.save
-    redirect_to action: "show", id: @repair.id
+    respond_to do |format|
+      if @repair.save
+        flash[:success]= 'Thank you!! Your response was submitted successfully.'
+        format.html { redirect_to new_repair_url }
+      else
+        format.html { redirect_to new_repair_url }
+        format.json { render json: @repair.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

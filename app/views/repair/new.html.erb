@@ -214,6 +214,11 @@
               <%= f.label :description, "Moist/Misplaced Ceiling", :value => "Moist/Misplaced Ceiling" %>
               </div>
             </div>
+            <div class="block" >
+            <%= f.radio_button(:description, "Other") %>
+            <%= f.label :description, "Other", :value => "Moist/Misplaced Ceiling" %>
+             <%= text_field_tag(:other) %>
+            </div>
           </div>
         </div>
 
