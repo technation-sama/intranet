@@ -2,9 +2,8 @@
 <div class="container" >
   <div class="row">
     <div class="col-sm-3" > </div>
-    <div class="col-sm-6" class="repairform" >
+    <div class="col-sm-6" id="repairform" >
       <h2>SamaDC Maintainance Form</h2>
-      <br>
       <br>
       <p>Your email address <strong><%= current_user.email %> </strong>will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
