@@ -1,16 +1,14 @@
-<div class="repairformtop"> </div>
 <div class="container" >
   <div class="row">
-
-    <div id="repairform" >
+    <div class="col-md-4"> </div>
+    <div class="col-md-4 well" >
       <h2>SamaDC Maintainance Form</h2>
       <br>
       <p>Your email address <strong><%= current_user.email %> </strong>will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
-
       <br>
       <br>
-        <%= f.error_notification %>
+      <%= f.error_notification %>
         <div class="form-inputs" >
           <%= f.hidden_field :user_id, value: current_user.email %>
           <div id="section1">
@@ -216,13 +214,11 @@
             </div>
             <div class="block" >
             <%= f.radio_button(:description, "Other") %>
-            <%= f.label :description, "Other", :value => "Moist/Misplaced Ceiling" %>
+            <%= f.label :description, "Other", :value => "Other" %>
              <%= text_field_tag(:other) %>
             </div>
           </div>
         </div>
-
-
         <br>
         <br>
         <div class="form-actions btn-toolbar " >
@@ -234,7 +230,6 @@
 
       <% end %>
     </div>
-
+    <div class="col-md-4"> </div>
   </div>
 </div>
-<div> </div>

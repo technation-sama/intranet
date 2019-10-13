@@ -82,7 +82,7 @@ $(function(){
       page = 1;
       }
   });
-  $('#other').change(function() {
+  $('#other').focus(function() {
     $('#repair_description_other').prop("checked", true);
   });
 
