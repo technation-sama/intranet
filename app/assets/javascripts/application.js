@@ -42,7 +42,7 @@ $(function(){
       page = 3;
     }else if(page == 3) {
       //load section 4
-      if($('#repair_description_other').prop('checked') {
+      if($('#repair_description_other').prop('checked')) {
         var y = $('#other').val();
         $('#repair_description_other').val(y);
 
