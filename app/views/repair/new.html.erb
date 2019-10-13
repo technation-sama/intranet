@@ -41,7 +41,9 @@
             </div>
           </div>
           <div id="section2" class="hidden">
-            <h3 class="repairattention">Issue To Report</h3>
+            <div class="repairattention">
+              <h3 >Issue To Report</h3>
+            </div>
             <%= f.label :category, "category", :value => "category" %>
             <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
               ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
@@ -50,7 +52,9 @@
               ['Access Control','Access Control'],['Roofing','Roofing']]) %>
           </div>
           <div id="section3" class="hidden">
-            <h3 id="section3heading" class="well repairattention">Issue To Report</h3>
+            <div class="repairattention">
+              <h3>Issue To Report</h3>
+            </div>
             <div id="Flooring" class="hidden">
               <div class="block" >
               <%= f.radio_button(:description, "Spillage") %>
