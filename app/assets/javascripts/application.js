@@ -31,20 +31,19 @@ $(function(){
       $('#Back').removeClass('hidden');
       page = 2;
     } else if(page == 2) {
-      $('#sectionHead').text("Please choose the specific category")
       //load section 3 description page
       $('#section2').addClass('hidden');
       $('#section3').removeClass('hidden');
       //get selected category and show corresponding list
       x = $("#repair_category").find(":selected").val();
-      $('#sectionHead').text(x);
+      $('#sectionHead2').text(x);
       x="[id='"+x+"']";
       $(x).removeClass('hidden');
       page = 3;
     }else if(page == 3) {
       //load section 4
-      if($('#repair_description_other').is(':checked')) {
-        var y = $('#other').text();
+      if($('#repair_description_other')..prop('checked'); {
+        var y = $('#other').val();
         $('#repair_description_other').val(y);
 
       }
@@ -60,7 +59,6 @@ $(function(){
   $("#Back").click(function() {
     if(page ==4) {
       //load section 3
-      $('#sectionHead').text("Please choose the specific category")
       $('#section3').removeClass('hidden');
       $('#buttonsubmit').addClass('hidden');
       $(x).removeClass('hidden');
@@ -68,14 +66,12 @@ $(function(){
       page = 3;
     } else if (page == 3) {
       //load section 2
-      $('#sectionHead').text("Choose Category")
       $('#section3').addClass('hidden');
       $('#section2').removeClass('hidden');
       $(x).addClass('hidden');
       page = 2;
     } else if(page == 2) {
       //load section 1
-      $('#sectionHead').text("Affected area (Floor and Block)")
       $('#section2').addClass('hidden');
       $('#section1').removeClass('hidden');
       $('#Back').addClass('hidden');
