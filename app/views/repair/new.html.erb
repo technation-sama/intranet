@@ -12,7 +12,7 @@
       <br>
         <%= f.error_notification %>
         <div class="form-inputs" >
-          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :user_id, value: current_user.email %>
           <div id="section1">
             <h4 id="sectionHead"> Affected location (Floor and Block) </h4>
             <div class="block" >
