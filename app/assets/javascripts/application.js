@@ -21,6 +21,7 @@
 $(function(){
   var x = "";
   var page=1;
+
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
@@ -42,6 +43,11 @@ $(function(){
       page = 3;
     }else if(page == 3) {
       //load section 4
+      if($('#repair_description_other').is(':checked')) {
+        var y = $('#other').text();
+        $('#repair_description_other').val(y); 
+
+      }
       $('#buttonsubmit').removeClass('hidden');
       $('#section3').addClass('hidden');
       $('#Next').addClass('hidden');
