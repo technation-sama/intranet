@@ -1,22 +1,26 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
-
-  <% @repairs.each do |article| %>
-    <tr>
-      <td><%= article.user_id %></td>
-      <td><%= article.location %></td>
-      <td><%= article.category %></td>
-      <td><%= article.description %></td>
-      <td><%= article.created_at %></td>
-      <td><%= article.id %></td>
-
-      
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <h2>Maintainace Responses</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>item number</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>specific category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @repairs.each do |article| %>
+        <tr>
+          <td><%= article.id %></td>
+          <td><%= article.user_id %></td>
+          <td><%= article.location %></td>
+          <td><%= article.category %></td>
+          <td><%= article.description %></td>
+          <td><%= article.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
