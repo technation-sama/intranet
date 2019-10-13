@@ -624,7 +624,7 @@ hr{
   margin-top: -100px !important;
   background-color: #FFFFFF !important;
   padding-bottom:5px !important;
-  position: relative !important;
+  position: absolute !important;
   margin-bottom: 48px !important;
   border:2px solid #e3e3e3 !important;
   left: 27%;
@@ -644,7 +644,7 @@ hr{
 #repairformparent{position: relative;}
 
 #footer{bottom: 2px !important;
-  position: absolute !important;
+  position: sticky !important;
 
 
 }
