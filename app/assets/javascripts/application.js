@@ -45,7 +45,7 @@ $(function(){
       //load section 4
       if($('#repair_description_other').is(':checked')) {
         var y = $('#other').text();
-        $('#repair_description_other').val(y); 
+        $('#repair_description_other').val(y);
 
       }
       $('#buttonsubmit').removeClass('hidden');
@@ -81,6 +81,9 @@ $(function(){
       $('#Back').addClass('hidden');
       page = 1;
       }
+  });
+  $('#other').change(function() {
+    $('#repair_description_other').prop("checked", true);
   });
 
 });
