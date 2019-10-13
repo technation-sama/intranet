@@ -13,8 +13,11 @@
         <%= f.error_notification %>
         <div class="form-inputs" >
           <%= f.hidden_field :user_id, value: current_user.id %>
-          <h4 id="sectionHead"> Affected location (Floor and Block) </h4>
+          <div class="repairattention">
+            <h3 id="sectionHead" class="hidden"> </h3>
+          </div>
           <div id="section1">
+            <h4 id="sectionHead"> Affected location (Floor and Block) </h4>
             <div class="block" >
             <%= f.radio_button(:location, "C1 5th Floor") %>
             <%= f.label :location, "C1 5th Floor", :value => "C1 5th Floor" %>
@@ -41,20 +44,15 @@
             </div>
           </div>
           <div id="section2" class="hidden">
-            <div class="repairattention">
-              <h4> Issue to report </h4>
-            </div>
-            <h4> <%= f.label :category, "category", :value => "category" %> </h4>
-            <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
+              <h5> <%= f.label :category, "category", :value => "category" %> </h5>
+              <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
               ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
               ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
               ['Heating & Cooling','Heating & Cooling'],
               ['Access Control','Access Control'],['Roofing','Roofing']]) %>
           </div>
           <div id="section3" class="hidden">
-            <div class="repairattention">
-              <h3>Issue To Report</h3>
-            </div>
+            <h3>Please choose the specific category</h3>
             <div id="Flooring" class="hidden">
               <div class="block" >
               <%= f.radio_button(:description, "Spillage") %>
