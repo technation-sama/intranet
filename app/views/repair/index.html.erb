@@ -4,21 +4,24 @@
     <thead>
       <tr>
         <th>item number</th>
+        <th>Created at</th>
         <th>Email</th>
         <th>Location</th>
         <th>Category</th>
         <th>specific category</th>
+
       </tr>
     </thead>
     <tbody>
       <% @repairs.each do |article| %>
         <tr>
           <td><%= article.id %></td>
+          <td><%= article.created_at %></td>
           <td><%= article.user_id %></td>
           <td><%= article.location %></td>
           <td><%= article.category %></td>
           <td><%= article.description %></td>
-          <td><%= article.created_at %></td>
+
         </tr>
       <% end %>
     </tbody>
