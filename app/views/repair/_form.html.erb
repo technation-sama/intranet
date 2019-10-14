@@ -11,27 +11,27 @@
           <div id="section1">
             <h4 id="sectionHead"> Affected location (Floor and Block) </h4>
             <div class="block" >
-            <%= f.radio_button(:location, "C1 5th Floor", required: 'true' ) %>
+            <%= f.radio_button(:location, "C1 5th Floor", required: true ) %>
             <%= f.label :location, "C1 5th Floor", :value => "C1 5th Floor"  %>
             </div>
             <div class="block" >
-            <%= f.radio_button(:location, "C3 5th Floor", :required => true ) %>
+            <%= f.radio_button(:location, "C3 5th Floor", required: true ) %>
             <%= f.label :location, "C3 5th Floor", :value => "C3 5th Floor" %>
             </div>
             <div class="block" >
-            <%= f.radio_button(:location, "D3 2nd Floor", :required => true ) %>
+            <%= f.radio_button(:location, "D3 2nd Floor", required: true ) %>
             <%= f.label :location, "D3 2nd Floor", :value => "D3 2nd Floor" %>
             </div>
             <div class="block" >
-            <%= f.radio_button(:location, "D3 3rd Floor", :required => true ) %>
+            <%= f.radio_button(:location, "D3 3rd Floor", required: true ) %>
             <%= f.label :location, "D3 3rd Floor", :value => "D3 3rd Floor" %>
             </div>
             <div class="block" >
-            <%= f.radio_button(:location, "D3 4th Floor", :required => true ) %>
+            <%= f.radio_button(:location, "D3 4th Floor", required: true ) %>
             <%= f.label :location, "D3 4th Floor", :value => "D3 4th Floor" %>
             </div>
             <div class="block" >
-            <%= f.radio_button(:location, "D1 Cafeteria", :required => true ) %>
+            <%= f.radio_button(:location, "D1 Cafeteria", required: true ) %>
             <%= f.label :location, "D1 Cafeteria", :value => "D1 Cafeteria" %>
             </div>
           </div>
@@ -40,7 +40,7 @@
               <h3 id="sectionHead">Issue To Report</h3>
             </div>
               <h4> <%= f.label :category, "category", :value => "category" %> </h4>
-              <%= f.select(:category, [['Empty','Please choose'],['Flooring','Flooring'],['Furniture','Furniture'],
+              <%= f.select(:category, [['Flooring','Flooring'],['Furniture','Furniture'],
               ['Doors and Windows','Doors and Windows'],['Lighting','Lighting'],
               ['Plumbing','Plumbing'],['Fire Equipment','Fire Equipment'],
               ['Heating & Cooling','Heating & Cooling'],
