@@ -25,12 +25,17 @@ $(function(){
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
+      if($('input:radio[name="repair[location]"]').is(':checked')) {
 
-      $('#buttonsubmit').addClass('hidden');
-      $('#section2').removeClass('hidden');
-      $('#section1').addClass('hidden');
-      $('#Back').removeClass('hidden');
-      page = 2;
+        $('#buttonsubmit').addClass('hidden');
+        $('#section2').removeClass('hidden');
+        $('#section1').addClass('hidden');
+        $('#Back').removeClass('hidden');
+        page = 2;
+      }
+      else{
+        alert("Please select an option");
+      }
     } else if(page == 2) {
       //load section 3 description page
       $('#section2').addClass('hidden');
