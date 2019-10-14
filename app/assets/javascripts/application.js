@@ -21,19 +21,16 @@
 $(function(){
   var x = "";
   var page=1;
-
+  $('input').addClass('required');
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
-      if($("#repair_category").is(':checked')==false) {
-        alert("Please select a choice");
-      }else{
-        $('#buttonsubmit').addClass('hidden');
-        $('#section2').removeClass('hidden');
-        $('#section1').addClass('hidden');
-        $('#Back').removeClass('hidden');
-        page = 2;
-      }
+
+      $('#buttonsubmit').addClass('hidden');
+      $('#section2').removeClass('hidden');
+      $('#section1').addClass('hidden');
+      $('#Back').removeClass('hidden');
+      page = 2;
     } else if(page == 2) {
       //load section 3 description page
       $('#section2').addClass('hidden');
