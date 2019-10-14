@@ -51,13 +51,16 @@ $(function(){
       if($('#repair_description_other').prop('checked')) {
         var y = $('#other').val();
         $('#repair_description_other').val(y);
-
       }
-      $('#buttonsubmit').removeClass('hidden');
-      $('#section3').addClass('hidden');
-      $('#Next').addClass('hidden');
-      $(x).addClass('hidden');
-      page=4;
+      if($('input:radio[name="repair[description]"]').is(':checked')) {
+        $('#buttonsubmit').removeClass('hidden');
+        $('#section3').addClass('hidden');
+        $('#Next').addClass('hidden');
+        $(x).addClass('hidden');
+        page=4;
+      }else{
+        alert("Please select an option");
+      }
     }
 
   });
