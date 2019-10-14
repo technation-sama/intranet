@@ -1,4 +1,4 @@
-'#buttonsubmit','#submittext','#submittext'//= require jquery
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
@@ -25,7 +25,7 @@ $(function(){
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
-      $('#buttonsubmit','#submittext').addClass('hidden');
+      $('#buttonsubmit').addClass('hidden');
       $('#section2').removeClass('hidden');
       $('#section1').addClass('hidden');
       $('#Back').removeClass('hidden');
@@ -47,7 +47,7 @@ $(function(){
         $('#repair_description_other').val(y);
 
       }
-      $('#buttonsubmit','#submittext').removeClass('hidden');
+      $('#buttonsubmit').removeClass('hidden');
       $('#section3').addClass('hidden');
       $('#Next').addClass('hidden');
       $(x).addClass('hidden');
@@ -60,7 +60,7 @@ $(function(){
     if(page ==4) {
       //load section 3
       $('#section3').removeClass('hidden');
-      $('#buttonsubmit','#submittext').addClass('hidden');
+      $('#buttonsubmit').addClass('hidden');
       $(x).removeClass('hidden');
       $('#Next').removeClass('hidden');
       page = 3;
