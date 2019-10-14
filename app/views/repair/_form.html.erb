@@ -1,6 +1,6 @@
 <div class="container" >
   <div class="row">
-    <div class="col-md-3"> </div>
+
     <div class="col-md-6 well" >
       <h2>SamaDC Maintainance Form</h2>
       <br>
@@ -39,7 +39,7 @@
             </div>
           </div>
           <div id="section2" class="hidden">
-            <div class="repairattention">
+            <div class="btn btn-warning">
               <h3 id="sectionHead">Issue To Report</h3>
             </div>
               <h4> <%= f.label :category, "category", :value => "category" %> </h4>
@@ -222,6 +222,7 @@
         <br>
         <br>
         <div class="form-actions btn-toolbar " >
+          <p id="submittext">Click submit to finish. </p>
           <button type="button" class="btn btn-default hidden" id="Back" >BACK</button>
           <button type="button" class="btn btn-default" id="Next" >NEXT</button>
           <%= f.button :submit, "SUBMIT", class: 'btn-primary hidden', id: 'buttonsubmit'%>
@@ -230,6 +231,6 @@
 
       <% end %>
     </div>
-    <div class="col-md-3"> </div>
+    <div class="col-md-6"> </div>
   </div>
 </div>
