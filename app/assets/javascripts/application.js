@@ -25,11 +25,15 @@ $(function(){
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
-      $('#buttonsubmit').addClass('hidden');
-      $('#section2').removeClass('hidden');
-      $('#section1').addClass('hidden');
-      $('#Back').removeClass('hidden');
-      page = 2;
+      if($("#repair_category").is(':checked')==false) {
+        alert("Please select a choice");
+      }else{
+        $('#buttonsubmit').addClass('hidden');
+        $('#section2').removeClass('hidden');
+        $('#section1').addClass('hidden');
+        $('#Back').removeClass('hidden');
+        page = 2;
+      }
     } else if(page == 2) {
       //load section 3 description page
       $('#section2').addClass('hidden');
@@ -81,5 +85,6 @@ $(function(){
   $('#other').focus(function() {
     $('#repair_description_other').prop("checked", true);
   });
+
 
 });
