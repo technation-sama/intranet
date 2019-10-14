@@ -21,7 +21,7 @@
 $(function(){
   var x = "";
   var page=1;
-  $('input').addClass('required');
+  $('input').attr('required');
   $("#Next").click(function() {
     if (page == 1) {
       //load section 2 category page
