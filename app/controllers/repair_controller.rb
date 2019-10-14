@@ -1,5 +1,9 @@
 class RepairController < ApplicationController
-
+  validates :user_id, presence: true
+  validates :category, presence: true
+  validates :description, presence: true
+  validates :email, presence: true
+  
   def index
     @repairs = MaintainaceReport.all
   end
