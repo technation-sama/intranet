@@ -2,12 +2,9 @@
   <div class="row">
 
     <div class="col-md-6 well" >
-      <legend>SamaDC Maintainance Form</legend>
-      <br>
+      <legend><h2>SamaDC Maintainance Form</h2></legend>
       <p>Your email address <strong><%= current_user.email %> </strong>will be recorded when you submit this form.</p>
       <%= simple_form_for :repair, url: repair_index_path, :html=> { class: "p-3" } do |f| %>
-      <br>
-      <br>
       <%= f.error_notification %>
         <div class="form-inputs" >
           <%= f.hidden_field :user_id, value: current_user.email %>
@@ -222,7 +219,7 @@
         <br>
         <br>
         <div class="form-actions btn-toolbar " >
-          <p id="submittext">Click submit to finish. </p>
+          <p id="submittext" >Click submit to finish. </p>
           <button type="button" class="btn btn-default hidden" id="Back" >BACK</button>
           <button type="button" class="btn btn-default" id="Next" >NEXT</button>
           <%= f.button :submit, "SUBMIT", class: 'btn-primary hidden', id: 'buttonsubmit'%>
