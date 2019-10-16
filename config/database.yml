@@ -1,7 +1,7 @@
 default: &default
   adapter: postgresql
   # host: localhost
-  encoding: unicode 
+  encoding: unicode
   username: <%=ENV['DATABASE_USER']%>
   password: <%=ENV['DATABASE_PASSWORD']%>
   pool: 5
@@ -15,4 +15,4 @@ test:
 
 production:
   <<: *default
-  database: intranet_production  
+  database: intranet_production
