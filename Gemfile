@@ -40,7 +40,7 @@ gem 'mini_magick', ">= 4.9.4"
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
 gem 'select2-rails'
-gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', '~> 2.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
 gem 'actionpack-page_caching'
 
