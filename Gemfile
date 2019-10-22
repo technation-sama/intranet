@@ -13,9 +13,9 @@ group :production, :test do
 end
 
 gem 'kaminari'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', ">= 3.4.1"
 gem 'font-awesome-rails'
-gem 'simple_form'
+gem 'simple_form' , ">= 5.0.0"
 gem 'masonry-rails', '~> 0.2.4'
 gem 'ruby-progressbar', '~> 1.8', '>= 1.8.3'
 gem 'ckeditor'
@@ -27,16 +27,16 @@ gem 'pdfjs_viewer-rails'
 gem 'activeadmin'
 gem 'arctic_admin'
 gem 'activeadmin_addons'
-gem 'chartkick'
+gem 'chartkick', ">= 3.2.0"
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'lightbox2-rails', '~> 2.8', '>= 2.8.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 5.0'
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'omniauth-google-oauth2'
 gem 'bootstrap-validator-rails'
 gem 'carrierwave', '~> 1.1'
-gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', ">= 4.9.4"
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
 gem 'select2-rails'
