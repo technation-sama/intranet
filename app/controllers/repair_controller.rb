@@ -1,6 +1,6 @@
 class RepairController < ApplicationController
-
   
+
   def show
     @repair = MaintainaceReport.find(params[:id])
   end

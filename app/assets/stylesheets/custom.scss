@@ -391,21 +391,21 @@ a.user-profile:hover {
 .files_category_carrier{
   margin-bottom:5px;}
 .files_carrier{
-margin: 0px 0px 0px 0px;
-text-align:center;
-border-bottom:1px dotted #000;
-background:#fff;
-padding-bottom:5px;
-padding-top:5px;
+  align-items:center;
+  background:#fff;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important;
+  border-top: #ddd solid 1px;
 }
 
 .category_file{
-  font-size:25pt;
+
 }
 .our_button{
     color:#000 ;
     background-color: #fffa0c;
     border-color:none;
+    align-self: auto;
 }
 
 .our_button:hover {
@@ -574,9 +574,9 @@ hr{
 
 /**home tab content for sama values**/
 .tab-content {
-    padding-top: 20px;
+
     border-bottom: #ddd solid 1px;
-    padding-bottom: 25px;
+
 }
 .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover {
     border-bottom-color: #fffa0c;

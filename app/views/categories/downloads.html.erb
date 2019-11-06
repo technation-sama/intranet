@@ -7,18 +7,18 @@
       </ol>
     </div>
   </div>
-</div> 
+</div>
 <div class="container">
   <!--- sama worker typing image top -->
   <div class="row">
     <div class="col-md-12"><%= image_tag("sama_worker_typing.jpg", class:"img-responsive")%></div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-12 files_category_carrier">
     <h4>Download Files</h4>
       <div class="panel with-nav-tabs panel-default files_panel">
-      
+
         <div class="panel-heading category_heading">
           <ul class="nav nav-tabs" id="prodTabs">
             <% @categories.each do |category| %>
@@ -33,23 +33,23 @@
 
         <div class="panel-body file_contents">
           <div class="tab-content">
-            
+
             <% @categories.each do |category| %>
               <div class="tab-pane fade in" id="tab-<%= category.name.parameterize %>">
-                <% category.downloads.each do |download| %>          
+                <% category.downloads.each do |download| %>
                   <div class="row files_carrier">
-                    <div class="col-md-5"> 
+                    <div class="col-md-5">
                       <i class="fa fa-folder-open category_file" aria-hidden="true"> <%= download.title %></i>
                     </div>
-                    <div class="col-md-7"> 
-                      <%= link_to "Read Online", pdfjs.minimal_path(file: download.document), target: "_blank", class: "btn btn-lg btn-primary our_button" %>
+                    <div class="col-md-7">
+                      <%= link_to "Read Online", pdfjs.minimal_path(file: download.document), target: "_blank", class: "btn btn-primary our_button" %>
                       <!--<a href="<%= download.document %>" class="btn btn-lg btn-primary our_button" download><i class="fa fa-download" aria-hidden="true"></i> Download File</a>-->
                     </div>
                   </div>
                 <% end %>
               </div>
             <% end %>
-            
+
           </div>
         </div>
 
@@ -57,4 +57,3 @@
     </div><!--EOF files_category_carrier-->
   </div><!-- EOF row-->
 </div>
-
