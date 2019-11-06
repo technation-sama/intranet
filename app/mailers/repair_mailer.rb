@@ -1,9 +1,9 @@
 class RepairMailer < ApplicationMailer
 
-  default from: 'intranet@nbo.samadc.org'
+  default from: ENV['GMAIL_USERNAME']
   def new_repair(repair)
     @repair = repair
-      mail( :to => "victor.sang@nbo.samadc.org",
+      mail( :to => ENV['ANALYTICS'],
             :subject => "New Maintainance Issue"
       )
   end

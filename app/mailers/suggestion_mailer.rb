@@ -7,7 +7,7 @@ class SuggestionMailer < ApplicationMailer
   default from: 'suggestions@samadc.org'
   def new_suggestion(suggestion)
     @suggestion = suggestion
-      mail( :to => "intranet@nbo.samadc.org",
+      mail( :to => ENV['GMAIL_USERNAME'],
             :subject => @suggestion.subject
       )
   end
