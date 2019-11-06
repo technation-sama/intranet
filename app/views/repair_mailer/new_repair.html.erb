@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> <%= @repair.category %></h1>
+    <p>
+      Hi, a new maintainance request has been made by <%= @repair.user_id %>
+
+      <%= @repair.description %> at <%= @repair.location %>
+
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

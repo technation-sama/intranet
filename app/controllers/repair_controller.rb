@@ -1,5 +1,5 @@
 class RepairController < ApplicationController
-  
+
   def index
     @repairs = MaintainaceReport.all
   end
@@ -16,8 +16,10 @@ class RepairController < ApplicationController
     @repair.save
     respond_to do |format|
       if @repair.save
+        RepairMailer.new_repair(@repair).deliver_later
         flash[:success]= 'Thank you!! Your response was submitted successfully.'
         format.html { redirect_to new_repair_url }
+        format.json { render :show, status: :created, location: @repair }
       else
         format.html { redirect_to new_repair_url }
         format.json { render json: @repair.errors, status: :unprocessable_entity }
