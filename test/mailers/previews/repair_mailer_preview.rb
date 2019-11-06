@@ -2,7 +2,8 @@
 class RepairMailerPreview < ActionMailer::Preview
 
   def new_repair
-    @repair = MaintainaceReport.new(user_id: "lirqoh@gmail.com",location: "loca",category: "cate", description: "descrip")
+    @repair = MaintainaceReport.new(user_id: "lirqoh@gmail.com",location: "C1 5th Floor",
+      category: "Doors and Windows", description: "Cracked Tiles")
 
     RepairMailer.new_repair(@repair)
   end
