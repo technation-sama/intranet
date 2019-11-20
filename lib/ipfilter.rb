@@ -27,7 +27,7 @@ module SamaIPFilters
             end
             # Redirect back to main page if not verified
             unless verified
-                redirect_to "/"
+                redirect_to root_url 
             end
         end
     end
