@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_action :prepare_unobtrusive_flash
   helper_method :notices
-  config.autoload_paths += %W(#{config.root}/lib) 
+  
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
