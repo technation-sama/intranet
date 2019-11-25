@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy],:samafilter
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
 
   # GET /suggestions
   # GET /suggestions.json
