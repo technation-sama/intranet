@@ -21,7 +21,8 @@ class CategoriesController < ApplicationController
             end
             # Redirect back to main page if not verified
             unless verified
-                redirect_to root_url
+              flash[:alert]= 'You must be in local office'
+              redirect_to root_url
             end
         end
     end
