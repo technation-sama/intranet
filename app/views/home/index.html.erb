@@ -8,7 +8,9 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
     </div>
-    <div class="alert alert-warning"><%= flash.warning %></div>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel carousel-main slide">
         <!-- Indicators -->
