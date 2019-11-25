@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  before_action :samafilter,:set_suggestion, only: [:show, :edit, :update, :destroy]
 
   # GET /suggestions
   # GET /suggestions.json
@@ -81,7 +81,6 @@ class SuggestionsController < ApplicationController
             end
             # Redirect back to main page if not verified
             unless verified
-
               redirect_to root_url, notice: "Can only access from Samasource office"
             end
         end
