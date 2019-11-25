@@ -1,3 +1,12 @@
+    <% flash.each do |key, value| %>
+      <div class="alert alert-danger alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Warning!</strong> <%= value %>
+
+      </div>
+      <br>
+    <% end %>
+
    <!-- Header Carousel -->
     <div id="fb-root">
         <script>(function(d, s, id) {
@@ -8,9 +17,7 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
     </div>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-warning"><%= value %></div>
-    <% end %>
+
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel carousel-main slide">
         <!-- Indicators -->
