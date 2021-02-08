@@ -35,7 +35,7 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'devise', ">= 4.7.1"
 gem 'omniauth-google-oauth2'
 gem 'bootstrap-validator-rails'
-gem 'carrierwave', '~> 1.1'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick', ">= 4.9.4"
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
